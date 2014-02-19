@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:background="#3f37"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" style="@android:style/TextAppearance.Holo">
+        <TextView
+                android:textSize="35dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text=" Kitchensync"
+                android:id="@+id/kitchenSyncHead" android:layout_gravity="right|center_vertical"
+                android:layout_below="@+id/dateTimeHead" android:layout_centerHorizontal="true"/>
+        <TextView
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="July 4, 1776"
+                android:id="@+id/dateTimeHead" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/relativeLayout" android:layout_above="@+id/button2"
+                android:layout_alignParentEnd="true">
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="92dp"
+                    android:text="Grill"
+                    android:id="@+id/Grillbutton" android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true" android:layout_alignParentEnd="true"/>
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView" android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true" android:src="@drawable/sidearrow"
+                    android:layout_alignTop="@+id/Grillbutton"/>
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView2"
+                    android:src="@drawable/bonapplogo" android:layout_above="@+id/Grillbutton"
+                    android:layout_alignParentStart="true"/>
+        </RelativeLayout>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:text="North"
+                android:id="@+id/button2"
+                android:layout_above="@+id/button3" android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:text="East"
+                android:id="@+id/button3"
+                android:layout_above="@+id/button4" android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:text="South"
+                android:id="@+id/button4"
+                android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
+                android:layout_marginBottom="18dp" android:layout_alignParentRight="true"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/northSideArrow"
+                android:src="@drawable/sidearrow"
+                android:layout_alignBottom="@+id/button2" android:layout_alignParentRight="true"
+                android:layout_marginBottom="30dp"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/eastSideArrow"
+                android:src="@drawable/sidearrow"
+                android:layout_above="@+id/button4" android:layout_alignParentRight="true"
+                android:layout_marginBottom="28dp"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/southSideArrow"
+                android:src="@drawable/sidearrow" android:layout_below="@+id/button3"
+                android:layout_alignParentRight="true" android:layout_marginTop="30dp"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bonAppLogo"
+                android:src="@drawable/bonapplogo"
+                android:layout_centerHorizontal="true" android:layout_above="@+id/relativeLayout"
+                android:layout_below="@+id/kitchenSyncHead"/>
+    </RelativeLayout>
+</LinearLayout>
