@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * a Station represents an actual station in cafe mac and contains menu items
  */
 public class Station {
-    private String name;
+    private final String name;
     private ArrayList<MenuItem> menuItems;
 
     /**
@@ -71,6 +71,13 @@ public class Station {
         for (MenuItem menuItem : menuItems){
             if (!menuItem.hasRestriction(restriction))
                 items.add(menuItem);
+        }
+        return items;
+    }
+    public ArrayList<String> getMenuItemNames(){
+        ArrayList<String> items = new ArrayList<String>();
+        for (MenuItem menuItem : menuItems){
+            items.add(menuItem.getName());
         }
         return items;
     }

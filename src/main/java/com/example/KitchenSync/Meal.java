@@ -2,7 +2,10 @@ package com.example.KitchenSync;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by jeffrey on 2/11/14.
@@ -91,5 +94,20 @@ public class Meal {
             meal = meal + station.toString();
         }
         return meal;
+    }
+    public ArrayList<String> getStationHeaders(){
+        ArrayList<String> stationHeaders = new ArrayList<String>();
+        for (Station station : stations){
+            stationHeaders.add(station.getName());
+        }
+        return stationHeaders;
+    }
+
+    public HashMap<String, List<String>> getItemSet(){
+        HashMap<String, List<String>> itemSet = new HashMap<String, List<String>>();
+        for (Station station : stations){
+            itemSet.put(station.getName(), station.getMenuItemNames());
+        }
+        return itemSet;
     }
 }
