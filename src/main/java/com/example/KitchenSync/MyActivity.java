@@ -9,8 +9,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 public class MyActivity extends Activity {
     private StationListAdapter listAdapter;
@@ -24,6 +28,13 @@ public class MyActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        //sets up date in header
+        String currentDate = DateFormat.getDateTimeInstance().format(new Date());
+        TextView date =  (TextView) findViewById(R.id.header_date);
+        date.setText(currentDate);
+
+
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -82,5 +93,11 @@ public class MyActivity extends Activity {
                 setListData(week);
             }
         }
+
+
+
+
+
+
     }
 }

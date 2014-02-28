@@ -8,8 +8,8 @@
             android:id="@+id/lblListItem"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="#FFEAAD"
-            android:textColor="#1C2130"
+            android:background="#dde435"
+            android:textColor="#FF6f36"
             android:textSize="17dip" />
          <!--   android:paddingTop="5dp"
             android:paddingBottom="5dp"
