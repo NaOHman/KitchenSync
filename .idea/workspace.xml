@@ -642,7 +642,7 @@
       <workItem from="1393567695318" duration="194000" />
       <workItem from="1393568153068" duration="17000" />
       <workItem from="1393568241057" duration="42000" />
-      <workItem from="1393612233748" duration="734000" />
+      <workItem from="1393612233748" duration="840000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented Dropdown list UI that pulls data from Cafe Mac's website.">
       <created>1393567309515</created>
@@ -656,11 +656,15 @@
       <created>1393612851824</created>
       <updated>1393612851824</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Implemented Dropdown list UI that pulls data from Cafe Mac's website.">
+      <created>1393612975967</created>
+      <updated>1393612975967</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22145000" />
+    <option name="totallyTimeSpent" value="22251000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="74" width="1080" height="939" extended-state="0" />
