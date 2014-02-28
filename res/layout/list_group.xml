@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     android:layout_width="match_parent"
     android:layout_height="55dip"
     android:orientation="vertical" >
@@ -16,4 +17,22 @@
      android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
      -->
     
+=======
+              android:layout_width="match_parent"
+              android:layout_height="55dip"
+              android:orientation="vertical" >
+
+    <TextView
+            android:id="@+id/lblListItem"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#dde456"
+            android:textColor="#FF6f35"
+            android:textSize="17dip" />
+    <!--   android:paddingTop="5dp"
+       android:paddingBottom="5dp"
+       android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
+       -->
+
+>>>>>>> 5d028406a65d75c590e49122eef35cca18d925fd
 </LinearLayout>
