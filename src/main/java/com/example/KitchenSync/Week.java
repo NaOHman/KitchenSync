@@ -6,12 +6,9 @@ package com.example.KitchenSync;
  * parse the menu from cafe mac's website
  */
 
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
-import java.io.IOException;
 
 public class Week {
 
@@ -20,16 +17,9 @@ public class Week {
     /**
      * creates a new weekly menu by scraping data from the Bon Appetit website
      */
-    public Week(){
-        try {
-            Document doc = Jsoup.connect("http://macalester.cafebonappetit.com/hungry/cafe-mac/").get();
-            Elements dayData = doc.getElementsByClass("eni-menu-day");
-            makeDays(dayData);
-        }
-        //this means connection was probably lost
-        catch(IOException e){
-            System.out.println("No Connection");
-        }
+    public Week(Document doc){
+        Elements dayData = doc.getElementsByClass("eni-menu-day");
+        makeDays(dayData);
     }
 
     /**
