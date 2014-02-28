@@ -9,7 +9,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="#dde435"
-            android:textColor="#FF6f36"
+            android:textColor="#FF6f35"
             android:textSize="17dip" />
          <!--   android:paddingTop="5dp"
             android:paddingBottom="5dp"
