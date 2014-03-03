@@ -66,6 +66,7 @@ public class MyActivity extends Activity {
         //sets selected day to current day for selecting meals TODO: w/o using button
         displayDay.setOnClickListener(new View.OnClickListener() {
             @Override
+            //TODO: for some reason does not switch... make work!
             public void onClick(View v) {
                 String daySelected = selectDay.getSelectedItem().toString();
                 dayString = daySelected;
