@@ -6,7 +6,7 @@
         android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="183dp"
+            android:layout_height="149dp"
             android:background="@color/secondaryColor">
         <TextView
                 android:textSize="55dp"
@@ -17,28 +17,28 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="KitchenSync"
                 android:id="@+id/header_KitchenSync"
-                android:layout_marginTop="23dp"
-                android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
+                android:layout_alignParentTop="true" android:layout_alignParentLeft="true"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/header_date"
                 android:textStyle="italic" android:textSize="17dp"
                 android:textColor="#f14a2a"
-                android:layout_below="@+id/header_KitchenSync" android:layout_alignLeft="@+id/header_KitchenSync"
-                android:text="Displaying meals for: Monday"/>
+                android:text="Displaying meals for: "
+                android:layout_below="@+id/header_KitchenSync" android:layout_alignParentLeft="true"/>
         <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/daySelectorSpinner" android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"/>
+                android:id="@+id/daySelectorSpinner"
+                android:entries="@array/day_array"
+                android:layout_below="@+id/header_KitchenSync" android:layout_toRightOf="@+id/header_date"/>
         <Button
+                android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Display Day.."
                 android:id="@+id/displayMealButton"
-                android:layout_alignParentBottom="true" android:layout_alignParentRight="true"
-                android:layout_alignTop="@+id/daySelectorSpinner"/>
+                android:layout_below="@+id/header_date" android:layout_alignParentLeft="true"/>
     </RelativeLayout>
     <ExpandableListView android:layout_width="match_parent"
                             android:layout_height="fill_parent"

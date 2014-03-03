@@ -57,7 +57,7 @@ public class MyActivity extends Activity {
             default:dayString = "INVALID DAY";
                 break;
         }
-        date.setText("Displaying meals for: " + dayString);
+        date.setText("Displaying meals for: ");
 
         //sets up dateDisplay Spinner and Button
         Button displayDay = (Button) findViewById(R.id.displayMealButton);
@@ -70,13 +70,11 @@ public class MyActivity extends Activity {
             public void onClick(View v) {
                 String daySelected = selectDay.getSelectedItem().toString();
                 dayString = daySelected;
-                TextView dateView = (TextView) findViewById(R.id.displayMealButton);
-                dateView.setText("DISPLAYING MEALS FOR: " + dayString);
 
             }
         });
 
-
+        /**
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -123,6 +121,7 @@ public class MyActivity extends Activity {
             }
         }
 
+
         @Override
         protected void onPostExecute(final Week week) {
 
@@ -134,7 +133,7 @@ public class MyActivity extends Activity {
             if (week !=null){
                 setListData(week);
             }
-        }
+        }*/
 
 
 
