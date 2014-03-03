@@ -8,18 +8,23 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import java.text.DateFormat;
-import java.util.Date;
+import java.util.Calendar;
 
 public class MyActivity extends Activity {
     private StationListAdapter listAdapter;
     private ExpandableListView expListView;
     Week week;
+    private Spinner mealSelectorSpinner;
+    private Spinner selectDay;
+    private String dayString;
 
     /**
      * Called when the activity is first created.
@@ -29,10 +34,46 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        //sets up date in header
-        String currentDate = DateFormat.getDateTimeInstance().format(new Date());
+        //sets up date in header and creates dayString, which can be used in other methods
+        Calendar c = Calendar.getInstance();
+        int day = c.get(Calendar.DAY_OF_WEEK);
         TextView date =  (TextView) findViewById(R.id.header_date);
-        date.setText(currentDate);
+        dayString = "STRING NOT CURRENTLY SET";
+        switch (day){
+            case 0: dayString = "Monday";
+                break;
+            case 1: dayString = "Tuesday";
+                break;
+            case 2: dayString = "Wednesday";
+                break;
+            case 3: dayString = "Thursday";
+                break;
+            case 4: dayString = "Friday";
+                break;
+            case 5: dayString = "Saturday";
+                break;
+            case 6: dayString = "Sunday";
+                break;
+            default:dayString = "INVALID DAY";
+                break;
+        }
+        date.setText("Displaying meals for: " + dayString);
+
+        //sets up dateDisplay Spinner and Button
+        Button displayDay = (Button) findViewById(R.id.displayMealButton);
+        selectDay = (Spinner) findViewById(R.id.daySelectorSpinner);
+
+        //sets selected day to current day for selecting meals TODO: w/o using button
+        displayDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String daySelected = selectDay.getSelectedItem().toString();
+                dayString = daySelected;
+                TextView dateView = (TextView) findViewById(R.id.displayMealButton);
+                dateView.setText("DISPLAYING MEALS FOR: " + dayString);
+
+            }
+        });
 
 
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);

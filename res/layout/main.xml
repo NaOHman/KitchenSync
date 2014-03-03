@@ -6,12 +6,12 @@
         android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="154dp"
-            android:background="#EEFABC">
+            android:layout_height="183dp"
+            android:background="@color/secondaryColor">
         <TextView
                 android:textSize="55dp"
                 android:textStyle="bold"
-                android:textColor="#f14a2a"
+                android:textColor="@color/textColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -23,14 +23,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/header_date"
-                android:layout_alignLeft="@+id/header_KitchenSync" android:layout_below="@+id/header_KitchenSync"
-                android:layout_alignRight="@+id/header_KitchenSync"
-                android:textStyle="italic" android:textSize="10dp" android:textColor="#f14a2a"/>
+                android:textStyle="italic" android:textSize="17dp"
+                android:textColor="#f14a2a"
+                android:layout_below="@+id/header_KitchenSync" android:layout_alignLeft="@+id/header_KitchenSync"
+                android:text="Displaying meals for: Monday"/>
+        <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/daySelectorSpinner" android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Display Day.."
+                android:id="@+id/displayMealButton"
+                android:layout_alignParentBottom="true" android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/daySelectorSpinner"/>
     </RelativeLayout>
     <ExpandableListView android:layout_width="match_parent"
                             android:layout_height="fill_parent"
                             android:id="@+id/menu_expandable"
-                            android:background="#EEFABC">
+                            android:background="@color/secondaryColor">
 
         </ExpandableListView>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/button" android:layout_gravity="right"/>
 </LinearLayout>
