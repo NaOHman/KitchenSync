@@ -41,7 +41,8 @@ public class MyActivity extends Activity {
         int date = calendar.get(Calendar.DATE);
         int day = calendar.get(Calendar.DAY_OF_WEEK);
 
-        //makes string of current day, which can be used in other methods to fetch from cafeMac
+        //jjkhkjmakes string of current day, which can be used in other methods to fetch from cafeMac
+        //TODO: link up dayString w/ enums so that loads current day on startup
         dayString = "STRING NOT CURRENTLY SET";
         switch (day){
             case 0: dayString = "Monday";
@@ -79,8 +80,6 @@ public class MyActivity extends Activity {
 
 
 
-
-        /**
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -139,7 +138,7 @@ public class MyActivity extends Activity {
             if (week !=null){
                 setListData(week);
             }
-        }*/
+        }
 
 
 

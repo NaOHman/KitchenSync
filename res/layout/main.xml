@@ -6,7 +6,7 @@
         android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="109dp"
+            android:layout_height="114dp"
             android:background="@color/background_Color">
         <TextView
                 android:textSize="55dp"
@@ -32,8 +32,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/daySelectorSpinner"
                 android:entries="@array/day_array"
-                android:layout_alignBottom="@+id/header_date"
-                android:layout_toRightOf="@+id/header_displayingMealsFor"/>
+                android:layout_above="@+id/header_date" android:layout_toRightOf="@+id/header_displayingMealsFor"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
