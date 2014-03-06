@@ -2,6 +2,7 @@
 <resources>
     <color name="textColor">#000000</color>
     <color name="primaryColor">#1c2130</color>
-    <color name="secondaryColor">#F2F2D3</color>
-    <color name="trimColor">#346184</color>
+    <color name="secondaryColor">#f14a2a</color>
+    <color name="trimColor">#ffa1d498</color>
+    <color name="background_Color">#fff7ffba</color>
 </resources>
