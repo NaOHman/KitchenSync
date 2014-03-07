@@ -5,14 +5,18 @@
     android:orientation="vertical" >
     
     <TextView
-    android:id="@+id/lblListHeader"
-    android:layout_width="fill_parent"
+    android:id="@+id/lblStationHeader"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#dde456"
-    android:textColor="#FF6f35"
+    android:background="@color/background_Color"
+    android:textColor="@color/textColor"
     android:textSize="17dip" />
+<<<<<<< HEAD
     <!--   android:paddingTop="5dp"
      android:paddingBottom="5dp"
      android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
      -->
+=======
+    
+>>>>>>> 06c2f7ffdec010759e8bd35a119474d8a24cb768
 </LinearLayout>

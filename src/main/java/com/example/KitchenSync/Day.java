@@ -45,7 +45,8 @@ public class Day {
         return lunch;
     }
 
-    /**
+    /**Implemented Dropdown list UI that pulls data from Cafe Mac's website.
+
      * @return the days date in string form e.g. Monday, February 17th, 2014
      */
     public String getDate(){

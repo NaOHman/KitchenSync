@@ -63,7 +63,7 @@ public class StationListAdapter extends BaseExpandableListAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_group, null);
         }
-        TextView lblListHeader = (TextView) convertView.findViewById(R.id.lblListHeader);
+        TextView lblListHeader = (TextView) convertView.findViewById(R.id.lblStationHeader);
         lblListHeader.setTypeface(null, Typeface.BOLD);
         lblListHeader.setText(headerTitle);
         return convertView;

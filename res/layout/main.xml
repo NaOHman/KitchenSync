@@ -1,36 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-        android:background="#FFEAAD"
+        android:background="@color/background_Color"
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="154dp"
-            android:background="#EEFABC">
+            android:layout_height="114dp"
+            android:background="@color/background_Color">
         <TextView
                 android:textSize="55dp"
                 android:textStyle="bold"
-                android:textColor="#f14a2a"
+                android:textColor="@color/textColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="KitchenSync"
                 android:id="@+id/header_KitchenSync"
-                android:layout_marginTop="23dp"
-                android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
+                android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/header_displayingMealsFor"
+                android:textStyle="italic" android:textSize="15dp"
+                android:textColor="@color/secondaryColor"
+                android:text="Displaying meals for: "
+                android:layout_below="@+id/header_KitchenSync" android:layout_alignParentLeft="true"/>
+        <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/daySelectorSpinner"
+                android:entries="@array/day_array"
+                android:layout_above="@+id/header_date" android:layout_toRightOf="@+id/header_displayingMealsFor"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NO TEXT SET"
+                android:textStyle="italic" android:textSize="14dp"
+                android:textColor="@color/secondaryColor"
                 android:id="@+id/header_date"
-                android:layout_alignLeft="@+id/header_KitchenSync" android:layout_below="@+id/header_KitchenSync"
-                android:layout_alignRight="@+id/header_KitchenSync"
-                android:textStyle="italic" android:textSize="10dp" android:textColor="#f14a2a"/>
+                android:layout_below="@+id/header_displayingMealsFor" android:layout_alignParentLeft="true"/>
     </RelativeLayout>
     <ExpandableListView android:layout_width="match_parent"
                             android:layout_height="fill_parent"
                             android:id="@+id/menu_expandable"
-                            android:background="#EEFABC">
+                            android:background="@color/trimColor">
 
         </ExpandableListView>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/button" android:layout_gravity="right"/>
 </LinearLayout>
