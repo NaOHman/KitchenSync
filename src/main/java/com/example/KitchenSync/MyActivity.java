@@ -29,7 +29,7 @@ public class MyActivity extends Activity {
     private Weekday weekday;
 
     /**
-     *sfldjflskdjf ;slkjfg;skdjfhg;ljnsCalled when the activity is first created.
+     * Called when the activity is first created.
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class MyActivity extends Activity {
         int date = calendar.get(Calendar.DATE);
         int day = calendar.get(Calendar.DAY_OF_WEEK);
         setDayValues(day);
-        dateDisplay.setText("Today is " + dayString + ", " + month + " / " + date);
+        dateDisplay.setText("Today is " + dayString + ", " + month + " / " + date);  //TODO date comes up as invalid
 
         //sets up Day selector spinner
         selectDay = (Spinner) findViewById(R.id.daySelectorSpinner);
