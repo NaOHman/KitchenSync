@@ -75,24 +75,21 @@ public class MyActivity extends Activity {
         }
 
     }
-    private void setDayValues(int d){
-        Log.d("MyActivity", "Setting Day value = " + d);
-        dayString = makeDayString(d);
-        weekday = Weekday.values()[d-1];
-    }
-
-    private String makeDayString(int day){
+    private void setDayValues(int day){
+        Log.d("MyActivity", "Setting Day value = " + day);
+        weekday = Weekday.values()[day-1];
         switch (day){
-            case 1: return "Sunday";
-            case 2: return "Monday";
-            case 3: return "Tuesday";
-            case 4: return "Wednesday";
-            case 5: return "Thursday";
-            case 6: return "Friday";
-            case 7: return "Saturday";
-            default: return"INVALID DAY";
+            case 1: dayString = "Sunday";
+            case 2: dayString = "Monday";
+            case 3: dayString = "Tuesday";
+            case 4: dayString = "Wednesday";
+            case 5: dayString = "Thursday";
+            case 6: dayString = "Friday";
+            case 7: dayString = "Saturday";
+            default: dayString = "INVALID DAY";
         }
     }
+
     public void setListData(Week week){
         this.week = week;
         updateListData();
