@@ -8,23 +8,25 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.*;
+import android.widget.AdapterView;
+import android.widget.ExpandableListView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.util.Calendar;
 
 public class MyActivity extends Activity {
-    private StationListAdapter listAdapter;
+    private MealListAdapter listAdapter;
     private ExpandableListView expListView;
-    Week week;
+    private Week week = null;
 
-    private Spinner mealSelectorSpinner;
+    private TextView dateDisplay;
     private Spinner selectDay;
     private String dayString;
+    private Weekday weekday;
 
     /**
      * Called when the activity is first created.
@@ -36,40 +38,23 @@ public class MyActivity extends Activity {
 
         //access calendar class to get current month, date, year, and day
         Calendar calendar = Calendar.getInstance();
-        TextView dateDisplay = (TextView) findViewById(R.id.header_date);
+        dateDisplay = (TextView) findViewById(R.id.header_date);
         int month = calendar.get(Calendar.MONTH);
         int date = calendar.get(Calendar.DATE);
         int day = calendar.get(Calendar.DAY_OF_WEEK);
-
-        //jjkhkjmakes string of current day, which can be used in other methods to fetch from cafeMac
-        //TODO: link up dayString w/ enums so that loads current day on startup
-        dayString = "STRING NOT CURRENTLY SET";
-        switch (day){
-            case 0: dayString = "Monday";
-                break;
-            case 1: dayString = "Tuesday";
-                break;
-            case 2: dayString = "Wednesday";
-                break;
-            case 3: dayString = "Thursday";
-                break;
-            case 4: dayString = "Friday";
-                break;
-            case 5: dayString = "Saturday";
-                break;
-            case 6: dayString = "Sunday";
-                break;
-            default:dayString = "INVALID DAY";
-                break;
-        }
+        setDayValues(day);
         dateDisplay.setText("Today is " + dayString + ", " + month + " / " + date);
 
         //sets up Day selector spinner
         selectDay = (Spinner) findViewById(R.id.daySelectorSpinner);
+        selectDay.setSelection(day -1, false);
         selectDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                dayString = selectDay.getSelectedItem().toString();
+                Log.d("MealSelector Spinner", "Item selected" + position);
+                setDayValues(position + 1);
+                if (week != null)
+                    updateListData();
             }
 
             @Override
@@ -77,7 +62,6 @@ public class MyActivity extends Activity {
                 //do nothing
             }
         });
-
 
 
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
@@ -91,9 +75,32 @@ public class MyActivity extends Activity {
         }
 
     }
+    private void setDayValues(int d){
+        Log.d("MyActivity", "Setting Day value = " + d);
+        dayString = makeDayString(d);
+        weekday = Weekday.values()[d-1];
+    }
+
+    private String makeDayString(int day){
+        switch (day){
+            case 1: return "Sunday";
+            case 2: return "Monday";
+            case 3: return "Tuesday";
+            case 4: return "Wednesday";
+            case 5: return "Thursday";
+            case 6: return "Friday";
+            case 7: return "Saturday";
+            default: return"INVALID DAY";
+        }
+    }
     public void setListData(Week week){
-        Meal meal = week.getDay(Weekday.WEDNESDAY).getLunch();
-        listAdapter = new StationListAdapter(this, meal);
+        this.week = week;
+        updateListData();
+    }
+
+    public void updateListData(){
+        Day day = week.getDay(weekday);
+        listAdapter = new MealListAdapter(day, this);
         expListView.setAdapter(listAdapter);
     }
 
@@ -126,7 +133,6 @@ public class MyActivity extends Activity {
             }
         }
 
-
         @Override
         protected void onPostExecute(final Week week) {
 
@@ -139,11 +145,5 @@ public class MyActivity extends Activity {
                 setListData(week);
             }
         }
-
-
-
-
-
-
     }
 }

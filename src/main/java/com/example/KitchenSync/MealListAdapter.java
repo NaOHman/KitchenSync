@@ -46,6 +46,8 @@ public class MealListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getGroup(int groupPosition) {
+        if (day.getLunch() == null)
+            return "No Meal Published";
         if (groupPosition == 0){
             return "Lunch";
         } else if (groupPosition == 1){
@@ -67,7 +69,7 @@ public class MealListAdapter extends BaseExpandableListAdapter {
     public int getGroupCount() {
         if (day.getLunch() != null)
             return 2;
-        return 0;
+        return 1;
     }
 
     @Override
@@ -81,11 +83,11 @@ public class MealListAdapter extends BaseExpandableListAdapter {
         String headerTitle = (String) getGroup(groupPosition);
         if (convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.list_group, null);
+            convertView = inflater.inflate(R.layout.list_heading, null);
         }
-        TextView lblListHeader = (TextView) convertView.findViewById(R.id.lblListHeader);
-        lblListHeader.setTypeface(null, Typeface.BOLD);
-        lblListHeader.setText(headerTitle);
+        TextView mealHeader = (TextView) convertView.findViewById(R.id.lblMealHeader);
+        mealHeader.setTypeface(null, Typeface.BOLD);
+        mealHeader.setText(headerTitle);
         return convertView;
     }
 
