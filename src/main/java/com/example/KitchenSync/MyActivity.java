@@ -29,7 +29,7 @@ public class MyActivity extends Activity {
     private Weekday weekday;
 
     /**
-     * poop poop poop Called when the activity is first created.
+     *sfldjflskdjf ;slkjfg;skdjfhg;ljnsCalled when the activity is first created.
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
