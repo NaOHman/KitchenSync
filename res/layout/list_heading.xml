@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="100dip"
               android:orientation="vertical" >
@@ -10,6 +10,14 @@
             android:layout_height="wrap_content"
             android:background="@color/background_Color"
             android:textColor="@color/textColor"
-            android:textSize="24dip" />
+            android:textStyle="bold"
+            android:textSize="65dip" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/textView"/>
+    <TextView
+            android:background="@color/background_Color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="     "
+            android:id="@+id/textView" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+            android:layout_alignBottom="@+id/lblMealHeader"/>
 
-</LinearLayout>
+</RelativeLayout>
