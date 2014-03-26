@@ -12,8 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af158e82-a5bc-4e74-a85a-fa8858c84353" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KitchenSync.iws" />
@@ -81,7 +79,7 @@
       <file leaf-file-name="MyActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="181" selection-start="3969" selection-end="3969" vertical-scroll-proportion="0.49624062" vertical-offset="1245" max-vertical-offset="2250">
+            <state line="100" column="54" selection-start="3395" selection-end="3395" vertical-scroll-proportion="0.65978456" vertical-offset="525" max-vertical-offset="2250">
               <folding>
                 <element signature="e#2566#2594#0" expanded="true" />
               </folding>
@@ -131,8 +129,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="248" />
     <option name="y" value="90" />
-    <option name="width" value="2187" />
-    <option name="height" value="1102" />
+    <option name="width" value="1501" />
+    <option name="height" value="1224" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -539,7 +537,7 @@
       <updated>1394230639107</updated>
       <workItem from="1394230639638" duration="5070000" />
       <workItem from="1394235901435" duration="33000" />
-      <workItem from="1395805943516" duration="3425000" />
+      <workItem from="1395805943516" duration="3571000" />
     </task>
     <task id="LOCAL-00001" summary="David is testing a push&#10;">
       <created>1394230667569</created>
@@ -549,15 +547,19 @@
       <created>1394235792981</created>
       <updated>1394235792981</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updated:&#10;                                    &#10;                                    --header allignment&#10;                                    --header simplifications&#10;                                    --got rid of title at top&#10;                                    &#10;                                    Added:&#10;                                    --gluton free checkbox&#10;                                    --&quot;welcome to KitchenSync&quot; in welcome thing&#10;                                    &#10;                                    fixed:&#10;                                    --updateDay() switch was not working">
+      <created>1395809388342</created>
+      <updated>1395809388342</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8528000" />
+    <option name="totallyTimeSpent" value="8674000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="248" y="90" width="2187" height="1102" extended-state="0" />
-    <editor active="false" />
+    <frame x="248" y="90" width="1501" height="1224" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -574,14 +576,14 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32913843" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913843" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28848016" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22542295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3284477" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913843" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -605,7 +607,8 @@
     <MESSAGE value="David is testing a push&#10;" />
     <MESSAGE value="&#10;# Please enter the commit message for your changes. Lines starting&#10;# with '#' will be ignored, and an empty message aborts the commit.&#10;# On branch master&#10;# Changes to be committed:&#10;#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)&#10;#&#10;#&#9;new file:   res/values/eating_restrictions_array.xml&#10;#&#10;# Changes not staged for commit:&#10;#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)&#10;#   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)&#10;#&#10;#&#9;modified:   .idea/workspace.xml&#10;#&#9;modified:   res/layout/list_group.xml&#10;#&#9;modified:   res/layout/list_heading.xml&#10;#&#9;modified:   res/layout/list_item.xml&#10;#&#9;modified:   res/layout/main.xml&#10;#&#9;modified:   res/values/eating_restrictions_array.xml&#10;#&#9;modified:   src/main/java/com/example/KitchenSync/MyActivity.java&#10;#&#10;# Untracked files:&#10;#   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)&#10;#&#10;#&#9;target/&#10;" />
     <MESSAGE value="Updated:&#10;&#10;--header allignment&#10;--header simplifications&#10;--got rid of title at top&#10;&#10;Added:&#10;--gluton free checkbox&#10;--&quot;welcome to KitchenSync&quot; in welcome thing&#10;&#10;fixed:&#10;--updateDay() switch was not working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated:&#10;&#10;--header allignment&#10;--header simplifications&#10;--got rid of title at top&#10;&#10;Added:&#10;--gluton free checkbox&#10;--&quot;welcome to KitchenSync&quot; in welcome thing&#10;&#10;fixed:&#10;--updateDay() switch was not working" />
+    <MESSAGE value="Updated:&#10;                                    &#10;                                    --header allignment&#10;                                    --header simplifications&#10;                                    --got rid of title at top&#10;                                    &#10;                                    Added:&#10;                                    --gluton free checkbox&#10;                                    --&quot;welcome to KitchenSync&quot; in welcome thing&#10;                                    &#10;                                    fixed:&#10;                                    --updateDay() switch was not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated:&#10;                                    &#10;                                    --header allignment&#10;                                    --header simplifications&#10;                                    --got rid of title at top&#10;                                    &#10;                                    Added:&#10;                                    --gluton free checkbox&#10;                                    --&quot;welcome to KitchenSync&quot; in welcome thing&#10;                                    &#10;                                    fixed:&#10;                                    --updateDay() switch was not working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -665,7 +668,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="181" selection-start="3969" selection-end="3969" vertical-scroll-proportion="0.49624062" vertical-offset="1245" max-vertical-offset="2250">
+        <state line="100" column="54" selection-start="3395" selection-end="3395" vertical-scroll-proportion="0.65978456" vertical-offset="525" max-vertical-offset="2250">
           <folding>
             <element signature="e#2566#2594#0" expanded="true" />
           </folding>
