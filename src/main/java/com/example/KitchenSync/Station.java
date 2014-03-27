@@ -25,6 +25,9 @@ public class Station {
        menuItems.add(menuItem);
     }
 
+    public void setMenuItems(ArrayList<MenuItem> menuItems){
+        this.menuItems = menuItems;
+    }
     /**
      * @return all the menu items served at the station
      */
@@ -53,27 +56,15 @@ public class Station {
      * @param restriction a dietary restriction either vegan, vegetarian, made-without-gluten, or seafood-watch
      * @return a list of all items at the station that match the restriction e.g. all vegan options
      */
-    public ArrayList<MenuItem> getMenuItemsWith(String restriction){
+    public ArrayList<MenuItem> getMatches(Restriction restriction, boolean matchGlutenFree){
         ArrayList<MenuItem> items = new ArrayList<MenuItem>();
         for (MenuItem menuItem : menuItems){
-            if (menuItem.hasRestriction(restriction))
+            if (menuItem.matchRestriction(restriction, matchGlutenFree))
                 items.add(menuItem);
         }
         return items;
     }
 
-    /**
-     * @param restriction a dietary restriction either vegan, vegetarian, made-without-gluten, or seafood-watch
-     * @return a list of all items at the station without the restriction e.g. all items not on seafood watch
-     */
-    public ArrayList<MenuItem> getMenuItemsWithout(String restriction){
-        ArrayList<MenuItem> items = new ArrayList<MenuItem>();
-        for (MenuItem menuItem : menuItems){
-            if (!menuItem.hasRestriction(restriction))
-                items.add(menuItem);
-        }
-        return items;
-    }
     public ArrayList<String> getMenuItemNames(){
         ArrayList<String> items = new ArrayList<String>();
         for (MenuItem menuItem : menuItems){

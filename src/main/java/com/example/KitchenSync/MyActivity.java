@@ -22,6 +22,7 @@ public class MyActivity extends Activity {
     private MealListAdapter listAdapter;
     private ExpandableListView expListView;
     private Week week = null;
+    private Filter filter;
 
     private TextView dateDisplay;
     private Spinner selectDay;
@@ -33,6 +34,7 @@ public class MyActivity extends Activity {
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        filter = new Filter(Restriction.VEGETARIAN, false);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
@@ -47,7 +49,7 @@ public class MyActivity extends Activity {
 
         //sets up Day selector spinner
         selectDay = (Spinner) findViewById(R.id.daySelectorSpinner);
-        selectDay.setSelection(day -1, false);
+        selectDay.setSelection(calendar.DAY_OF_WEEK -1, false);
         selectDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -56,17 +58,12 @@ public class MyActivity extends Activity {
                 if (week != null)
                     updateListData();
             }
-
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                //do nothing
-            }
+            public void onNothingSelected(AdapterView<?> parent) {}
         });
 
-
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             new WeekDataFetcher().execute(getString(R.string.cafe_url));
@@ -103,6 +100,12 @@ public class MyActivity extends Activity {
             default: dayString = "INVALID DAY";
         }
     }
+    public String getCalendarString(Calendar calendar){
+        int month = calendar.get(calendar.MONTH);
+        int date = calendar.get(calendar.DATE);
+        int day = calendar.get(calendar.DAY_OF_WEEK);
+        return "Today is " + dayString + ", " + month + " / " + date;
+    }
 
     public void setListData(Week week){
         this.week = week;
@@ -110,7 +113,7 @@ public class MyActivity extends Activity {
     }
 
     public void updateListData(){
-        Day day = week.getDay(weekday);
+        Day day = filter.applyFilter(week.getDay(weekday));
         listAdapter = new MealListAdapter(day, this);
         expListView.setAdapter(listAdapter);
     }

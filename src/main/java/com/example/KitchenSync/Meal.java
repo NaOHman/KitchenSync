@@ -26,6 +26,16 @@ public class Meal {
         makeStations(items);
     }
 
+    public Meal(){
+        stations = new ArrayList<Station>();
+    }
+    public void setStations(ArrayList<Station> stations){
+        this.stations = stations;
+    }
+    public void addStation(Station station){
+        this.stations.add(station);
+    }
+
     /**
      * a helper method for the constructor that creates a station objects
      * @param items a collection of HTML elements that contain data relavent to the
@@ -53,28 +63,6 @@ public class Meal {
         ArrayList<MenuItem> items = new ArrayList<MenuItem>();
         for (Station station : stations)
             items.addAll(station.getMenuItems());
-        return items;
-    }
-
-    /**
-     * @param restriction a dietary restriction, vegetarian, vegan, made-without-gluten, or seafood-watch
-     * @return all the menu items in a meal that have the restriction e.g. all vegan items
-     */
-    public ArrayList<MenuItem> getMenuItemsWith(String restriction){
-        ArrayList<MenuItem> items = new ArrayList<MenuItem>();
-        for (Station station : stations)
-            items.addAll(station.getMenuItemsWith(restriction));
-        return items;
-    }
-
-    /**
-     * @param restriction a dietary restriction, vegetarian, vegan, made-without-gluten, or seafood-watch
-     * @return all the menu items in a meal without that restriction e.g. all items not on seafood-watch
-     */
-    public ArrayList<MenuItem> getMenuItemsWithout(String restriction){
-        ArrayList<MenuItem> items = new ArrayList<MenuItem>();
-        for (Station station : stations)
-            items.addAll(station.getMenuItemsWithout(restriction));
         return items;
     }
 

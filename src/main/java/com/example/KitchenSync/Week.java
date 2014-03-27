@@ -22,6 +22,17 @@ public class Week {
         makeDays(dayData);
     }
 
+    public Week(){
+    }
+
+    public Day[] getDays(){
+        return days;
+    }
+
+    public void setDay(Day day, Weekday dayOfWeek){
+        days[dayOfWeek.ordinal()] = day;
+    }
+
     /**
      * helper method for the constructor that creates daily menus and stores them inside the weekly menu
      * @param dayData a collection of HTML elements with the data needed to create daily menus

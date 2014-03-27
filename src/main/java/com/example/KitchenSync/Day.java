@@ -30,6 +30,17 @@ public class Day {
             dinner = null;
         }
     }
+    public Day(){
+        lunch = null;
+        dinner = null;
+    }
+
+    public void setDinner(Meal dinner){
+        this.dinner = dinner;
+    }
+    public void setLunch(Meal lunch){
+        this.lunch = lunch;
+    }
 
     /**
      * @return the dinner meal of a given day

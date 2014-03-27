@@ -1,4 +1,5 @@
 package com.example.KitchenSync;
+import android.util.Log;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
@@ -13,7 +14,8 @@ public class MenuItem {
     private String name;
     private String description;
     private Station location;
-    private ArrayList<String> restrictions;
+    private Boolean glutenFree;
+    private Restriction restriction;
     // ArrayList<Review> reviews;
 
     /* takes an HTML element representing a food and then
@@ -22,11 +24,17 @@ public class MenuItem {
     public MenuItem(Element itemData, Station location){
         this.location = location;
         description = "";
-        restrictions = new ArrayList<String>();
+        glutenFree = false;
         Element foodData = itemData.getElementsByClass("eni-menu-item-name").first();
         name = foodData.text();
         makeDescription(itemData);
-        makeRestrictions(foodData);
+        restriction = makeRestrictions(foodData);
+    }
+    public MenuItem(String name, String description, ArrayList<String> restrictions){
+        glutenFree = false;
+        this.name = name;
+        this.description = description;
+        this.restriction = makeRestrictions(restrictions);
     }
 
     /**
@@ -44,13 +52,41 @@ public class MenuItem {
      * A helper method that adds dietary restriction information to the menu item
      * @param foodData a collection of HTML elements that contain dietary restriction info
      */
-    private void makeRestrictions(Element foodData){
+    private Restriction makeRestrictions(Element foodData){
         Elements restrict = foodData.select(".tipbox");
+        Restriction highestLevel = Restriction.NONE;
         for (Element restriction : restrict){
-                String restrictionType = restriction.className();
-                restrictionType = restrictionType.substring(restrictionType.lastIndexOf(" ")+1);
-                restrictions.add(restrictionType);
+            String restrictionType = restriction.className();
+            restrictionType = restrictionType.substring(restrictionType.lastIndexOf(" ")+1);
+            Restriction r = stringToRestriction(restrictionType);
+            Log.d("restriction level = ", ""+r);
+            if (r.ordinal() < highestLevel.ordinal())
+                highestLevel = r;
+            Log.d("Highest level = ", "" + highestLevel);
         }
+        return highestLevel;
+    }
+    private Restriction makeRestrictions(ArrayList<String> restrictions){
+        Restriction highestLevel = Restriction.NONE;
+        for (String r : restrictions){
+            Restriction restriction = stringToRestriction(r);
+            if (restriction.ordinal() < highestLevel.ordinal())
+                highestLevel = restriction;
+        }
+        return highestLevel;
+    }
+
+    private Restriction stringToRestriction(String s){
+        Log.d("MenuItem" + name, s);
+        if (s.equals("vegan"))
+            return Restriction.VEGAN;
+        if (s.equals("vegetarian"))
+            return Restriction.VEGETARIAN;
+        if (s.equals("seafood-watch"))
+            return Restriction.PESCETARIAN;
+        if (s.equals("made-without-gluten"))
+            glutenFree = true;
+        return Restriction.NONE;
     }
 
     /**
@@ -61,21 +97,21 @@ public class MenuItem {
         if (description != ""){
             food = food + "\n\t" + description;
         }
-        if (restrictions.size() > 0){
+        /**if (restrictions.size() > 0){
             for (String restriction : restrictions){
                 food = food + "\n\t" + restriction;
             }
-        }
+        } */
         return food;
     }
 
     /**
-     * @param restriction a String representing a dietary restriction possible options are
+     * @param r matchgluten a String representing a dietary restriction possible options are
      *                    vegetarian, vegan, made-without-gluten, and seafood-watch
      * @return whether the food matches that dietary restriction
      */
-    public boolean hasRestriction(String restriction){
-        return restrictions.contains(restriction);
+    public boolean matchRestriction(Restriction r, boolean matchGluten){
+        return (restriction.ordinal() <= r.ordinal()) && (glutenFree || !matchGluten);
     }
 
     /**
@@ -90,13 +126,6 @@ public class MenuItem {
      */
     public String getDescription(){
         return description;
-    }
-
-    /**
-     * @return list of restrictions that apply to the food.
-     */
-    public ArrayList<String> getRestrictions(){
-        return restrictions;
     }
 
 }
