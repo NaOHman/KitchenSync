@@ -6,8 +6,8 @@ import java.util.ArrayList;
  * Created by jeffrey on 3/14/14.
  */
 public class Filter {
-    Restriction r;
-    boolean matchGluten;
+    private Restriction r;
+    private boolean matchGluten;
 
     public Filter(Restriction r, boolean matchGluten){
         this.r = r;

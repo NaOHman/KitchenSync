@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="eating_restrictions_array">
-        <item>None</item>
-        <item>Vegetarian</item>
         <item>Vegan</item>
-        <item>Gluten Free</item>
+        <item>Vegetarian</item>
+        <item>Pescetarian</item>
+        <item>None</item>
     </string-array>
 </resources>

@@ -9,10 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ExpandableListView;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -25,16 +22,18 @@ public class MyActivity extends Activity {
     private Filter filter;
 
     private TextView dateDisplay;
+    private Spinner selectFilter;
     private Spinner selectDay;
     private String dayString;
     private Weekday weekday;
+    private CheckBox glutenBox;
 
     /**
      * Called when the activity is first created.
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        filter = new Filter(Restriction.VEGETARIAN, false);
+        filter = new Filter(Restriction.NONE, false);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
@@ -49,7 +48,6 @@ public class MyActivity extends Activity {
 
         //sets up Day selector spinner
         selectDay = (Spinner) findViewById(R.id.daySelectorSpinner);
-        selectDay.setSelection(calendar.DAY_OF_WEEK -1, false);
         selectDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -58,19 +56,41 @@ public class MyActivity extends Activity {
                 if (week != null)
                     updateListData();
             }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        selectDay.setSelection(day -1, false);
+
+        selectFilter = (Spinner) findViewById(R.id.spinner_filter);
+        selectFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                filter.setRestriction(Restriction.values()[position]);
+                if (week != null)
+                    updateListData();
+            }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
         });
+        selectFilter.setSelection(3);
+        //thanks to our bro mkyong for the help here
+        glutenBox = (CheckBox) findViewById(R.id.glutenFreeCheckBox);
+        glutenBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filter.setMatchGluten( ((CheckBox) v).isChecked());
+                updateListData();
+            }
+        });
+
 
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
+        if (networkInfo != null && networkInfo.isConnected())
             new WeekDataFetcher().execute(getString(R.string.cafe_url));
-        } else {
-            //network not connected do something
-        }
-
     }
     private void setDayValues(int day){
         Log.d("MyActivity", "Setting Day value = " + day);
@@ -100,12 +120,6 @@ public class MyActivity extends Activity {
             default: dayString = "INVALID DAY";
         }
     }
-    public String getCalendarString(Calendar calendar){
-        int month = calendar.get(calendar.MONTH);
-        int date = calendar.get(calendar.DATE);
-        int day = calendar.get(calendar.DAY_OF_WEEK);
-        return "Today is " + dayString + ", " + month + " / " + date;
-    }
 
     public void setListData(Week week){
         this.week = week;
@@ -120,7 +134,6 @@ public class MyActivity extends Activity {
 
     private class WeekDataFetcher extends AsyncTask<String, Void, Week> {
         private ProgressDialog dialog = new ProgressDialog(MyActivity.this);
-        private Exception exception;
 
         @Override
         protected void onPreExecute() {
@@ -131,33 +144,20 @@ public class MyActivity extends Activity {
         @Override
         protected Week doInBackground(final String... args) {
             try {
-                Log.d("WeekDataFetcher", "Establishing Connection");
                 Document doc = Jsoup.connect(args[0]).get();
-                if (doc != null) {
-                    Log.d("WeekDataFetcher", "Got Doc");
-                } else {
-                    Log.d("WeekDataFetcher", "No Doc");
-                }
                 Week week = new Week(doc);
                 return week;
             } catch (Exception e) {
-                this.exception = e;
-                Log.e("WeekDataFetcher", "Error collecting Data");
                 return null;
             }
         }
 
         @Override
         protected void onPostExecute(final Week week) {
-
-            if (dialog.isShowing()) {
+            if (dialog.isShowing())
                 dialog.dismiss();
-            }
-
-            // Setting data to list adapter
-            if (week !=null){
+            if (week !=null)
                 setListData(week);
-            }
         }
     }
 }

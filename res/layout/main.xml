@@ -29,7 +29,7 @@
                 android:textSize="22dp"
                 android:textColor="@color/secondaryColor"
                 android:text="         Filter: "
-                android:id="@+id/filter_spinner"
+                android:id="@+id/filterText"
                 android:layout_centerVertical="true" android:layout_alignParentLeft="true"
                 />
         <Spinner
@@ -37,14 +37,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:id="@+id/spinner_filter"
-                android:layout_centerVertical="true" android:layout_toRightOf="@+id/filter_spinner"/>
+                android:layout_centerVertical="true" android:layout_toRightOf="@+id/filterText"/>
         <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
                 android:textStyle="italic"
-                android:text="No Gluton"
-                android:id="@+id/glutonFreeCheckBox"
+                android:text="Gluten Free"
+                android:id="@+id/glutenFreeCheckBox"
                 android:checked="false"
                 android:layout_alignParentRight="true" android:layout_alignParentBottom="true"/>
     </RelativeLayout>
