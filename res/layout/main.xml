@@ -9,25 +9,15 @@
             android:layout_height="wrap_content"
             android:background="@color/background_Color">
         <TextView
-                android:textSize="55dp"
-                android:textStyle="bold"
-                android:textColor="@color/textColor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="KitchenSync"
-                android:id="@+id/header_KitchenSync"
-                android:layout_below="@+id/header_date" android:layout_centerHorizontal="true"/>
-        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="NO TEXT SET"
                 android:textStyle="italic" android:textSize="14dp"
-                android:textColor="@color/secondaryColor"
+                android:textColor="@color/textColor"
                 android:id="@+id/header_date"
                 android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
     </RelativeLayout>
-    <LinearLayout
+    <RelativeLayout
             android:orientation="horizontal"
             android:background="@color/background_Color"
             android:layout_width="fill_parent"
@@ -35,19 +25,29 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="italic" android:textSize="15dp"
+                android:textStyle="bold"
+                android:textSize="22dp"
                 android:textColor="@color/secondaryColor"
-                android:text="                              Filtering For:"
+                android:text="         Filter: "
                 android:id="@+id/filter_spinner"
                 android:layout_centerVertical="true" android:layout_alignParentLeft="true"
                 />
         <Spinner
                 android:entries="@array/eating_restrictions_array"
-                android:layout_width="114dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
                 android:id="@+id/spinner_filter"
                 android:layout_centerVertical="true" android:layout_toRightOf="@+id/filter_spinner"/>
-    </LinearLayout>
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="italic"
+                android:text="No Gluton"
+                android:id="@+id/glutonFreeCheckBox"
+                android:checked="false"
+                android:layout_alignParentRight="true" android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
     <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="34dp"
@@ -57,11 +57,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/header_displayingMealsFor"
-                android:textStyle="italic" android:textSize="15dp"
+                android:textStyle="bold" android:textSize="22dp"
                 android:textColor="@color/secondaryColor"
-                android:text="               Displaying meals for:"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true" android:layout_alignParentTop="true"/>
+                android:text="Displaying:"
+                android:layout_centerVertical="true" android:layout_alignParentLeft="true"/>
         <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -43,7 +43,7 @@ public class MyActivity extends Activity {
         int date = calendar.get(Calendar.DATE);
         int day = calendar.get(Calendar.DAY_OF_WEEK);
         setDayValues(day);
-        dateDisplay.setText("Today is " + dayString + ", " + month + " / " + date);  //TODO date comes up as invalid
+        dateDisplay.setText(dayString + ", " + month + " / " + date);
 
         //sets up Day selector spinner
         selectDay = (Spinner) findViewById(R.id.daySelectorSpinner);
@@ -79,13 +79,27 @@ public class MyActivity extends Activity {
         Log.d("MyActivity", "Setting Day value = " + day);
         weekday = Weekday.values()[day-1];
         switch (day){
-            case 1: dayString = "Sunday";
-            case 2: dayString = "Monday";
-            case 3: dayString = "Tuesday";
-            case 4: dayString = "Wednesday";
-            case 5: dayString = "Thursday";
-            case 6: dayString = "Friday";
-            case 7: dayString = "Saturday";
+            case 1:
+                dayString = "Sunday";
+                break;
+            case 2:
+                dayString = "Monday";
+                break;
+            case 3:
+                dayString = "Tuesday";
+                break;
+            case 4:
+                dayString = "Wednesday";
+                break;
+            case 5:
+                dayString = "Thursday";
+                break;
+            case 6:
+                dayString = "Friday";
+                break;
+            case 7:
+                dayString = "Saturday";
+                break;
             default: dayString = "INVALID DAY";
         }
     }
@@ -107,7 +121,7 @@ public class MyActivity extends Activity {
 
         @Override
         protected void onPreExecute() {
-            this.dialog.setMessage("Collecting Menu Information");
+            this.dialog.setMessage("Welcome to KitchenSync! Collecting Menu Information..");
             this.dialog.show();
         }
 
