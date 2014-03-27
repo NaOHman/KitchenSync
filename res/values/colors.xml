@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="textColor">#000000</color>
-    <color name="primaryColor">#1c2130</color>
-    <color name="secondaryColor">#f14a2a</color>
-    <color name="trimColor">#ffa1d498</color>
-    <color name="background_Color">#fff7ffba</color>
+    <color name="textColor">#ffb05000</color>
+    <color name="primaryColor">#ffb05000</color>
+    <color name="secondaryColor">#ff007474</color>
+    <color name="trimColor">#ffac00d</color>
+    <color name="background_Color">#ffffdf9b</color>
 </resources>
