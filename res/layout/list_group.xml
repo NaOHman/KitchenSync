@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="55dip"
-    android:orientation="vertical" >
-    
+    android:layout_height="50dip"
+    android:orientation="vertical"
+    android:background="@color/background_Color">
+
     <TextView
     android:id="@+id/lblStationHeader"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/background_Color"
+    android:layout_height="fill_parent"
     android:textColor="@color/textColor"
-    android:textSize="17dip" />
+    android:textSize="17dip" android:text="Pizza"
+    android:layout_toRightOf="@+id/textView" android:layout_alignTop="@+id/textView"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="         | "
+            android:id="@+id/textView"
+            android:layout_centerVertical="true" android:layout_alignParentLeft="true"/>
     <!--   android:paddingTop="5dp"
      android:paddingBottom="5dp"
      android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
      -->
-</LinearLayout>
+</RelativeLayout>

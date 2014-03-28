@@ -13,7 +13,7 @@
                 android:layout_height="wrap_content"
                 android:text="NO TEXT SET"
                 android:textStyle="italic" android:textSize="14dp"
-                android:textColor="@color/textColor"
+                android:textColor="@color/trimColor"
                 android:id="@+id/header_date"
                 android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
     </RelativeLayout>
@@ -41,7 +41,7 @@
         <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:textStyle="italic"
                 android:text="Gluten Free"
                 android:id="@+id/glutenFreeCheckBox"
@@ -69,7 +69,7 @@
                 android:layout_alignParentTop="true" android:layout_toRightOf="@+id/header_displayingMealsFor"/>
     </RelativeLayout>
     <RelativeLayout
-            android:background="@color/secondaryColor"
+            android:background="@color/trimColor"
             android:layout_width="fill_parent"
             android:layout_height="7dp">
     </RelativeLayout>
