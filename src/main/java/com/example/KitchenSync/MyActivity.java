@@ -130,6 +130,9 @@ public class MyActivity extends Activity {
         Day day = filter.applyFilter(week.getDay(weekday));
         listAdapter = new MealListAdapter(day, this);
         expListView.setAdapter(listAdapter);
+        for (int i=0; i < listAdapter.getGroupCount(); i++) {
+            expListView.expandGroup(i);
+        }
     }
 
     private class WeekDataFetcher extends AsyncTask<String, Void, Week> {

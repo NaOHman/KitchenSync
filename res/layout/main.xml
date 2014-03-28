@@ -76,7 +76,7 @@
     <ExpandableListView android:layout_width="match_parent"
                             android:layout_height="fill_parent"
                             android:id="@+id/menu_expandable"
-                            android:background="@color/trimColor">
+                            android:background="@color/background_Color">
 
         </ExpandableListView>
 </LinearLayout>

@@ -31,10 +31,14 @@ public class MealListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
-        CustExpListview SecondLevelexplv = new CustExpListview(context);
-        SecondLevelexplv.setAdapter(new StationListAdapter(context, getMeal(groupPosition)));
-        SecondLevelexplv.setGroupIndicator(null);
-        return SecondLevelexplv;
+        CustExpListview secondLevelexplv = new CustExpListview(context);
+        StationListAdapter adapter = new StationListAdapter(context, getMeal(groupPosition));
+        secondLevelexplv.setAdapter(adapter);
+        secondLevelexplv.setGroupIndicator(null);
+        for (int i=0; i < adapter.getGroupCount(); i++){
+            secondLevelexplv.expandGroup(i);
+        }
+        return secondLevelexplv;
     }
 
     @Override
