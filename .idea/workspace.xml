@@ -15,8 +15,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96f194bb-6903-4c8c-b44a-3a76162b0b43" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KitchenSync.iws" />
@@ -662,7 +660,7 @@
       <workItem from="1395892569183" duration="115000" />
       <workItem from="1395930495906" duration="4760000" />
       <workItem from="1396027138868" duration="572000" />
-      <workItem from="1396027755166" duration="808000" />
+      <workItem from="1396027755166" duration="826000" />
     </task>
     <task id="LOCAL-00001" summary="Made filter class. Turned restrictions into enums&#10;">
       <created>1394829650817</created>
@@ -696,11 +694,15 @@
       <created>1396027165310</created>
       <updated>1396027165310</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Removed hard coded strings">
+      <created>1396028814569</created>
+      <updated>1396028814569</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29843000" />
+    <option name="totallyTimeSpent" value="29861000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="17" y="13" width="1261" height="735" extended-state="0" />
@@ -759,7 +761,8 @@
     <MESSAGE value="colors" />
     <MESSAGE value="Implemented auto expand" />
     <MESSAGE value="Implemented Autoexpand" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented Autoexpand" />
+    <MESSAGE value="Removed hard coded strings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed hard coded strings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
