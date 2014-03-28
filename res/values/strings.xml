@@ -2,4 +2,7 @@
 <resources>
     <string name="app_name">KitchenSync</string>
     <string name="cafe_url">http://macalester.cafebonappetit.com/hungry/cafe-mac/</string>
+    <string name="filter_text">Filter</string>
+    <string name="display_day">Day</string>
+    <string name="gluten_free">Gluten Free</string>
 </resources>

@@ -28,7 +28,7 @@
                 android:textStyle="bold"
                 android:textSize="22dp"
                 android:textColor="@color/secondaryColor"
-                android:text="         Filter: "
+                android:text="@string/filter_text"
                 android:id="@+id/filterText"
                 android:layout_centerVertical="true" android:layout_alignParentLeft="true"
                 />
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="14dp"
                 android:textStyle="italic"
-                android:text="Gluten Free"
+                android:text="@string/gluten_free"
                 android:id="@+id/glutenFreeCheckBox"
                 android:checked="false"
                 android:layout_alignParentRight="true" android:layout_alignParentBottom="true"/>
@@ -59,7 +59,7 @@
                 android:id="@+id/header_displayingMealsFor"
                 android:textStyle="bold" android:textSize="22dp"
                 android:textColor="@color/secondaryColor"
-                android:text="Displaying:"
+                android:text="@string/display_day"
                 android:layout_centerVertical="true" android:layout_alignParentLeft="true"/>
         <Spinner
                 android:layout_width="wrap_content"
@@ -74,9 +74,9 @@
             android:layout_height="7dp">
     </RelativeLayout>
     <ExpandableListView android:layout_width="match_parent"
-                            android:layout_height="fill_parent"
-                            android:id="@+id/menu_expandable"
-                            android:background="@color/background_Color">
+                        android:layout_height="fill_parent"
+                        android:id="@+id/menu_expandable"
+                        android:background="@color/background_Color">
 
         </ExpandableListView>
 </LinearLayout>
