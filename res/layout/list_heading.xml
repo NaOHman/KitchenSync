@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="100dip"
+              android:layout_height="47dip"
               android:orientation="vertical" >
 
     <TextView
@@ -9,14 +9,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/background_Color"
-            android:textColor="@color/textColor"
+            android:textColor="@color/secondaryColor"
             android:textStyle="bold"
-            android:textSize="65dip" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/textView"/>
+            android:textSize="40dip" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/textView"
+            android:text="Lunch"/>
     <TextView
             android:background="@color/background_Color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="     "
+            android:text="         "
             android:id="@+id/textView" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
             android:layout_alignBottom="@+id/lblMealHeader"/>
 

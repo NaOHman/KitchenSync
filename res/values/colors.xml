@@ -2,7 +2,9 @@
 <resources>
     <color name="textColor">#ffb05000</color>
     <color name="primaryColor">#ffb05000</color>
-    <color name="secondaryColor">#ff007474</color>
-    <color name="trimColor">#ffac00d</color>
-    <color name="background_Color">#ffffdf9b</color>
+    <color name="secondaryColor">#ff2f7010</color>
+    <color name="trimColor">#ffb0a955</color>
+    <color name="background_Color">#ffffed9f</color>
+    <color name="black">#ff181808</color>
 </resources>
+

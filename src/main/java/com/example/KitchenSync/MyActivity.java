@@ -37,7 +37,7 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        //access calendar class to get current month, date, year, and day
+        //access calendar class to get current month, date, year, and day  TODO:neaten next 20ish lines
         Calendar calendar = Calendar.getInstance();
         dateDisplay = (TextView) findViewById(R.id.header_date);
         int month = calendar.get(Calendar.MONTH);

@@ -17,9 +17,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Android API 18 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.7.3" level="project" />
+    <orderEntry type="library" exported="" name="Maven: org.jsoup:jsoup:1.7.3" level="project" />
+    <orderEntry type="library" name="jsoup-1.7.3" level="project" />
   </component>
 </module>
 
