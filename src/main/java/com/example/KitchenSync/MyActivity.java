@@ -103,7 +103,7 @@ public class MyActivity extends Activity {
             default: dayString = "INVALID DAY";
         }
     }
-
+    //this is test?
     public void setListData(Week week){
         this.week = week;
         updateListData();
