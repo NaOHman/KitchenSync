@@ -8,10 +8,9 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ExpandableListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -22,9 +21,7 @@ public class MyActivity extends Activity {
     private MealListAdapter listAdapter;
     private ExpandableListView expListView;
     private Week week = null;
-
     private TextView dateDisplay;
-    private Spinner selectDay;
     private String dayString;
     private Weekday weekday;
 
@@ -36,32 +33,14 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+
+
         //access calendar class to get current month, date, year, and day
         Calendar calendar = Calendar.getInstance();
         dateDisplay = (TextView) findViewById(R.id.header_date);
-        int month = calendar.get(Calendar.MONTH);
-        int date = calendar.get(Calendar.DATE);
         int day = calendar.get(Calendar.DAY_OF_WEEK);
         setDayValues(day);
-        dateDisplay.setText(dayString + ", " + month + " / " + date);
-
-        //sets up Day selector spinner
-        selectDay = (Spinner) findViewById(R.id.daySelectorSpinner);
-        selectDay.setSelection(day -1, false);
-        selectDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("MealSelector Spinner", "Item selected" + position);
-                setDayValues(position + 1);
-                if (week != null)
-                    updateListData();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                //do nothing
-            }
-        });
+        dateDisplay.setText(dayString + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
 
 
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
@@ -75,6 +54,15 @@ public class MyActivity extends Activity {
         }
 
     }
+
+    //sets up options menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.popupmenu, menu);
+        return true;
+    }
+
     private void setDayValues(int day){
         Log.d("MyActivity", "Setting Day value = " + day);
         weekday = Weekday.values()[day-1];
@@ -103,7 +91,7 @@ public class MyActivity extends Activity {
             default: dayString = "INVALID DAY";
         }
     }
-    //this is test?
+
     public void setListData(Week week){
         this.week = week;
         updateListData();

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/ChooseDayMenuOption" android:title="Choose Day">
+        <!--"meal Day Submenu-->
+        <menu android:id="@+id/mealOptionsMenu">
+            <item android:id="@+id/mealOptionsMenu_Sunday" android:title="Sunday"/>
+            <item android:id="@+id/mealOptionsMenu_Monday" android:title="Monday"/>
+            <item android:id="@+id/mealOptionsMenu_Tuesday" android:title="Tuesday"/>
+            <item android:id="@+id/mealOptionsMenu_Wednesday" android:title="Wednesday"/>
+            <item android:id="@+id/mealOptionsMenu_Thursday" android:title="Thursday"/>
+            <item android:id="@+id/mealOptionsMenu_Friday" android:title="Friday"/>
+            <item android:id="@+id/mealOptionsMenu_Saturday" android:title="Saturday"/>
+        </menu>
+    </item>
+    <item android:id="@+id/FilterForMenuOption" android:title="Filter For">
+        <!--"meal Filter Submenu-->
+        <menu android:id="@+id/FilterOptionsMenu">
+            <item android:id="@+id/mealOptionsMenu_Vegan" android:title="Vegan"/>
+            <item android:id="@+id/mealOptionsMenu_Pescetarian" android:title="Pescetarian"/>
+            <item android:id="@+id/mealOptionsMenu_Vegetarian" android:title="Vegetarian"/>
+            <item android:id="@+id/mealOptionsMenu_None" android:title="None"/>
+        </menu>
+    </item>
+
+</menu>
