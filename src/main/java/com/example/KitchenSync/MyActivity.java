@@ -10,7 +10,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -18,6 +21,8 @@ import org.jsoup.nodes.Document;
 import java.util.Calendar;
 
 public class MyActivity extends Activity {
+
+
     private MealListAdapter listAdapter;
     private ExpandableListView expListView;
     private Week week = null;
@@ -34,7 +39,6 @@ public class MyActivity extends Activity {
         setContentView(R.layout.main);
 
 
-
         //access calendar class to get current month, date, year, and day
         Calendar calendar = Calendar.getInstance();
         dateDisplay = (TextView) findViewById(R.id.header_date);
@@ -42,6 +46,16 @@ public class MyActivity extends Activity {
         setDayValues(day);
         dateDisplay.setText(dayString + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
 
+
+        //assigns onClickListener to preferencesMenuButton
+        final ImageButton preferencesButton = (ImageButton) findViewById(R.id.preferencesImageButton);
+        preferencesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerForContextMenu(preferencesButton);  //TODO doesn't work..
+                openContextMenu(preferencesButton);
+            }
+        });
 
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -55,12 +69,71 @@ public class MyActivity extends Activity {
 
     }
 
-    //sets up options menu
+
+
+
+    //creates options menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.popupmenu, menu);
         return true;
+    }
+
+    //on click listeners for menu items
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+
+            //day selection  TODO: neaten switch?
+            case R.id.mealOptionsMenu_Sunday:
+                setDayValues(0);
+                if(week != null) updateListData();
+                return true;
+            case R.id.mealOptionsMenu_Monday:
+                setDayValues(1);
+                if(week != null) updateListData();
+                return true;
+            case R.id.mealOptionsMenu_Tuesday:
+                setDayValues(2);
+                if(week != null) updateListData();
+                return true;
+            case R.id.mealOptionsMenu_Wednesday:
+                setDayValues(3);
+                if(week != null) updateListData();
+                return true;
+            case R.id.mealOptionsMenu_Thursday:
+                setDayValues(4);
+                if(week != null) updateListData();
+                return true;
+            case R.id.mealOptionsMenu_Friday:
+                setDayValues(5);
+                if(week != null) updateListData();
+                return true;
+            case R.id.mealOptionsMenu_Saturday:
+                setDayValues(6);
+                if(week != null) updateListData();
+                return true;
+
+            //filter selection
+            case R.id.mealOptionsMenu_Vegan:
+                //filter.setRestriction(Restriction.values()[position]); TODO merge changes to be able to use filter
+                return true;
+            case R.id.mealOptionsMenu_Pescetarian:
+                //TODO
+                return true;
+            case R.id.mealOptionsMenu_Vegetarian:
+                //TODO
+                return true;
+            case R.id.mealOptionsMenu_None:
+                //TODO
+                return true;
+
+            default:
+                super.onOptionsItemSelected(item);
+                return true;
+        }
     }
 
     private void setDayValues(int day){

@@ -7,7 +7,7 @@
     <RelativeLayout
             android:id="@+id/menuBar"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:background="@color/background_Color">
         <TextView
                 android:layout_width="wrap_content"
@@ -16,7 +16,12 @@
                 android:textStyle="italic" android:textSize="14dp"
                 android:textColor="@color/textColor"
                 android:id="@+id/header_date"
-                android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
+                android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/preferencesImageButton" android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true" android:src="@drawable/monotone_cog_settings_gear"/>
     </RelativeLayout>
     <RelativeLayout
             android:background="@color/secondaryColor"

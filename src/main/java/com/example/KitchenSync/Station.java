@@ -6,7 +6,7 @@ import java.util.ArrayList;
  */
 public class Station {
     private final String name;
-    private ArrayList<MenuItem> menuItems;
+    private ArrayList<MacMenuItem> menuItems;
 
     /**
      * Creates a station
@@ -14,23 +14,21 @@ public class Station {
      */
     public Station(String name){
         this.name = name;
-        menuItems = new ArrayList<MenuItem>();
+        menuItems = new ArrayList<MacMenuItem>();
     }
 
     /**
      * adds a menu item to the station
      * @param menuItem a menu item served at the station
      */
-    public void addMenuItem(MenuItem menuItem){
+    public void addMenuItem(MacMenuItem menuItem){
        menuItems.add(menuItem);
     }
 
     /**
      * @return all the menu items served at the station
      */
-    public ArrayList<MenuItem> getMenuItems(){
-        return menuItems;
-    }
+    public ArrayList<MacMenuItem> getMenuItems(){ return menuItems; }
 
     /**
      * @return returns station's name
@@ -43,7 +41,7 @@ public class Station {
      */
     public String toString(){
         String station = name + "\n";
-        for (MenuItem menuItem : menuItems){
+        for (MacMenuItem menuItem : menuItems){
             station = station + menuItem.toString() + "\n";
         }
         return station;
@@ -53,9 +51,9 @@ public class Station {
      * @param restriction a dietary restriction either vegan, vegetarian, made-without-gluten, or seafood-watch
      * @return a list of all items at the station that match the restriction e.g. all vegan options
      */
-    public ArrayList<MenuItem> getMenuItemsWith(String restriction){
-        ArrayList<MenuItem> items = new ArrayList<MenuItem>();
-        for (MenuItem menuItem : menuItems){
+    public ArrayList<MacMenuItem> getMenuItemsWith(String restriction){
+        ArrayList<MacMenuItem> items = new ArrayList<MacMenuItem>();
+        for (MacMenuItem menuItem : menuItems){
             if (menuItem.hasRestriction(restriction))
                 items.add(menuItem);
         }
@@ -66,9 +64,9 @@ public class Station {
      * @param restriction a dietary restriction either vegan, vegetarian, made-without-gluten, or seafood-watch
      * @return a list of all items at the station without the restriction e.g. all items not on seafood watch
      */
-    public ArrayList<MenuItem> getMenuItemsWithout(String restriction){
-        ArrayList<MenuItem> items = new ArrayList<MenuItem>();
-        for (MenuItem menuItem : menuItems){
+    public ArrayList<MacMenuItem> getMenuItemsWithout(String restriction){
+        ArrayList<MacMenuItem> items = new ArrayList<MacMenuItem>();
+        for (MacMenuItem menuItem : menuItems){
             if (!menuItem.hasRestriction(restriction))
                 items.add(menuItem);
         }
@@ -76,7 +74,7 @@ public class Station {
     }
     public ArrayList<String> getMenuItemNames(){
         ArrayList<String> items = new ArrayList<String>();
-        for (MenuItem menuItem : menuItems){
+        for (MacMenuItem menuItem : menuItems){
             items.add(menuItem.getName());
         }
         return items;

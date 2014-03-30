@@ -1,15 +1,16 @@
 package com.example.KitchenSync;
+
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import java.util.ArrayList;
 
 /**
- * Created by jeffrey on 2/11/14.
- * a MenuItem represents a dish being served in cafe mac
- * it also contains data about the food such as dietary restrictions
+ * Created by dgoldste on 3/30/14.
+ * Meant to replace MenuItem class created by Jeffrey, as MenuItem for popup menu class has same name
+ *
  */
-public class MenuItem {
+
+public class MacMenuItem {
     private String name;
     private String description;
     private Station location;
@@ -19,7 +20,7 @@ public class MenuItem {
     /* takes an HTML element representing a food and then
        turns it into a useful java object.
      */
-    public MenuItem(Element itemData, Station location){
+    public MacMenuItem(Element itemData, Station location){
         this.location = location;
         description = "";
         restrictions = new ArrayList<String>();
@@ -47,9 +48,9 @@ public class MenuItem {
     private void makeRestrictions(Element foodData){
         Elements restrict = foodData.select(".tipbox");
         for (Element restriction : restrict){
-                String restrictionType = restriction.className();
-                restrictionType = restrictionType.substring(restrictionType.lastIndexOf(" ")+1);
-                restrictions.add(restrictionType);
+            String restrictionType = restriction.className();
+            restrictionType = restrictionType.substring(restrictionType.lastIndexOf(" ")+1);
+            restrictions.add(restrictionType);
         }
     }
 
@@ -100,3 +101,4 @@ public class MenuItem {
     }
 
 }
+
