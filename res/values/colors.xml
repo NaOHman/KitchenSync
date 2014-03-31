@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="textColor">#000000</color>
-    <color name="primaryColor">#1c2130</color>
-    <color name="secondaryColor">#f14a2a</color>
-    <color name="trimColor">#ffa1d498</color>
-    <color name="background_Color">#fff7ffba</color>
+    <color name="textColor">#373e2f</color>
+    <color name="primaryColor">#eaf263</color>
+    <color name="secondaryColor">#be2f37</color>
+    <color name="thirdColor">#43cac2</color>
+    <color name="trimColor">#f7eada</color>
+    <color name="background_Color">#f7eada</color>
 </resources>
