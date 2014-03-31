@@ -49,7 +49,7 @@ public class Meal {
                 currentStation = new Station(stationName);
                 stations.add(currentStation);
             } else if (item.hasClass("price-")) {
-                MenuItem food = new MenuItem(item, currentStation);
+                MenuItem food = new MenuItem(item);
                 currentStation.addMenuItem(food);
             }
         }

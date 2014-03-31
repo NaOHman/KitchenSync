@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class MenuItem {
     private String name;
     private String description;
-    private Station location;
     private Boolean glutenFree;
     private Restriction restriction;
     // ArrayList<Review> reviews;
@@ -21,8 +20,7 @@ public class MenuItem {
     /* takes an HTML element representing a food and then
        turns it into a useful java object.
      */
-    public MenuItem(Element itemData, Station location){
-        this.location = location;
+    public MenuItem(Element itemData){
         description = "";
         glutenFree = false;
         Element foodData = itemData.getElementsByClass("eni-menu-item-name").first();

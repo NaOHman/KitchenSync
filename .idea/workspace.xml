@@ -15,6 +15,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96f194bb-6903-4c8c-b44a-3a76162b0b43" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Meal.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Meal.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuItem.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuItem.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KitchenSync.iws" />
@@ -79,10 +81,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MyActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MyActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="21" selection-start="1755" selection-end="1755" vertical-scroll-proportion="-0.44117647" vertical-offset="765" max-vertical-offset="2340">
+            <state line="51" column="21" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2340">
               <folding />
             </state>
           </provider>
@@ -91,7 +93,7 @@
       <file leaf-file-name="MealListAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MealListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="9" selection-start="1245" selection-end="1245" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1590">
+            <state line="39" column="9" selection-start="1245" selection-end="1245" vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="1680">
               <folding />
             </state>
           </provider>
@@ -121,7 +123,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="50" selection-start="1379" selection-end="1379" vertical-scroll-proportion="0.19607843" vertical-offset="445" max-vertical-offset="1305">
+            <state line="29" column="50" selection-start="1379" selection-end="1379" vertical-scroll-proportion="0.0" vertical-offset="445" max-vertical-offset="1305">
               <folding />
             </state>
           </provider>
@@ -131,6 +133,24 @@
         <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="8" column="0" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="210">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuItem.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuItem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="31" selection-start="826" selection-end="826" vertical-scroll-proportion="0.0" vertical-offset="1450" max-vertical-offset="1905">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Meal.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Meal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="51" selection-start="1632" selection-end="1632" vertical-scroll-proportion="0.58429563" vertical-offset="407" max-vertical-offset="1470">
               <folding />
             </state>
           </provider>
@@ -158,10 +178,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Day.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Restriction.java" />
         <option value="$PROJECT_DIR$/res/layout/list_group.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Meal.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Station.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Week.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/CalendarDay.java" />
         <option value="$PROJECT_DIR$/res/values/eating_restrictions_array.xml" />
@@ -172,14 +190,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MealListAdapter.java" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/res/layout/main.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuItem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Meal.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="17" />
-    <option name="y" value="13" />
-    <option name="width" value="1261" />
-    <option name="height" value="735" />
+    <option name="x" value="20" />
+    <option name="y" value="34" />
+    <option name="width" value="1322" />
+    <option name="height" value="710" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -209,7 +229,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -353,6 +372,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -661,6 +681,7 @@
       <workItem from="1395930495906" duration="4760000" />
       <workItem from="1396027138868" duration="572000" />
       <workItem from="1396027755166" duration="826000" />
+      <workItem from="1396228795599" duration="220000" />
     </task>
     <task id="LOCAL-00001" summary="Made filter class. Turned restrictions into enums&#10;">
       <created>1394829650817</created>
@@ -702,16 +723,15 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29861000" />
+    <option name="totallyTimeSpent" value="30081000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="17" y="13" width="1261" height="735" extended-state="0" />
+    <frame x="20" y="34" width="1322" height="710" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32811213" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -723,19 +743,20 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22275642" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24839744" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22383253" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24938272" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17037037" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1703125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7708333" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32811213" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22275642" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1023,13 +1044,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Meal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="51" selection-start="2284" selection-end="2284" vertical-scroll-proportion="0.0" vertical-offset="817" max-vertical-offset="1470">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="36" selection-start="811" selection-end="811" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
@@ -1068,13 +1082,6 @@
     <entry file="file://$PROJECT_DIR$/res/values/eating_restrictions_array.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="12" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="3349" selection-end="3349" vertical-scroll-proportion="0.0" vertical-offset="1350" max-vertical-offset="2055">
           <folding />
         </state>
       </provider>
@@ -1119,7 +1126,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="50" selection-start="1379" selection-end="1379" vertical-scroll-proportion="0.19607843" vertical-offset="445" max-vertical-offset="1305">
+        <state line="29" column="50" selection-start="1379" selection-end="1379" vertical-scroll-proportion="0.0" vertical-offset="445" max-vertical-offset="1305">
           <folding />
         </state>
       </provider>
@@ -1133,7 +1140,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="21" selection-start="1755" selection-end="1755" vertical-scroll-proportion="-0.44117647" vertical-offset="765" max-vertical-offset="2340">
+        <state line="51" column="21" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="31" selection-start="826" selection-end="826" vertical-scroll-proportion="0.0" vertical-offset="1450" max-vertical-offset="1905">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Meal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="51" selection-start="1632" selection-end="1632" vertical-scroll-proportion="0.58429563" vertical-offset="407" max-vertical-offset="1470">
           <folding />
         </state>
       </provider>
