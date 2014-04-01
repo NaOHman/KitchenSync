@@ -12,7 +12,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NO TEXT SET"
+                android:text="@string/main_defaultDateText"
                 android:textStyle="italic" android:textSize="14dp"
                 android:textColor="@color/textColor"
                 android:id="@+id/header_date"
@@ -20,8 +20,9 @@
         <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/preferencesImageButton" android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true" android:src="@drawable/monotone_cog_settings_gear"/>
+                android:id="@+id/preferencesImageButton"
+                android:src="@drawable/settings" android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"/>
     </RelativeLayout>
     <RelativeLayout
             android:background="@color/secondaryColor"

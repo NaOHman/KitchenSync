@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -37,17 +38,9 @@ public class MyActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        createDateDisplay();
 
+        createMenu();
 
-        //assigns onClickListener to preferencesMenuButton
-        final ImageButton preferencesButton = (ImageButton) findViewById(R.id.preferencesImageButton);
-        preferencesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MyActivity.this.openOptionsMenu();
-            }
-        });
 
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -73,11 +66,15 @@ public class MyActivity extends Activity {
 
     //on click listeners for menu items
     @Override
+
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
+
+        item.getOrder();
         switch (item.getItemId()) {
 
-            //day selection  TODO: neaten switch?
+
+            //day selection
             case R.id.mealOptionsMenu_Sunday:
                 setDayValues(0);
                 if(week != null) updateListData();
@@ -106,6 +103,7 @@ public class MyActivity extends Activity {
                 setDayValues(6);
                 if(week != null) updateListData();
                 return true;
+
 
             //filter selection
             case R.id.mealOptionsMenu_Vegan:
@@ -167,12 +165,25 @@ public class MyActivity extends Activity {
         expListView.setAdapter(listAdapter);
     }
 
-    public void createDateDisplay(){
+    /**
+     * sets up menu bar in main Layout
+     */
+    public void createMenu(){
         Calendar calendar = Calendar.getInstance();
-        dateDisplay = (TextView) findViewById(R.id.header_date);
         int day = calendar.get(Calendar.DAY_OF_WEEK);
         setDayValues(day);
+        dateDisplay = (TextView) findViewById(R.id.header_date);
         dateDisplay.setText(dayString + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
+
+        //assigns onClickListener to preferencesMenuButton
+        final ImageButton preferencesButton = (ImageButton) findViewById(R.id.preferencesImageButton);
+        preferencesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyActivity.this.openOptionsMenu();
+            }
+        });
+
     }
 
     private class WeekDataFetcher extends AsyncTask<String, Void, Week> {
