@@ -49,7 +49,7 @@ public class MyActivity extends Activity {
         if (networkInfo != null && networkInfo.isConnected()) {
             new WeekDataFetcher().execute(getString(R.string.cafe_url));
         } else {
-            //network not connected do something
+            //TODO network not connected do something
         }
 
     }
@@ -70,7 +70,21 @@ public class MyActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
 
-        item.getOrder();
+        //TODO: see if this works, if so delete switch and setDay()
+        if (item.getGroupId() == R.id.menuMealGroup) {
+            dayString = item.getTitle().toString();
+            updateListData();
+            return true;
+        }
+        if (item.getGroupId() == R.id.menuFilterGroup) {
+            //TODO manually specify order
+            return true;
+        } else {
+            super.onOptionsItemSelected(item);
+            return true;
+        }
+    }
+        /**
         switch (item.getItemId()) {
 
 
@@ -122,8 +136,9 @@ public class MyActivity extends Activity {
             default:
                 super.onOptionsItemSelected(item);
                 return true;
-        }
-    }
+
+        }*/
+
 
     private void setDayValues(int day){
         Log.d("MyActivity", "Setting Day value = " + day);
@@ -168,7 +183,7 @@ public class MyActivity extends Activity {
     /**
      * sets up menu bar in main Layout
      */
-    public void createMenu(){
+    private void createMenu(){
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
         setDayValues(day);
