@@ -37,14 +37,7 @@ public class MyActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
-
-        //access calendar class to get current month, date, year, and day
-        Calendar calendar = Calendar.getInstance();
-        dateDisplay = (TextView) findViewById(R.id.header_date);
-        int day = calendar.get(Calendar.DAY_OF_WEEK);
-        setDayValues(day);
-        dateDisplay.setText(dayString + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
+        createDateDisplay();
 
 
         //assigns onClickListener to preferencesMenuButton
@@ -52,8 +45,7 @@ public class MyActivity extends Activity {
         preferencesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerForContextMenu(preferencesButton);  //TODO doesn't work..
-                openContextMenu(preferencesButton);
+                MyActivity.this.openOptionsMenu();
             }
         });
 
@@ -68,7 +60,6 @@ public class MyActivity extends Activity {
         }
 
     }
-
 
 
 
@@ -174,6 +165,14 @@ public class MyActivity extends Activity {
         Day day = week.getDay(weekday);
         listAdapter = new MealListAdapter(day, this);
         expListView.setAdapter(listAdapter);
+    }
+
+    public void createDateDisplay(){
+        Calendar calendar = Calendar.getInstance();
+        dateDisplay = (TextView) findViewById(R.id.header_date);
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        setDayValues(day);
+        dateDisplay.setText(dayString + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
     }
 
     private class WeekDataFetcher extends AsyncTask<String, Void, Week> {
