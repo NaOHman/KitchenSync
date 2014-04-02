@@ -32,19 +32,6 @@ public class MyActivity extends Activity {
     private String dayString;
     private Weekday weekday;
 
-    /** TODO possible error = making list of Strings, but array of strings
-    private String[] dayArray = {
-            getString(R.string.Sunday),
-            getString(R.string.Monday),
-            getString(R.string.Tuesday),
-            getString(R.string.Wednesday),
-            getString(R.string.Thursday),
-            getString(R.string.Friday),
-            getString(R.string.Saturday)
-    };
-
-
-
     /**
      * Called when the activity is first created.
      */
@@ -52,12 +39,10 @@ public class MyActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
         createMenu();
-
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             new WeekDataFetcher().execute(getString(R.string.cafe_url));
@@ -67,7 +52,6 @@ public class MyActivity extends Activity {
 
     }
 
-
     /**
      * sets up menu bar in main Layout
      */
@@ -76,10 +60,7 @@ public class MyActivity extends Activity {
         int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
         dateDisplay = (TextView) findViewById(R.id.header_date);
         dateDisplay.setText(getString(R.string.Saturday) + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
-
         setDayValues(getString(R.string.Saturday));
-
-
         //assigns onClickListener to preferencesMenuButton
         final ImageButton preferencesButton = (ImageButton) findViewById(R.id.preferencesImageButton);
         preferencesButton.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +69,6 @@ public class MyActivity extends Activity {
                 MyActivity.this.openOptionsMenu();
             }
         });
-
     }
 
     //creates options menu
@@ -105,7 +85,6 @@ public class MyActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
-
         if (item.getGroupId() == R.id.menuMealGroup) {
             dayString = item.getTitle().toString();
             setDayValues(dayString);
@@ -124,15 +103,13 @@ public class MyActivity extends Activity {
 
     private void setDayValues(String day){
         Log.d("My activity", "setting day to =" + day);
-
-        if(day == getString(R.string.Sunday)) weekday = Weekday.values()[0];
-        if(day == getString(R.string.Monday)) weekday = Weekday.values()[1];
-        if(day == getString(R.string.Tuesday)) weekday = Weekday.values()[2];
-        if(day == getString(R.string.Wednesday)) weekday = Weekday.values()[3];
-        if(day == getString(R.string.Thursday)) weekday = Weekday.values()[4];
-        if(day == getString(R.string.Friday)) weekday = Weekday.values()[5];
-        if(day == getString(R.string.Saturday)) weekday = Weekday.values()[6];
-
+        if(day == getString(R.string.Sunday)) weekday = Weekday.SUNDAY;
+        if(day == getString(R.string.Monday)) weekday = Weekday.MONDAY;
+        if(day == getString(R.string.Tuesday)) weekday = Weekday.TUESDAY;
+        if(day == getString(R.string.Wednesday)) weekday = Weekday.WEDNESDAY;
+        if(day == getString(R.string.Thursday)) weekday = Weekday.THURSDAY;
+        if(day == getString(R.string.Friday)) weekday = Weekday.FRIDAY;
+        if(day == getString(R.string.Saturday)) weekday = Weekday.SATURDAY;
     }
 
     public void setListData(Week week){
@@ -148,33 +125,27 @@ public class MyActivity extends Activity {
 
     private class WeekDataFetcher extends AsyncTask<String, Void, Week> {
         private ProgressDialog dialog = new ProgressDialog(MyActivity.this);
-        private Exception exception;
-
         @Override
         protected void onPreExecute() {
             this.dialog.setMessage("Welcome to KitchenSync! Collecting Menu Information..");
             this.dialog.show();
         }
-
         @Override
         protected Week doInBackground(final String... args) {
             try {
                 Log.d("WeekDataFetcher", "Establishing Connection");
                 Document doc = Jsoup.connect(args[0]).get();
-                if (doc != null) {
+                if (doc != null)
                     Log.d("WeekDataFetcher", "Got Doc");
-                } else {
+                else
                     Log.d("WeekDataFetcher", "No Doc");
-                }
                 Week week = new Week(doc);
                 return week;
             } catch (Exception e) {
-                this.exception = e;
                 Log.e("WeekDataFetcher", "Error collecting Data");
                 return null;
             }
         }
-
         @Override
         protected void onPostExecute(final Week week) {
 

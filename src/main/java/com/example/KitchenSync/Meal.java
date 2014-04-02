@@ -39,7 +39,7 @@ public class Meal {
                 currentStation = new Station(stationName);
                 stations.add(currentStation);
             } else if (item.hasClass("price-")) {
-                MacMenuItem food = new MacMenuItem(item, currentStation);
+                Food food = new Food(item, currentStation);
                 currentStation.addMenuItem(food);
             }
         }
@@ -49,8 +49,8 @@ public class Meal {
      * Returns all menu items in served during a meal
      * @return all the menu items at a meal
      */
-    public ArrayList<MacMenuItem> getMenuItems(){
-        ArrayList<MacMenuItem> items = new ArrayList<MacMenuItem>();
+    public ArrayList<Food> getMenuItems(){
+        ArrayList<Food> items = new ArrayList<Food>();
         for (Station station : stations)
             items.addAll(station.getMenuItems());
         return items;
@@ -60,8 +60,8 @@ public class Meal {
      * @param restriction a dietary restriction, vegetarian, vegan, made-without-gluten, or seafood-watch
      * @return all the menu items in a meal that have the restriction e.g. all vegan items
      */
-    public ArrayList<MacMenuItem> getMenuItemsWith(String restriction){
-        ArrayList<MacMenuItem> items = new ArrayList<MacMenuItem>();
+    public ArrayList<Food> getMenuItemsWith(String restriction){
+        ArrayList<Food> items = new ArrayList<Food>();
         for (Station station : stations)
             items.addAll(station.getMenuItemsWith(restriction));
         return items;
@@ -71,8 +71,8 @@ public class Meal {
      * @param restriction a dietary restriction, vegetarian, vegan, made-without-gluten, or seafood-watch
      * @return all the menu items in a meal without that restriction e.g. all items not on seafood-watch
      */
-    public ArrayList<MacMenuItem> getMenuItemsWithout(String restriction){
-        ArrayList<MacMenuItem> items = new ArrayList<MacMenuItem>();
+    public ArrayList<Food> getMenuItemsWithout(String restriction){
+        ArrayList<Food> items = new ArrayList<Food>();
         for (Station station : stations)
             items.addAll(station.getMenuItemsWithout(restriction));
         return items;
