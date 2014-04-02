@@ -6,7 +6,7 @@ import java.util.ArrayList;
  */
 public class Station {
     private final String name;
-    private ArrayList<MenuItem> menuItems;
+    private ArrayList<Food> foods;
 
     /**
      * Creates a station
@@ -14,25 +14,25 @@ public class Station {
      */
     public Station(String name){
         this.name = name;
-        menuItems = new ArrayList<MenuItem>();
+        foods = new ArrayList<Food>();
     }
 
     /**
      * adds a menu item to the station
-     * @param menuItem a menu item served at the station
+     * @param food a menu item served at the station
      */
-    public void addMenuItem(MenuItem menuItem){
-       menuItems.add(menuItem);
+    public void addMenuItem(Food food){
+       foods.add(food);
     }
 
-    public void setMenuItems(ArrayList<MenuItem> menuItems){
-        this.menuItems = menuItems;
+    public void setFoods(ArrayList<Food> foods){
+        this.foods = foods;
     }
     /**
      * @return all the menu items served at the station
      */
-    public ArrayList<MenuItem> getMenuItems(){
-        return menuItems;
+    public ArrayList<Food> getFoods(){
+        return foods;
     }
 
     /**
@@ -46,8 +46,8 @@ public class Station {
      */
     public String toString(){
         String station = name + "\n";
-        for (MenuItem menuItem : menuItems){
-            station = station + menuItem.toString() + "\n";
+        for (Food food : foods){
+            station = station + food.toString() + "\n";
         }
         return station;
     }
@@ -56,19 +56,19 @@ public class Station {
      * @param restriction a dietary restriction either vegan, vegetarian, made-without-gluten, or seafood-watch
      * @return a list of all items at the station that match the restriction e.g. all vegan options
      */
-    public ArrayList<MenuItem> getMatches(Restriction restriction, boolean matchGlutenFree){
-        ArrayList<MenuItem> items = new ArrayList<MenuItem>();
-        for (MenuItem menuItem : menuItems){
-            if (menuItem.matchRestriction(restriction, matchGlutenFree))
-                items.add(menuItem);
+    public ArrayList<Food> getMatches(Restriction restriction, boolean matchGlutenFree){
+        ArrayList<Food> items = new ArrayList<Food>();
+        for (Food food : foods){
+            if (food.matchRestriction(restriction, matchGlutenFree))
+                items.add(food);
         }
         return items;
     }
 
     public ArrayList<String> getMenuItemNames(){
         ArrayList<String> items = new ArrayList<String>();
-        for (MenuItem menuItem : menuItems){
-            items.add(menuItem.getName());
+        for (Food food : foods){
+            items.add(food.getName());
         }
         return items;
     }

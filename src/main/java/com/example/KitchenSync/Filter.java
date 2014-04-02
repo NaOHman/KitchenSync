@@ -47,10 +47,10 @@ public class Filter {
     }
 
     public Station applyFilter(Station station){
-        ArrayList<MenuItem> menuItems = station.getMatches(r, matchGluten);
-        if (menuItems.size() > 0){
+        ArrayList<Food> foods = station.getMatches(r, matchGluten);
+        if (foods.size() > 0){
             Station newStation = new Station(station.getName());
-            newStation.setMenuItems(menuItems);
+            newStation.setFoods(foods);
             return newStation;
         }
         return null;

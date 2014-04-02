@@ -29,9 +29,7 @@ public class Meal {
     public Meal(){
         stations = new ArrayList<Station>();
     }
-    public void setStations(ArrayList<Station> stations){
-        this.stations = stations;
-    }
+
     public void addStation(Station station){
         this.stations.add(station);
     }
@@ -49,21 +47,10 @@ public class Meal {
                 currentStation = new Station(stationName);
                 stations.add(currentStation);
             } else if (item.hasClass("price-")) {
-                MenuItem food = new MenuItem(item);
+                Food food = new Food(item);
                 currentStation.addMenuItem(food);
             }
         }
-    }
-
-    /**
-     * Returns all menu items in served during a meal
-     * @return all the menu items at a meal
-     */
-    public ArrayList<MenuItem> getMenuItems(){
-        ArrayList<MenuItem> items = new ArrayList<MenuItem>();
-        for (Station station : stations)
-            items.addAll(station.getMenuItems());
-        return items;
     }
 
     /**
@@ -71,6 +58,13 @@ public class Meal {
      */
     public ArrayList<Station> getStations(){
         return stations;
+    }
+
+    /**
+     * @param stations list of stations to replace the current list of stations
+     */
+    public void setStations(ArrayList<Station> stations){
+        this.stations = stations;
     }
 
     /**
@@ -89,13 +83,5 @@ public class Meal {
             stationHeaders.add(station.getName());
         }
         return stationHeaders;
-    }
-
-    public HashMap<String, List<String>> getItemSet(){
-        HashMap<String, List<String>> itemSet = new HashMap<String, List<String>>();
-        for (Station station : stations){
-            itemSet.put(station.getName(), station.getMenuItemNames());
-        }
-        return itemSet;
     }
 }

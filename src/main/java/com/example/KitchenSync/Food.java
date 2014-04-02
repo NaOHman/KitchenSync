@@ -7,10 +7,10 @@ import java.util.ArrayList;
 
 /**
  * Created by jeffrey on 2/11/14.
- * a MenuItem represents a dish being served in cafe mac
+ * a Food represents a dish being served in cafe mac
  * it also contains data about the food such as dietary restrictions
  */
-public class MenuItem {
+public class Food {
     private String name;
     private String description;
     private Boolean glutenFree;
@@ -20,7 +20,7 @@ public class MenuItem {
     /* takes an HTML element representing a food and then
        turns it into a useful java object.
      */
-    public MenuItem(Element itemData){
+    public Food(Element itemData){
         description = "";
         glutenFree = false;
         Element foodData = itemData.getElementsByClass("eni-menu-item-name").first();
@@ -28,7 +28,7 @@ public class MenuItem {
         makeDescription(itemData);
         restriction = makeRestrictions(foodData);
     }
-    public MenuItem(String name, String description, ArrayList<String> restrictions){
+    public Food(String name, String description, ArrayList<String> restrictions){
         glutenFree = false;
         this.name = name;
         this.description = description;
@@ -75,7 +75,7 @@ public class MenuItem {
     }
 
     private Restriction stringToRestriction(String s){
-        Log.d("MenuItem" + name, s);
+        Log.d("Food" + name, s);
         if (s.equals("vegan"))
             return Restriction.VEGAN;
         if (s.equals("vegetarian"))
@@ -104,7 +104,7 @@ public class MenuItem {
     }
 
     /**
-     * @param r matchgluten a String representing a dietary restriction possible options are
+     * @param r matchGluten a String representing a dietary restriction possible options are
      *                    vegetarian, vegan, made-without-gluten, and seafood-watch
      * @return whether the food matches that dietary restriction
      */
