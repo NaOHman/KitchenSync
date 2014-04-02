@@ -32,7 +32,7 @@ public class MyActivity extends Activity {
     private String dayString;
     private Weekday weekday;
 
-    /** TODO not working :(
+    /** TODO possible error = making list of Strings, but array of strings
     private String[] dayArray = {
             getString(R.string.Sunday),
             getString(R.string.Monday),
