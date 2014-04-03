@@ -5,4 +5,5 @@
     <string name="filter_text">Filter</string>
     <string name="display_day">Day</string>
     <string name="gluten_free">Gluten Free</string>
+    <string name="server_url">http://comp225-kitchen-sync.herokuapp.com/</string>
 </resources>
