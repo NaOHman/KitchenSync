@@ -15,6 +15,7 @@ public class Week {
     private Day[] days = new Day[7];
 
     /**
+     *
      * creates a new weekly menu by scraping data from the Bon Appetit website
      */
     public Week(Document doc){
