@@ -78,7 +78,7 @@ public class MyActivity extends Activity {
         inflater.inflate(R.menu.popupmenu, menu);
         return true;
     }
-
+// more git tricking
     /**
      * day or filter option chosen in menu
      */
