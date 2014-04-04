@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  */
 
-public class Food {
+public class MacMenuItem {
     private String name;
     private String description;
     private Station location;
@@ -20,7 +20,7 @@ public class Food {
     /* takes an HTML element representing a food and then
        turns it into a useful java object.
      */
-    public Food(Element itemData, Station location){
+    public MacMenuItem(Element itemData, Station location){
         this.location = location;
         description = "";
         restrictions = new ArrayList<String>();
