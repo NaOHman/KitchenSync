@@ -5,6 +5,7 @@
 
     <!--"LayoutMain-->
     <string name="main_defaultDateText">No Text Set!</string>
+    <string name="currentMealDateDisplay">currentMealDateDisplay</string>
 
     <!--"popupMenu-->
     <string name="Sunday">Sunday </string>

@@ -3,7 +3,6 @@ package com.example.KitchenSync;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -18,8 +17,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-
-import java.util.ArrayList;
 import java.util.Calendar;
 
 public class MyActivity extends Activity {
@@ -28,22 +25,10 @@ public class MyActivity extends Activity {
     private MealListAdapter listAdapter;
     private ExpandableListView expListView;
     private Week week = null;
-    private TextView dateDisplay;
+    private TextView dateDisplay,dateDisplayMeals;
     private String dayString;
     private Weekday weekday;
-
-    /** TODO possible error = making list of Strings, but array of strings
-    private String[] dayArray = {
-            getString(R.string.Sunday),
-            getString(R.string.Monday),
-            getString(R.string.Tuesday),
-            getString(R.string.Wednesday),
-            getString(R.string.Thursday),
-            getString(R.string.Friday),
-            getString(R.string.Saturday)
-    };
-
-
+    private String[] dayArray;
 
     /**
      * Called when the activity is first created.
@@ -51,6 +36,7 @@ public class MyActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.main);
 
         createMenu();
@@ -64,7 +50,6 @@ public class MyActivity extends Activity {
         } else {
             //TODO network not connected do something
         }
-
     }
 
 
@@ -74,11 +59,15 @@ public class MyActivity extends Activity {
     private void createMenu(){
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+
+        dayArray = getResources().getStringArray(R.array.day_array);
+        dateDisplayMeals = (TextView) findViewById(R.id.currentMealDateDisplay);
         dateDisplay = (TextView) findViewById(R.id.header_date);
-        dateDisplay.setText(getString(R.string.Saturday) + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
+        dateDisplay.setText(dayArray[day] + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
 
-        setDayValues(getString(R.string.Saturday));
-
+        //sets current day using Android.calendar
+        weekday = Weekday.values()[day];
+        setDayValues(dayArray[day]);
 
         //assigns onClickListener to preferencesMenuButton
         final ImageButton preferencesButton = (ImageButton) findViewById(R.id.preferencesImageButton);
@@ -98,7 +87,9 @@ public class MyActivity extends Activity {
         inflater.inflate(R.menu.popupmenu, menu);
         return true;
     }
-// more git tricking
+
+
+
     /**
      * day or filter option chosen in menu
      */
@@ -125,13 +116,14 @@ public class MyActivity extends Activity {
     private void setDayValues(String day){
         Log.d("My activity", "setting day to =" + day);
 
-        if(day == getString(R.string.Sunday)) weekday = Weekday.values()[0];
-        if(day == getString(R.string.Monday)) weekday = Weekday.values()[1];
-        if(day == getString(R.string.Tuesday)) weekday = Weekday.values()[2];
-        if(day == getString(R.string.Wednesday)) weekday = Weekday.values()[3];
-        if(day == getString(R.string.Thursday)) weekday = Weekday.values()[4];
-        if(day == getString(R.string.Friday)) weekday = Weekday.values()[5];
-        if(day == getString(R.string.Saturday)) weekday = Weekday.values()[6];
+        int i = 0;
+        for(String mealDay : dayArray){
+            if(day.equals(mealDay)){
+                weekday = Weekday.values() [i];
+                dateDisplayMeals.setText("Displaying: "+ dayArray[i]);
+            }
+            i++;
+        }
 
     }
 
