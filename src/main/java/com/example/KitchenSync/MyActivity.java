@@ -3,11 +3,15 @@ package com.example.KitchenSync;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 import com.google.gson.Gson;
@@ -19,6 +23,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URI;
+import android.widget.ExpandableListView;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.io.InputStream;
 
@@ -29,11 +40,9 @@ public class MyActivity extends Activity {
     private Filter filter;
 
     private TextView dateDisplay;
-    private Spinner selectFilter;
     private Spinner selectDay;
     private String dayString;
     private Weekday weekday;
-    private CheckBox glutenBox;
 
     /**
      * Called when the activity is first created.
@@ -43,89 +52,77 @@ public class MyActivity extends Activity {
         filter = new Filter(Restriction.NONE, false);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
-        //access calendar class to get current month, date, year, and day  TODO:neaten next 20ish lines
-        Calendar calendar = Calendar.getInstance();
-        dateDisplay = (TextView) findViewById(R.id.header_date);
-        int month = calendar.get(Calendar.MONTH);
-        int date = calendar.get(Calendar.DATE);
-        int day = calendar.get(Calendar.DAY_OF_WEEK);
-        setDayValues(day);
-        dateDisplay.setText(dayString + ", " + month + " / " + date);
-
-        //sets up Day selector spinner
-        selectDay = (Spinner) findViewById(R.id.daySelectorSpinner);
-        selectDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("MealSelector Spinner", "Item selected" + position);
-                setDayValues(position + 1);
-                if (week != null)
-                    updateListData();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-        selectDay.setSelection(day -1, false);
-
-        selectFilter = (Spinner) findViewById(R.id.spinner_filter);
-        selectFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                filter.setRestriction(Restriction.values()[position]);
-                if (week != null)
-                    updateListData();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
-        });
-        selectFilter.setSelection(3);
-        //thanks to our bro mkyong for the help here
-        glutenBox = (CheckBox) findViewById(R.id.glutenFreeCheckBox);
-        glutenBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                filter.setMatchGluten( ((CheckBox) v).isChecked());
-                updateListData();
-            }
-        });
-
-
+        createMenu();
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
+
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected())
-            new WeekDataFetcher().execute(getString(R.string.server_url));
-    }
-    private void setDayValues(int day){
-        Log.d("MyActivity", "Setting Day value = " + day);
-        weekday = Weekday.values()[day-1];
-        switch (day){
-            case 1:
-                dayString = "Sunday";
-                break;
-            case 2:
-                dayString = "Monday";
-                break;
-            case 3:
-                dayString = "Tuesday";
-                break;
-            case 4:
-                dayString = "Wednesday";
-                break;
-            case 5:
-                dayString = "Thursday";
-                break;
-            case 6:
-                dayString = "Friday";
-                break;
-            case 7:
-                dayString = "Saturday";
-                break;
-            default: dayString = "INVALID DAY";
+        if (networkInfo != null && networkInfo.isConnected()) {
+            new WeekDataFetcher().execute(getString(R.string.cafe_url));
+        } else {
+            //TODO network not connected do something
         }
+
+    }
+
+    /**
+     * sets up menu bar in main Layout
+     */
+    private void createMenu(){
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+        dateDisplay = (TextView) findViewById(R.id.header_date);
+        dateDisplay.setText(getString(R.string.Saturday) + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
+        setDayValues(getString(R.string.Saturday));
+        //assigns onClickListener to preferencesMenuButton
+        final ImageButton preferencesButton = (ImageButton) findViewById(R.id.preferencesImageButton);
+        preferencesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyActivity.this.openOptionsMenu();
+            }
+        });
+    }
+
+    //creates options menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.popupmenu, menu);
+        return true;
+    }
+
+    /**
+     * day or filter option chosen in menu
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        if (item.getGroupId() == R.id.menuMealGroup) {
+            dayString = item.getTitle().toString();
+            setDayValues(dayString);
+            if(week != null) updateListData();
+            return true;
+        }
+        if (item.getGroupId() == R.id.menuFilterGroup) {
+            //TODO
+            return true;
+        }
+        else {
+            super.onOptionsItemSelected(item);
+            return true;
+        }
+    }
+
+    private void setDayValues(String day){
+        Log.d("My activity", "setting day to =" + day);
+        if(day == getString(R.string.Sunday)) weekday = Weekday.SUNDAY;
+        if(day == getString(R.string.Monday)) weekday = Weekday.MONDAY;
+        if(day == getString(R.string.Tuesday)) weekday = Weekday.TUESDAY;
+        if(day == getString(R.string.Wednesday)) weekday = Weekday.WEDNESDAY;
+        if(day == getString(R.string.Thursday)) weekday = Weekday.THURSDAY;
+        if(day == getString(R.string.Friday)) weekday = Weekday.FRIDAY;
+        if(day == getString(R.string.Saturday)) weekday = Weekday.SATURDAY;
     }
 
     public void setListData(Week week){
@@ -150,7 +147,6 @@ public class MyActivity extends Activity {
             this.dialog.setMessage("Welcome to KitchenSync! Collecting Menu Information..");
             this.dialog.show();
         }
-
         @Override
         protected Week doInBackground(final String... args) {
             try {
@@ -168,7 +164,6 @@ public class MyActivity extends Activity {
                 return null;
             }
         }
-
         @Override
         protected void onPostExecute(final Week week) {
             if (dialog.isShowing())
