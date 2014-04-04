@@ -159,7 +159,7 @@ public class MyActivity extends Activity {
                 String json = convertIStoText(inputStream);
                 Gson gson = new Gson();
                 Week week = gson.fromJson(json, Week.class);
-                int i = 1+1;
+                int i = 1+2;
                 return week;
             } catch (Exception e) {
                 return null;
