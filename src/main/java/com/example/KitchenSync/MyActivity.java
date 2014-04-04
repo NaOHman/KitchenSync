@@ -164,6 +164,7 @@ public class MyActivity extends Activity {
                 return null;
             }
         }
+        //changing shit
         @Override
         protected void onPostExecute(final Week week) {
             if (dialog.isShowing())
