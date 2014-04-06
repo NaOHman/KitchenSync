@@ -5,78 +5,34 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout
+            android:id="@+id/menuBar"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:background="@color/background_Color">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NO TEXT SET"
+                android:text="@string/main_defaultDateText"
                 android:textStyle="italic" android:textSize="14dp"
-                android:textColor="@color/trimColor"
+                android:textColor="@color/textColor"
                 android:id="@+id/header_date"
-                android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
+                android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/preferencesImageButton"
+                android:src="@drawable/settings" android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"/>
     </RelativeLayout>
     <RelativeLayout
-            android:orientation="horizontal"
-            android:background="@color/background_Color"
-            android:layout_width="fill_parent"
-            android:layout_height="34dp">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="22dp"
-                android:textColor="@color/secondaryColor"
-                android:text="@string/filter_text"
-                android:id="@+id/filterText"
-                android:layout_centerVertical="true" android:layout_alignParentLeft="true"
-                />
-        <Spinner
-                android:entries="@array/eating_restrictions_array"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/spinner_filter"
-                android:layout_centerVertical="true" android:layout_toRightOf="@+id/filterText"/>
-        <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14dp"
-                android:textStyle="italic"
-                android:text="@string/gluten_free"
-                android:id="@+id/glutenFreeCheckBox"
-                android:checked="false"
-                android:layout_alignParentRight="true" android:layout_alignParentBottom="true"/>
-    </RelativeLayout>
-    <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="34dp"
-            android:layout_alignParentRight="true" android:layout_below="@+id/header_KitchenSync"
-            >
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/header_displayingMealsFor"
-                android:textStyle="bold" android:textSize="22dp"
-                android:textColor="@color/secondaryColor"
-                android:text="@string/display_day"
-                android:layout_centerVertical="true" android:layout_alignParentLeft="true"/>
-        <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/daySelectorSpinner"
-                android:entries="@array/day_array"
-                android:layout_alignParentTop="true" android:layout_toRightOf="@+id/header_displayingMealsFor"/>
-    </RelativeLayout>
-    <RelativeLayout
-            android:background="@color/trimColor"
+            android:background="@color/secondaryColor"
             android:layout_width="fill_parent"
             android:layout_height="7dp">
     </RelativeLayout>
     <ExpandableListView android:layout_width="match_parent"
                         android:layout_height="fill_parent"
                         android:id="@+id/menu_expandable"
-                        android:background="@color/background_Color">
+                        android:background="@color/trimColor">
 
-        </ExpandableListView>
+    </ExpandableListView>
 </LinearLayout>

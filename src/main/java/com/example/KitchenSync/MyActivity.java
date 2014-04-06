@@ -3,7 +3,6 @@ package com.example.KitchenSync;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -13,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.*;
 import com.google.gson.Gson;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -26,10 +24,6 @@ import java.net.URI;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.io.InputStream;
 
@@ -40,7 +34,6 @@ public class MyActivity extends Activity {
     private Filter filter;
 
     private TextView dateDisplay;
-    private Spinner selectDay;
     private String dayString;
     private Weekday weekday;
 
@@ -70,7 +63,6 @@ public class MyActivity extends Activity {
      */
     private void createMenu(){
         Calendar calendar = Calendar.getInstance();
-        int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
         dateDisplay = (TextView) findViewById(R.id.header_date);
         dateDisplay.setText(getString(R.string.Saturday) + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
         setDayValues(getString(R.string.Saturday));
@@ -91,7 +83,6 @@ public class MyActivity extends Activity {
         inflater.inflate(R.menu.popupmenu, menu);
         return true;
     }
-// more git tricking
     /**
      * day or filter option chosen in menu
      */
@@ -159,13 +150,11 @@ public class MyActivity extends Activity {
                 String json = convertIStoText(inputStream);
                 Gson gson = new Gson();
                 Week week = gson.fromJson(json, Week.class);
-                int i = 1+2;
                 return week;
             } catch (Exception e) {
                 return null;
             }
         }
-        //changing shit
         @Override
         protected void onPostExecute(final Week week) {
             if (dialog.isShowing())
