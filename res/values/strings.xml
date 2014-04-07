@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">KitchenSync</string>
+    <string name="cafe_url">http://macalester.cafebonappetit.com/hungry/cafe-mac/</string>
+
+    <!--"LayoutMain-->
+    <string name="main_defaultDateText">No Text Set!</string>
+    <string name="currentMealDateDisplay">currentMealDateDisplay</string>
+
+    <!--"popupMenu-->
     <string name="Sunday">Sunday </string>
     <string name="Monday">Monday</string>
     <string name="Tuesday">Tuesday</string>
@@ -8,7 +16,6 @@
     <string name="Friday">Friday</string>
     <string name="Saturday">Saturday</string>
 
-    <string name="main_defaultDateText">No Text Set!</string>
 
     <string name="app_name">KitchenSync</string>
     <string name="cafe_url">http://macalester.cafebonappetit.com/hungry/cafe-mac/</string>

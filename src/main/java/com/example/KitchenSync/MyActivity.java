@@ -32,10 +32,10 @@ public class MyActivity extends Activity {
     private ExpandableListView expListView;
     private Week week = null;
     private Filter filter;
-
-    private TextView dateDisplay;
+    private TextView dateDisplay,dateDisplayMeals;
     private String dayString;
     private Weekday weekday;
+    private String[] dayArray;
 
     /**
      * Called when the activity is first created.
@@ -46,26 +46,35 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         createMenu();
-        expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
 
-        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             new WeekDataFetcher().execute(getString(R.string.cafe_url));
         } else {
             //TODO network not connected do something
         }
-
     }
+
 
     /**
      * sets up menu bar in main Layout
      */
     private void createMenu(){
         Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+
+        dayArray = getResources().getStringArray(R.array.day_array);
+        dateDisplayMeals = (TextView) findViewById(R.id.currentMealDateDisplay);
         dateDisplay = (TextView) findViewById(R.id.header_date);
-        dateDisplay.setText(getString(R.string.Saturday) + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
-        setDayValues(getString(R.string.Saturday));
+        dateDisplay.setText(dayArray[day] + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
+
+        //sets current day using Android.calendar
+        weekday = Weekday.values()[day];
+        setDayValues(dayArray[day]);
+
         //assigns onClickListener to preferencesMenuButton
         final ImageButton preferencesButton = (ImageButton) findViewById(R.id.preferencesImageButton);
         preferencesButton.setOnClickListener(new View.OnClickListener() {
@@ -107,13 +116,16 @@ public class MyActivity extends Activity {
 
     private void setDayValues(String day){
         Log.d("My activity", "setting day to =" + day);
-        if(day == getString(R.string.Sunday)) weekday = Weekday.SUNDAY;
-        if(day == getString(R.string.Monday)) weekday = Weekday.MONDAY;
-        if(day == getString(R.string.Tuesday)) weekday = Weekday.TUESDAY;
-        if(day == getString(R.string.Wednesday)) weekday = Weekday.WEDNESDAY;
-        if(day == getString(R.string.Thursday)) weekday = Weekday.THURSDAY;
-        if(day == getString(R.string.Friday)) weekday = Weekday.FRIDAY;
-        if(day == getString(R.string.Saturday)) weekday = Weekday.SATURDAY;
+
+        int i = 0;
+        for(String mealDay : dayArray){
+            if(day.equals(mealDay)){
+                weekday = Weekday.values() [i];
+                dateDisplayMeals.setText("Displaying: "+ dayArray[i]);
+            }
+            i++;
+        }
+
     }
 
     public void setListData(Week week){
@@ -132,7 +144,6 @@ public class MyActivity extends Activity {
 
     private class WeekDataFetcher extends AsyncTask<String, Void, Week> {
         private ProgressDialog dialog = new ProgressDialog(MyActivity.this);
-
         @Override
         protected void onPreExecute() {
             this.dialog.setMessage("Welcome to KitchenSync! Collecting Menu Information..");
@@ -152,6 +163,7 @@ public class MyActivity extends Activity {
                 Week week = gson.fromJson(json, Week.class);
                 return week;
             } catch (Exception e) {
+                Log.e("WeekDataFetcher", "Error collecting Data");
                 return null;
             }
         }
