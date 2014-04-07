@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">KitchenSync</string>
-    <string name="cafe_url">http://macalester.cafebonappetit.com/hungry/cafe-mac/</string>
 
     <!--"LayoutMain-->
     <string name="main_defaultDateText">No Text Set!</string>
@@ -17,10 +16,9 @@
     <string name="Saturday">Saturday</string>
 
 
-    <string name="app_name">KitchenSync</string>
     <string name="cafe_url">http://macalester.cafebonappetit.com/hungry/cafe-mac/</string>
+    <string name="server_url">http://comp225-kitchen-sync.herokuapp.com/</string>
     <string name="filter_text">Filter</string>
     <string name="display_day">Day</string>
     <string name="gluten_free">Gluten Free</string>
-    <string name="server_url">http://comp225-kitchen-sync.herokuapp.com/</string>
 </resources>

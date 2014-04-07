@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidConfiguredLogFilters">
+    <filters>
+      <filter>
+        <option name="logLevel" value="verbose" />
+        <option name="logMessagePattern" value="" />
+        <option name="logTagPattern" value="^((?!dalvikvm).)*$" />
+        <option name="name" value="Unnamed-0" />
+        <option name="packageNamePattern" value="" />
+        <option name="pid" value="" />
+      </filter>
+    </filters>
+  </component>
   <component name="AndroidLayoutPreviewToolWindow">
     <option name="state">
       <GlobalState>
@@ -14,9 +26,12 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Unnamed-0" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96f194bb-6903-4c8c-b44a-3a76162b0b43" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KitchenSync.iws" />
@@ -84,70 +99,21 @@
       <file leaf-file-name="MyActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="27" selection-start="665" selection-end="665" vertical-scroll-proportion="0.36385542" vertical-offset="149" max-vertical-offset="2700">
+            <state line="106" column="46" selection-start="3849" selection-end="3849" vertical-scroll-proportion="0.5705522" vertical-offset="1236" max-vertical-offset="2910">
               <folding>
-                <element signature="e#1819#1847#0" expanded="true" />
-                <element signature="e#2170#2198#0" expanded="true" />
-                <element signature="e#2298#2326#0" expanded="true" />
-                <element signature="e#3655#3681#0" expanded="true" />
-                <element signature="e#3727#3753#0" expanded="true" />
-                <element signature="e#3799#3826#0" expanded="true" />
-                <element signature="e#3873#3902#0" expanded="true" />
-                <element signature="e#3951#3979#0" expanded="true" />
-                <element signature="e#4027#4053#0" expanded="true" />
-                <element signature="e#4099#4127#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1852#1882#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list_group.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/list_group.xml">
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="17" selection-start="1106" selection-end="1106" vertical-scroll-proportion="-7.352941" vertical-offset="0" max-vertical-offset="465">
+            <state line="12" column="24" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="450">
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list_heading.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/list_heading.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="17" selection-start="1073" selection-end="1073" vertical-scroll-proportion="-6.470588" vertical-offset="0" max-vertical-offset="420">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list_item.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/list_item.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="17" selection-start="1150" selection-end="1150" vertical-scroll-proportion="-7.352941" vertical-offset="0" max-vertical-offset="465">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="37" selection-start="182" selection-end="182" vertical-scroll-proportion="-1.1764706" vertical-offset="0" max-vertical-offset="645">
-              <folding>
-                <element signature="e#648#678#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -183,21 +149,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Week.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MealListAdapter.java" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/res/layout/list_group.xml" />
         <option value="$PROJECT_DIR$/res/layout/list_heading.xml" />
         <option value="$PROJECT_DIR$/res/layout/list_item.xml" />
         <option value="$PROJECT_DIR$/res/layout/main.xml" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="20" />
-    <option name="y" value="34" />
-    <option name="width" value="1322" />
-    <option name="height" value="710" />
+    <option name="y" value="14" />
+    <option name="width" value="1366" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -658,6 +623,8 @@
       <workItem from="1396633771826" duration="20000" />
       <workItem from="1396633855534" duration="49000" />
       <workItem from="1396810432047" duration="2337000" />
+      <workItem from="1396891235656" duration="1167000" />
+      <workItem from="1396892544955" duration="856000" />
     </task>
     <task id="LOCAL-00001" summary="Made filter class. Turned restrictions into enums&#10;">
       <created>1394829650817</created>
@@ -715,16 +682,15 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35554000" />
+    <option name="totallyTimeSpent" value="37577000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="34" width="1322" height="710" extended-state="0" />
+    <frame x="0" y="14" width="1366" height="754" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272727" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -736,17 +702,18 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5298869" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28594506" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5309201" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22171946" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24938272" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14453125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.77059776" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14425983" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8239095" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272727" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -792,28 +759,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="95" column="5" selection-start="3497" selection-end="3497" vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="2280">
           <folding>
-            <element signature="e#1819#1847#0" expanded="true" />
-            <element signature="e#2170#2198#0" expanded="true" />
-            <element signature="e#2298#2326#0" expanded="true" />
-            <element signature="e#3655#3681#0" expanded="true" />
-            <element signature="e#3727#3753#0" expanded="true" />
-            <element signature="e#3799#3826#0" expanded="true" />
-            <element signature="e#3873#3902#0" expanded="true" />
-            <element signature="e#3951#3979#0" expanded="true" />
-            <element signature="e#4027#4053#0" expanded="true" />
-            <element signature="e#4099#4127#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1852#1882#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/list_group.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="31" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="345">
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Meal.java">
@@ -862,28 +821,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="95" column="5" selection-start="3497" selection-end="3497" vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="2280">
           <folding>
-            <element signature="e#1819#1847#0" expanded="true" />
-            <element signature="e#2170#2198#0" expanded="true" />
-            <element signature="e#2298#2326#0" expanded="true" />
-            <element signature="e#3655#3681#0" expanded="true" />
-            <element signature="e#3727#3753#0" expanded="true" />
-            <element signature="e#3799#3826#0" expanded="true" />
-            <element signature="e#3873#3902#0" expanded="true" />
-            <element signature="e#3951#3979#0" expanded="true" />
-            <element signature="e#4027#4053#0" expanded="true" />
-            <element signature="e#4099#4127#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1852#1882#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/list_group.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="31" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="345">
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Meal.java">
@@ -932,28 +883,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="95" column="5" selection-start="3497" selection-end="3497" vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="2280">
           <folding>
-            <element signature="e#1819#1847#0" expanded="true" />
-            <element signature="e#2170#2198#0" expanded="true" />
-            <element signature="e#2298#2326#0" expanded="true" />
-            <element signature="e#3655#3681#0" expanded="true" />
-            <element signature="e#3727#3753#0" expanded="true" />
-            <element signature="e#3799#3826#0" expanded="true" />
-            <element signature="e#3873#3902#0" expanded="true" />
-            <element signature="e#3951#3979#0" expanded="true" />
-            <element signature="e#4027#4053#0" expanded="true" />
-            <element signature="e#4099#4127#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1852#1882#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/list_group.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="31" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="345">
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/Meal.java">
@@ -988,16 +931,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="60" selection-start="2170" selection-end="2170" vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="2250">
           <folding>
-            <element signature="e#1819#1847#0" expanded="true" />
-            <element signature="e#2170#2198#0" expanded="true" />
-            <element signature="e#2298#2326#0" expanded="true" />
-            <element signature="e#3655#3681#0" expanded="true" />
-            <element signature="e#3727#3753#0" expanded="true" />
-            <element signature="e#3799#3826#0" expanded="true" />
-            <element signature="e#3873#3902#0" expanded="true" />
-            <element signature="e#3951#3979#0" expanded="true" />
-            <element signature="e#4027#4053#0" expanded="true" />
-            <element signature="e#4099#4127#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1852#1882#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1112,7 +1047,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="50" selection-start="361" selection-end="367" vertical-scroll-proportion="-1.3120301" vertical-offset="893" max-vertical-offset="1425">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1138,13 +1073,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="-5.4" vertical-offset="0" max-vertical-offset="375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/values/eating_restrictions_array.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="12" selection-start="253" selection-end="253" vertical-scroll-proportion="-4.8" vertical-offset="0" max-vertical-offset="210">
@@ -1159,19 +1087,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/list_group.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="17" selection-start="1106" selection-end="1106" vertical-scroll-proportion="-7.352941" vertical-offset="0" max-vertical-offset="465">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/list_heading.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="17" selection-start="1073" selection-end="1073" vertical-scroll-proportion="-6.470588" vertical-offset="0" max-vertical-offset="420">
+        <state line="4" column="37" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="750">
           <folding />
         </state>
       </provider>
@@ -1181,7 +1099,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/list_item.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="17" selection-start="1150" selection-end="1150" vertical-scroll-proportion="-7.352941" vertical-offset="0" max-vertical-offset="465">
+        <state line="25" column="17" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.78125" vertical-offset="0" max-vertical-offset="480">
           <folding />
         </state>
       </provider>
@@ -1189,32 +1107,39 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout/list_heading.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="17" selection-start="1073" selection-end="1073" vertical-scroll-proportion="0.6875" vertical-offset="0" max-vertical-offset="480">
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/list_group.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="37" selection-start="182" selection-end="182" vertical-scroll-proportion="-1.1764706" vertical-offset="0" max-vertical-offset="645">
-          <folding>
-            <element signature="e#648#678#0" expanded="true" />
-          </folding>
+        <state line="25" column="17" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.78125" vertical-offset="0" max-vertical-offset="480">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="24" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="450">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="27" selection-start="665" selection-end="665" vertical-scroll-proportion="0.36385542" vertical-offset="149" max-vertical-offset="2700">
+        <state line="106" column="46" selection-start="3849" selection-end="3849" vertical-scroll-proportion="0.5705522" vertical-offset="1236" max-vertical-offset="2910">
           <folding>
-            <element signature="e#1819#1847#0" expanded="true" />
-            <element signature="e#2170#2198#0" expanded="true" />
-            <element signature="e#2298#2326#0" expanded="true" />
-            <element signature="e#3655#3681#0" expanded="true" />
-            <element signature="e#3727#3753#0" expanded="true" />
-            <element signature="e#3799#3826#0" expanded="true" />
-            <element signature="e#3873#3902#0" expanded="true" />
-            <element signature="e#3951#3979#0" expanded="true" />
-            <element signature="e#4027#4053#0" expanded="true" />
-            <element signature="e#4099#4127#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1852#1882#0" expanded="true" />
           </folding>
         </state>
       </provider>

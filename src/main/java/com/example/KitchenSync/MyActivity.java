@@ -33,7 +33,6 @@ public class MyActivity extends Activity {
     private Week week = null;
     private Filter filter;
     private TextView dateDisplay,dateDisplayMeals;
-    private String dayString;
     private Weekday weekday;
     private String[] dayArray;
 
@@ -52,7 +51,7 @@ public class MyActivity extends Activity {
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
-            new WeekDataFetcher().execute(getString(R.string.cafe_url));
+            new WeekDataFetcher().execute(getString(R.string.server_url));
         } else {
             //TODO network not connected do something
         }
@@ -63,10 +62,9 @@ public class MyActivity extends Activity {
      * sets up menu bar in main Layout
      */
     private void createMenu(){
+        dayArray = getResources().getStringArray(R.array.day_array);
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
-
-        dayArray = getResources().getStringArray(R.array.day_array);
         dateDisplayMeals = (TextView) findViewById(R.id.currentMealDateDisplay);
         dateDisplay = (TextView) findViewById(R.id.header_date);
         dateDisplay.setText(dayArray[day] + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
@@ -99,13 +97,14 @@ public class MyActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         if (item.getGroupId() == R.id.menuMealGroup) {
-            dayString = item.getTitle().toString();
-            setDayValues(dayString);
+            setDayValues(item.getTitle().toString());
             if(week != null) updateListData();
             return true;
         }
         if (item.getGroupId() == R.id.menuFilterGroup) {
-            //TODO
+            String restrictionType = item.getTitle().toString();
+            filter.setRestriction(Restriction.valueOf(restrictionType.toUpperCase()));
+            if(week != null) updateListData();
             return true;
         }
         else {
@@ -152,6 +151,7 @@ public class MyActivity extends Activity {
         @Override
         protected Week doInBackground(final String... args) {
             try {
+                Log.d("Week Fetcher", "Establishing Connection");
                 HttpClient httpClient = new DefaultHttpClient();
                 HttpGet request = new HttpGet();
                 URI server = new URI(args[0]);
@@ -164,6 +164,7 @@ public class MyActivity extends Activity {
                 return week;
             } catch (Exception e) {
                 Log.e("WeekDataFetcher", "Error collecting Data");
+                e.printStackTrace();
                 return null;
             }
         }
@@ -172,6 +173,7 @@ public class MyActivity extends Activity {
             if (dialog.isShowing())
                 dialog.dismiss();
             if (week !=null)
+                Log.d("WeekFetcher", "Sucessfully caught week");
                 setListData(week);
         }
     }
