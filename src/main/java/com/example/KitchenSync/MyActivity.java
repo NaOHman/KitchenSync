@@ -24,29 +24,23 @@ import java.net.URI;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import java.util.Calendar;
 import java.io.InputStream;
 
 public class MyActivity extends Activity {
-    private MealListAdapter listAdapter;
     private ExpandableListView expListView;
-    private Week week = null;
-    private Filter filter;
     private TextView dateDisplay,dateDisplayMeals;
-    private Weekday weekday;
-    private String[] dayArray;
+    private MenuModel model;
 
     /**
      * Called when the activity is first created.
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        filter = new Filter(Restriction.NONE, false);
+        expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
+        model = new MenuModel(expListView, this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         createMenu();
-
-        expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -56,23 +50,14 @@ public class MyActivity extends Activity {
             //TODO network not connected do something
         }
     }
-
-
     /**
      * sets up menu bar in main Layout
      */
     private void createMenu(){
-        dayArray = getResources().getStringArray(R.array.day_array);
-        Calendar calendar = Calendar.getInstance();
-        int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
         dateDisplayMeals = (TextView) findViewById(R.id.currentMealDateDisplay);
+        dateDisplayMeals.setText(model.getDisplayText());
         dateDisplay = (TextView) findViewById(R.id.header_date);
-        dateDisplay.setText(dayArray[day] + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE));
-
-        //sets current day using Android.calendar
-        weekday = Weekday.values()[day];
-        setDayValues(dayArray[day]);
-
+        dateDisplay.setText(model.getTodayText());
         //assigns onClickListener to preferencesMenuButton
         final ImageButton preferencesButton = (ImageButton) findViewById(R.id.preferencesImageButton);
         preferencesButton.setOnClickListener(new View.OnClickListener() {
@@ -97,47 +82,17 @@ public class MyActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         if (item.getGroupId() == R.id.menuMealGroup) {
-            setDayValues(item.getTitle().toString());
-            if(week != null) updateListData();
+            model.setDisplayDay(item.getTitle().toString());
+            dateDisplayMeals.setText(model.getDisplayText());
             return true;
         }
         if (item.getGroupId() == R.id.menuFilterGroup) {
-            String restrictionType = item.getTitle().toString();
-            filter.setRestriction(Restriction.valueOf(restrictionType.toUpperCase()));
-            if(week != null) updateListData();
+            model.setRestriction(item.getTitle().toString());
             return true;
         }
         else {
             super.onOptionsItemSelected(item);
             return true;
-        }
-    }
-
-    private void setDayValues(String day){
-        Log.d("My activity", "setting day to =" + day);
-
-        int i = 0;
-        for(String mealDay : dayArray){
-            if(day.equals(mealDay)){
-                weekday = Weekday.values() [i];
-                dateDisplayMeals.setText("Displaying: "+ dayArray[i]);
-            }
-            i++;
-        }
-
-    }
-
-    public void setListData(Week week){
-        this.week = week;
-        updateListData();
-    }
-
-    public void updateListData(){
-        Day day = filter.applyFilter(week.getDay(weekday));
-        listAdapter = new MealListAdapter(day, this);
-        expListView.setAdapter(listAdapter);
-        for (int i=0; i < listAdapter.getGroupCount(); i++) {
-            expListView.expandGroup(i);
         }
     }
 
@@ -172,9 +127,10 @@ public class MyActivity extends Activity {
         protected void onPostExecute(final Week week) {
             if (dialog.isShowing())
                 dialog.dismiss();
-            if (week !=null)
+            if (week !=null){
                 Log.d("WeekFetcher", "Sucessfully caught week");
-                setListData(week);
+                model.setWeek(week);
+            }
         }
     }
     public String convertIStoText(InputStream iS){
