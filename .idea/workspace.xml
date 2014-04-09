@@ -30,8 +30,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96f194bb-6903-4c8c-b44a-3a76162b0b43" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KitchenSync.iws" />
@@ -99,7 +97,7 @@
       <file leaf-file-name="MyActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="35" selection-start="4474" selection-end="4474" vertical-scroll-proportion="0.6885246" vertical-offset="1500" max-vertical-offset="2250">
+            <state line="119" column="29" selection-start="4379" selection-end="4379" vertical-scroll-proportion="0.415625" vertical-offset="1652" max-vertical-offset="2175">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,7 +111,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="47" selection-start="2024" selection-end="2030" vertical-scroll-proportion="0.0" vertical-offset="492" max-vertical-offset="750">
+            <state line="40" column="47" selection-start="2024" selection-end="2030" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="765">
               <folding />
             </state>
           </provider>
@@ -131,7 +129,7 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="24" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="450">
+            <state line="12" column="24" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="450">
               <folding />
             </state>
           </provider>
@@ -324,8 +322,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -650,7 +648,8 @@
       <workItem from="1396986061224" duration="2515000" />
       <workItem from="1397004112318" duration="3181000" />
       <workItem from="1397063110182" duration="101000" />
-      <workItem from="1397063235330" duration="438000" />
+      <workItem from="1397063235330" duration="483000" />
+      <workItem from="1397063727280" duration="5000" />
     </task>
     <task id="LOCAL-00001" summary="Made filter class. Turned restrictions into enums&#10;">
       <created>1394829650817</created>
@@ -712,15 +711,19 @@
       <created>1397004870945</created>
       <updated>1397004870945</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Menu Model actually works now">
+      <created>1397063705744</created>
+      <updated>1397063705744</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45786000" />
+    <option name="totallyTimeSpent" value="45836000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-18" width="905" height="638" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -736,8 +739,7 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5309201" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34535104" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34404537" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24938272" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -750,6 +752,7 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272727" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5309201" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -781,7 +784,8 @@
     <MESSAGE value="Final hand merger. UI and Server side scraping implemented in the same place. UI not functional yet." />
     <MESSAGE value="Attached Filter to menu" />
     <MESSAGE value="Made Menu model class to simplify the UI design&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made Menu model class to simplify the UI design&#10;" />
+    <MESSAGE value="Menu Model actually works now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Menu Model actually works now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1166,7 +1170,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="35" selection-start="4474" selection-end="4474" vertical-scroll-proportion="0.6885246" vertical-offset="1500" max-vertical-offset="2250">
+        <state line="119" column="29" selection-start="4379" selection-end="4379" vertical-scroll-proportion="0.415625" vertical-offset="1652" max-vertical-offset="2175">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
