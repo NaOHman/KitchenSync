@@ -30,7 +30,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96f194bb-6903-4c8c-b44a-3a76162b0b43" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -96,24 +95,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MyActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MyActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="31" selection-start="829" selection-end="829" vertical-scroll-proportion="-1.2307693" vertical-offset="855" max-vertical-offset="2250">
+            <state line="41" column="49" selection-start="1372" selection-end="1372" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2250">
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#1691#1721#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuModel.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MenuModel.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="29" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="61" column="0" selection-start="1758" selection-end="1758" vertical-scroll-proportion="0.5527523" vertical-offset="629" max-vertical-offset="1065">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,7 +119,7 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="24" selection-start="436" selection-end="436" vertical-scroll-proportion="-6.4" vertical-offset="20" max-vertical-offset="450">
+            <state line="12" column="24" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="450">
               <folding />
             </state>
           </provider>
@@ -165,8 +163,8 @@
         <option value="$PROJECT_DIR$/res/layout/list_item.xml" />
         <option value="$PROJECT_DIR$/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java" />
       </list>
     </option>
   </component>
@@ -638,6 +636,7 @@
       <workItem from="1396891235656" duration="1167000" />
       <workItem from="1396892544955" duration="2830000" />
       <workItem from="1396986061224" duration="2515000" />
+      <workItem from="1397004112318" duration="622000" />
     </task>
     <task id="LOCAL-00001" summary="Made filter class. Turned restrictions into enums&#10;">
       <created>1394829650817</created>
@@ -699,7 +698,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42066000" />
+    <option name="totallyTimeSpent" value="42688000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="34" width="1322" height="710" extended-state="0" />
@@ -720,7 +719,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5309201" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3263328" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25201938" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24938272" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -829,6 +828,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="95" column="5" selection-start="3497" selection-end="3497" vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="2280">
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1691#1721#0" expanded="true" />
           </folding>
         </state>
@@ -890,6 +890,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="95" column="5" selection-start="3497" selection-end="3497" vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="2280">
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1691#1721#0" expanded="true" />
           </folding>
         </state>
@@ -937,6 +938,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="60" selection-start="2170" selection-end="2170" vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="2250">
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1691#1721#0" expanded="true" />
           </folding>
         </state>
@@ -1134,26 +1136,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="24" selection-start="436" selection-end="436" vertical-scroll-proportion="-6.4" vertical-offset="20" max-vertical-offset="450">
+        <state line="12" column="24" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="450">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="29" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="31" selection-start="829" selection-end="829" vertical-scroll-proportion="-1.2307693" vertical-offset="855" max-vertical-offset="2250">
+        <state line="41" column="49" selection-start="1372" selection-end="1372" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2250">
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1691#1721#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MenuModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="0" selection-start="1758" selection-end="1758" vertical-scroll-proportion="0.5527523" vertical-offset="629" max-vertical-offset="1065">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -37,9 +37,9 @@ public class MyActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
-        model = new MenuModel(expListView, this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        model = new MenuModel(expListView, this);
         createMenu();
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
