@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import com.google.gson.Gson;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -22,7 +21,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URI;
 import android.widget.ExpandableListView;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import java.io.InputStream;
 
@@ -40,7 +38,7 @@ public class MyActivity extends Activity {
         setContentView(R.layout.main);
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
         model = new MenuModel(expListView, this);
-        createMenu();
+        createDaydisplay();
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -53,19 +51,11 @@ public class MyActivity extends Activity {
     /**
      * sets up menu bar in main Layout
      */
-    private void createMenu(){
+    private void createDaydisplay(){
         dateDisplayMeals = (TextView) findViewById(R.id.currentMealDateDisplay);
         dateDisplayMeals.setText(model.getDisplayText());
         dateDisplay = (TextView) findViewById(R.id.header_date);
         dateDisplay.setText(model.getTodayText());
-        //assigns onClickListener to preferencesMenuButton
-        final ImageButton preferencesButton = (ImageButton) findViewById(R.id.preferencesImageButton);
-        preferencesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MyActivity.this.openOptionsMenu();
-            }
-        });
     }
 
     //creates options menu
