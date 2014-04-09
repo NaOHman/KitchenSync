@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.google.gson.Gson;
 import org.apache.http.HttpResponse;
+import org.apache.commons.io.IOUtils;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -70,7 +71,6 @@ public class MyActivity extends Activity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
         if (item.getGroupId() == R.id.menuMealGroup) {
             model.setDisplayDay(item.getTitle().toString());
             dateDisplayMeals.setText(model.getDisplayText());
@@ -80,10 +80,8 @@ public class MyActivity extends Activity {
             model.setRestriction(item.getTitle().toString());
             return true;
         }
-        else {
-            super.onOptionsItemSelected(item);
-            return true;
-        }
+        super.onOptionsItemSelected(item);
+        return true;
     }
 
     private class WeekDataFetcher extends AsyncTask<String, Void, Week> {
@@ -103,9 +101,8 @@ public class MyActivity extends Activity {
                 request.setURI(server);
                 HttpResponse response = httpClient.execute(request);
                 InputStream inputStream = response.getEntity().getContent();
-                String json = convertIStoText(inputStream);
-                Gson gson = new Gson();
-                Week week = gson.fromJson(json, Week.class);
+                String json = IOUtils.toString(inputStream);
+                Week week = (new Gson()).fromJson(json, Week.class);
                 return week;
             } catch (Exception e) {
                 Log.e("WeekDataFetcher", "Error collecting Data");
@@ -122,18 +119,5 @@ public class MyActivity extends Activity {
                 model.setWeek(week);
             }
         }
-    }
-    public String convertIStoText(InputStream iS){
-        BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(iS));
-        String line;
-        String result = "";
-        try {
-            while((line = bufferedReader.readLine()) != null)
-                result += line;
-            iS.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return result;
     }
 }
