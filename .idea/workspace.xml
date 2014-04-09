@@ -582,7 +582,11 @@
       <created>1397006499439</created>
       <updated>1397006499439</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="made buttons in xml">
+      <created>1397006513276</created>
+      <updated>1397006513276</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
