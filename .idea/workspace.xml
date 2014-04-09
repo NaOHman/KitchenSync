@@ -30,14 +30,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96f194bb-6903-4c8c-b44a-3a76162b0b43" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Administrator\Desktop\Mein Documents\Programming\KitchenSync\.idea\libraries\jsoup_1_7_3.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/example/KitchenSync/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/example/KitchenSync/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KitchenSync.iml" afterPath="$PROJECT_DIR$/KitchenSync.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/KitchenSync/MyActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KitchenSync.iws" />
@@ -586,7 +578,11 @@
       <created>1396893429344</created>
       <updated>1396893429344</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="made buttons in xml">
+      <created>1397006499439</created>
+      <updated>1397006499439</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -657,7 +653,8 @@
     <MESSAGE value="Tricking git" />
     <MESSAGE value="Final hand merger. UI and Server side scraping implemented in the same place. UI not functional yet." />
     <MESSAGE value="Attached Filter to menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attached Filter to menu" />
+    <MESSAGE value="made buttons in xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="made buttons in xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
