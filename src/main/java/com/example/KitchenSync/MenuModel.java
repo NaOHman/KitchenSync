@@ -1,6 +1,7 @@
 package com.example.KitchenSync;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.ExpandableListView;
 
 import java.util.Calendar;

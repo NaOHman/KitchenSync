@@ -36,9 +36,9 @@ public class MyActivity extends Activity {
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
         model = new MenuModel(expListView, this);
         createMenu();
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -106,7 +106,7 @@ public class MyActivity extends Activity {
         @Override
         protected Week doInBackground(final String... args) {
             try {
-                Log.d("Week Fetcher", "Establishing Connection");
+                Log.d("WeekDataFetcher", "Establishing Connection");
                 HttpClient httpClient = new DefaultHttpClient();
                 HttpGet request = new HttpGet();
                 URI server = new URI(args[0]);
