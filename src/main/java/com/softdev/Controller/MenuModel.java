@@ -1,8 +1,11 @@
-package com.example.KitchenSync;
+package com.softdev.Controller;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.ExpandableListView;
+import com.softdev.Model.Day;
+import com.softdev.Model.Restriction;
+import com.softdev.Model.Week;
+import com.softdev.Model.Weekday;
 
 import java.util.Calendar;
 

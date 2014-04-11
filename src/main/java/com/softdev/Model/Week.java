@@ -1,4 +1,4 @@
-package com.example.KitchenSync;
+package com.softdev.Model;
 /**
  * Created by jeffrey on 2/11/14.
  * the week class provides describes the menu for a week in cafe mac

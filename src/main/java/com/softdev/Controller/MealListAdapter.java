@@ -1,13 +1,15 @@
-package com.example.KitchenSync;
+package com.softdev.Controller;
 
+import com.softdev.R;
 import android.content.Context;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
+import com.softdev.Model.Day;
+import com.softdev.Model.Meal;
 
 public class MealListAdapter extends BaseExpandableListAdapter {
 

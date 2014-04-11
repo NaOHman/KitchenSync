@@ -1,9 +1,9 @@
-package com.example.KitchenSync;
+package com.softdev.Controller;
 
+import com.softdev.R;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -11,20 +11,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.*;
 import com.google.gson.Gson;
+import com.softdev.Model.Week;
 import org.apache.http.HttpResponse;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.net.URI;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 import java.io.InputStream;
 
-public class MyActivity extends Activity {
+public class MenuActivity extends Activity {
     private ExpandableListView expListView;
     private TextView dateDisplay,dateDisplayMeals;
     private MenuModel model;
@@ -93,7 +92,7 @@ public class MyActivity extends Activity {
     }
 
     private class WeekDataFetcher extends AsyncTask<String, Void, Week> {
-        private ProgressDialog dialog = new ProgressDialog(MyActivity.this);
+        private ProgressDialog dialog = new ProgressDialog(MenuActivity.this);
         @Override
         protected void onPreExecute() {
             this.dialog.setMessage("Welcome to KitchenSync! Collecting Menu Information..");
