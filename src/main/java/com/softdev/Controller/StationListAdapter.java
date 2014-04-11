@@ -1,4 +1,4 @@
-package com.example.KitchenSync;
+package com.softdev.Controller;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
+import com.softdev.Model.Meal;
+import com.softdev.Model.Station;
+import com.softdev.R;
 
 /**
  * Created by jeffrey on 2/25/14.

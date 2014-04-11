@@ -1,4 +1,4 @@
-package com.example.KitchenSync;
+package com.softdev.Model;
 import java.util.ArrayList;
 /**
  * Created by jeffrey on 2/11/14.

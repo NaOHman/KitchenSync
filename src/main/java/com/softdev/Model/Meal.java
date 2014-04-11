@@ -1,11 +1,9 @@
-package com.example.KitchenSync;
+package com.softdev.Model;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by jeffrey on 2/11/14.

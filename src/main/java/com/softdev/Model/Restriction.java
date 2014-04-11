@@ -1,4 +1,4 @@
-package com.example.KitchenSync;
+package com.softdev.Model;
 
 /**
  * Created by jeffrey on 3/14/14.

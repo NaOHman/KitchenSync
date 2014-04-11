@@ -22,7 +22,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/preferencesImageButton"
                 android:src="@drawable/settings"
-                android:layout_alignParentTop="true" android:layout_alignParentRight="true"/>
+                android:layout_alignParentTop="true" android:layout_alignParentRight="true"
+                android:onClick="optionsButtonClick"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

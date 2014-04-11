@@ -1,4 +1,4 @@
-package com.example.KitchenSync;
+package com.softdev.Model;
 /**
  * Created by jeffrey on 2/11/14.
  * a day represents all the food served in cafe mac during a given
