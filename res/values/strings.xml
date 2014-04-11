@@ -15,6 +15,14 @@
     <string name="Friday">Friday</string>
     <string name="Saturday">Saturday</string>
 
+    <string name="FilterFor">Filter For</string>
+    <string name="vegan">Vegan</string>
+    <string name="pescetarian">Pescetarian</string>
+    <string name="vegetarian">Vegetarian</string>
+    <string name="GlutenFree">Gluten Free</string>
+
+
+
 
     <string name="cafe_url">http://macalester.cafebonappetit.com/hungry/cafe-mac/</string>
     <string name="server_url">http://comp225-kitchen-sync.herokuapp.com/</string>

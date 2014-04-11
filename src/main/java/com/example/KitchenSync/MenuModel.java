@@ -17,6 +17,7 @@ public class MenuModel {
     private MealListAdapter listAdapter;
     private ExpandableListView expListView;
     private static Calendar calendar = Calendar.getInstance();
+    private boolean gluten = false;
 
     public MenuModel(ExpandableListView expListView, Context context){
         this.context = context;
@@ -46,8 +47,16 @@ public class MenuModel {
         update();
     }
 
-    public void setMatchGluten(Boolean matchGluten){
-        filter.setMatchGluten(matchGluten);
+
+    public void setMatchGluten(){
+        if (gluten == true){
+            filter.setMatchGluten(false);
+            gluten = false;
+        }
+        else{
+            filter.setMatchGluten(true);
+            gluten = true;
+        }
         update();
     }
 

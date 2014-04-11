@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
     <item android:id="@+id/ChooseDayMenuOption" android:title="Choose Day">
         <!--"meal Day Submenu-->
         <menu android:id="@+id/mealOptionsMenu">
@@ -14,16 +16,25 @@
             </group>
         </menu>
     </item>
-    <item android:id="@+id/FilterForMenuOption" android:title="Filter For">
+
+
+    <item android:id="@+id/FilterForMenuOption" android:title="@string/FilterFor" android:showAsAction="always">
         <!--"meal Filter Submenu-->
         <menu android:id="@+id/FilterOptionsMenu">
             <group android:id="@+id/menuFilterGroup">
-                <item android:id="@+id/mealOptionsMenu_Vegan" android:title="Vegan" android:icon="@drawable/veganicon" />
-                <item android:id="@+id/mealOptionsMenu_Pescetarian" android:title="Pescetarian" />
-                <item android:id="@+id/mealOptionsMenu_Vegetarian" android:title="Vegetarian" android:icon="@drawable/vegetarianicon" />
+                <item android:id="@+id/mealOptionsMenu_Vegan" android:title="@string/vegan" android:icon="@drawable/veganicon"/>
+                <item android:id="@+id/mealOptionsMenu_Pescetarian" android:title="@string/pescetarian" android:showAsAction="always"/>
+                <item android:id="@+id/mealOptionsMenu_Vegetarian" android:title="@string/vegetarian" android:icon="@drawable/vegetarianicon"/>
+
+                <group android:id="@+id/GlutenFreeBoolean">
+                    <item android:id="@+id/mealOptionsMenu_Glutenfree" android:title="@string/GlutenFree"/>
+                </group>
+
                 <item android:id="@+id/mealOptionsMenu_None" android:title="None"/>
             </group>
         </menu>
     </item>
-    <item android:id="@+id/mealOptionsMenu_help" android:title="Help"/>
+
+
+    <item android:id="@+id/mealOptionsMenu_help" android:title="Help" android:icon="@drawable/helpicon" android:showAsAction="ifRoom"/>
 </menu>

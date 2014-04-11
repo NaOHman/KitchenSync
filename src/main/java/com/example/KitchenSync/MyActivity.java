@@ -3,14 +3,13 @@ package com.example.KitchenSync;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.view.*;
 import com.google.gson.Gson;
 import org.apache.http.HttpResponse;
 import org.apache.commons.io.IOUtils;
@@ -66,6 +65,11 @@ public class MyActivity extends Activity {
         inflater.inflate(R.menu.popupmenu, menu);
         return true;
     }
+
+    public void optionsButtonClick(View v){
+        openOptionsMenu();
+    }
+
     /**
      * day or filter option chosen in menu
      */
@@ -80,7 +84,11 @@ public class MyActivity extends Activity {
             model.setRestriction(item.getTitle().toString());
             return true;
         }
+        if (item.getGroupId() == R.id.GlutenFreeBoolean){
+            model.setMatchGluten();
+        }
         super.onOptionsItemSelected(item);
+        //TODO: add to 'display' text view
         return true;
     }
 
