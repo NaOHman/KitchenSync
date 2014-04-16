@@ -125,5 +125,10 @@ public class Food {
     public String getDescription(){
         return description;
     }
-
+    public Restriction getRestriction(){
+        return this.Restriction;
+    }
+    public Boolean getMadeWithoutGluten(){
+        return this.matchGluten;
+    }
 }
