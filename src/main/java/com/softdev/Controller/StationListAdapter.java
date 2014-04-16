@@ -43,6 +43,10 @@ public class StationListAdapter extends BaseExpandableListAdapter {
         Station station = meal.getStations().get(groupPosition);
         return station.getMenuItemNames().get(childPosition);
     }
+    private Food getChildObject(int groupPosition, int childPosition){
+        Station station = meal.getStations().get(groupPosition);
+        return station..getFoods().get(childPosition);
+    }
 
     @Override
     public long getGroupId(int groupPosition) {
