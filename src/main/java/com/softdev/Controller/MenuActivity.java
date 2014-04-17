@@ -1,5 +1,8 @@
 package com.softdev.Controller;
 
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+import com.softdev.Model.Restriction;
 import com.softdev.R;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -26,6 +29,8 @@ import java.io.InputStream;
 public class MenuActivity extends Activity {
     private ExpandableListView expListView;
     private TextView dateDisplay,dateDisplayMeals;
+    private ImageView[] displayFilters = new ImageView[4];
+    private int currentImageView = 0;
     private MenuModel model;
 
     /**
@@ -55,6 +60,11 @@ public class MenuActivity extends Activity {
         dateDisplayMeals.setText(model.getDisplayText());
         dateDisplay = (TextView) findViewById(R.id.header_date);
         dateDisplay.setText(model.getTodayText());
+        displayFilters[0]  = (ImageView) findViewById(R.id.filterImageView0);
+        displayFilters[1] = (ImageView) findViewById(R.id.filterImageView1);
+        displayFilters[2] = (ImageView) findViewById(R.id.filterImageView2);
+        displayFilters[3] = (ImageView) findViewById(R.id.filterImageView3);
+
     }
 
     //creates options menu
@@ -79,15 +89,31 @@ public class MenuActivity extends Activity {
             dateDisplayMeals.setText(model.getDisplayText());
             return true;
         }
+        //TODO background incon color / resolution
+        //TODO: check Restriction.getValues() so that dont duplicate images
         if (item.getGroupId() == R.id.menuFilterGroup) {
             model.setRestriction(item.getTitle().toString());
+            if(item.getTitle() == getString(R.string.vegan)) displayFilters[currentImageView].setImageResource(R.drawable.veganicon);
+            if(item.getTitle() == getString(R.string.vegetarian)) displayFilters[currentImageView].setImageResource(R.drawable.vegetarianicon);
+            if(item.getTitle() == getString(R.string.pescetarian)) displayFilters[currentImageView].setImageResource(R.drawable.pescetarianicon);
+            currentImageView++;
             return true;
         }
         if (item.getGroupId() == R.id.GlutenFreeBoolean){
             model.setMatchGluten();
+            displayFilters[currentImageView].setImageResource(R.drawable.noglutenicon);
+            currentImageView++;
         }
+        if (item.getGroupId() == R.id.mealOptionsMenu_None){
+            for(int i=0;i<4;i++){
+                displayFilters[i].setImageResource(R.drawable.transparent);
+            }
+            //TODO: model.setRestriction(item.getTitle().toString());
+            currentImageView = 0;
+
+        }
+
         super.onOptionsItemSelected(item);
-        //TODO: add to 'display' text view
         return true;
     }
 

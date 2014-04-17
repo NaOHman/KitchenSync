@@ -30,7 +30,9 @@
                     <item android:id="@+id/mealOptionsMenu_Glutenfree" android:title="@string/GlutenFree"/>
                 </group>
 
-                <item android:id="@+id/mealOptionsMenu_None" android:title="None"/>
+                <group android:id="@+id/mealOptionsMenu_None">
+                    <item android:id="@+id/mealOptionsMenu_None" android:title="@string/None"/>
+                </group>
             </group>
         </menu>
     </item>

@@ -28,9 +28,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/currentMealDateDisplay"
-                android:id="@+id/currentMealDateDisplay" android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:textSize="14dp" android:textStyle="italic"/>
+                android:id="@+id/currentMealDateDisplay"
+                android:textSize="14dp" android:textStyle="italic" android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filtering:  "
+                android:textStyle="italic"
+                android:id="@+id/displayingFilterTextView" android:layout_centerVertical="true" android:layout_alignParentLeft="true"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/filterImageView3"
+                android:layout_alignTop="@+id/filterImageView2" android:layout_toRightOf="@+id/filterImageView2"
+                android:src="@drawable/transparent" android:layout_gravity="center_horizontal"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/filterImageView0"
+                android:src="@drawable/transparent"
+                android:layout_alignTop="@+id/displayingFilterTextView"
+                android:layout_toRightOf="@+id/displayingFilterTextView"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/filterImageView1"
+                android:layout_toRightOf="@+id/filterImageView0" android:layout_alignTop="@+id/filterImageView0"
+                android:src="@drawable/transparent"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/filterImageView2"
+                android:src="@drawable/transparent" android:layout_alignTop="@+id/filterImageView1"
+                android:layout_toRightOf="@+id/filterImageView1"/>
     </RelativeLayout>
     <RelativeLayout
             android:background="@color/secondaryColor"

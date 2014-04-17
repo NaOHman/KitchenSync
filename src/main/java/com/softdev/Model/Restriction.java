@@ -8,4 +8,5 @@ public enum Restriction {
     VEGETARIAN,
     PESCETARIAN,
     NONE
+
 }

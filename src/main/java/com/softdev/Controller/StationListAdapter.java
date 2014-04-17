@@ -2,22 +2,31 @@ package com.softdev.Controller;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+import com.softdev.Model.Food;
 import com.softdev.Model.Meal;
 import com.softdev.Model.Station;
 import com.softdev.R;
+
+
+
+
 
 /**
  * Created by jeffrey on 2/25/14.
  */
 public class StationListAdapter extends BaseExpandableListAdapter {
-
     private Meal meal;
     private Context context;
+
 
     public StationListAdapter(Context context, Meal meal){
         this.meal = meal;
@@ -82,9 +91,22 @@ public class StationListAdapter extends BaseExpandableListAdapter {
         final String childText = (String) getChild(groupPosition, childPosition);
 
         if (convertView == null){
+
+         /**    TODO: ImageViews returns nullPointed b/c convertView meant for lists
+            ImageView restrictionImgView = (ImageView) convertView.findViewById(R.id.mealimageviewrestriction);
+            ImageView glutenImgView = (ImageView) convertView.findViewById(R.id.mealimageviewgluten);
+
+            Food food = getChildObject(groupPosition, childPosition);
+            String restriction = food.getRestriction().toString();
+            if(restriction == "VEGAN") restrictionImgView.setImageResource(R.drawable.veganicon);
+            if(restriction == "VEGETARIAN") restrictionImgView.setImageResource(R.drawable.vegetarianicon);
+            if(restriction == "PESCETARIAN") restrictionImgView.setImageResource(R.drawable.pescetarianicon);
+            if(food.getMadeWithoutGluten()) glutenImgView.setImageResource(R.drawable.noglutenicon);
+          */
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_item, null);
         }
+
         TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
         txtListChild.setText(childText);
         return convertView;

@@ -126,9 +126,9 @@ public class Food {
         return description;
     }
     public Restriction getRestriction(){
-        return this.Restriction;
+        return this.restriction;
     }
     public Boolean getMadeWithoutGluten(){
-        return this.matchGluten;
+        return this.glutenFree;
     }
 }
