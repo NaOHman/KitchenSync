@@ -5,30 +5,15 @@
                 android:orientation="vertical"
                 android:background="@color/background_Color">
 
-        <TextView
-                android:id="@+id/lblListItem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/textColor"
-                android:textSize="17dip"
-                android:layout_alignParentTop="true" android:layout_toRightOf="@+id/item_space"
-                android:layout_alignParentBottom="true"/>
-        <TextView
-                android:textStyle="italic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="               +"
-                android:id="@+id/item_space" android:layout_centerVertical="true" android:layout_alignParentLeft="true"/>
-    <ImageView
-            android:layout_width="wrap_content"
+    <TextView
+            android:id="@+id/lblListItem"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/mealimageviewgluten" android:layout_centerVertical="true" android:layout_alignParentRight="true"
-            android:src="@drawable/noglutenicon"/>
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/mealimageviewrestriction" android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/mealimageviewgluten" android:src="@drawable/veganicon"/>
+            android:textColor="@color/textColor"
+            android:textSize="17dip"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="@dimen/edge_padding"/>
+
     <!--   android:paddingTop="5dp"
        android:paddingBottom="5dp"
        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"

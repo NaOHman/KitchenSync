@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="textColor">#ff3e3f37</color>
-    <color name="darkGrey">#ff3e3f37</color>
+    <color name="darkBackground_Color">#ff3e3f37</color>
     <color name="primaryColor">#eaf263</color>
     <color name="secondaryColor">#be2f37</color>
     <color name="thirdColor">#43cac2</color>
     <color name="trimColor">#fff9eeda</color>
-    <color name="background_Color">#fff9eeda</color>
+    <color name="background_Color">#fffdefde</color>
 </resources>
+
 
