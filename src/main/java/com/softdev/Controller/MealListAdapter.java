@@ -1,6 +1,5 @@
 package com.softdev.Controller;
 
-import com.softdev.R;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
@@ -10,6 +9,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 import com.softdev.Model.Day;
 import com.softdev.Model.Meal;
+import com.softdev.R;
 
 public class MealListAdapter extends BaseExpandableListAdapter {
 

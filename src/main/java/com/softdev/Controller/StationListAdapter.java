@@ -2,14 +2,10 @@ package com.softdev.Controller;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.text.Layout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.softdev.Model.Food;
 import com.softdev.Model.Meal;
@@ -39,7 +35,7 @@ public class StationListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return meal.getStations().get(groupPosition).getMenuItemNames().size();
+        return meal.getStations().get(groupPosition).getFoodNames().size();
     }
 
     @Override
@@ -50,7 +46,7 @@ public class StationListAdapter extends BaseExpandableListAdapter {
     @Override
     public Object getChild(int groupPosition, int childPosition) {
         Station station = meal.getStations().get(groupPosition);
-        return station.getMenuItemNames().get(childPosition);
+        return station.getFoodNames().get(childPosition);
     }
     
     private Food getChildObject(int groupPosition, int childPosition){

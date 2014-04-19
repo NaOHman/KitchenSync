@@ -1,9 +1,5 @@
 package com.softdev.Controller;
 
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
-import com.softdev.Model.Restriction;
-import com.softdev.R;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -12,19 +8,24 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.*;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ExpandableListView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.google.gson.Gson;
 import com.softdev.Model.Week;
-import org.apache.http.HttpResponse;
+import com.softdev.R;
 import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import java.net.URI;
-import android.widget.ExpandableListView;
-import android.widget.TextView;
 import java.io.InputStream;
+import java.net.URI;
 
 public class MenuActivity extends Activity {
     private ExpandableListView expListView;

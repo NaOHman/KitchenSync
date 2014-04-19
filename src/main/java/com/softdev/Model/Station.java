@@ -8,19 +8,11 @@ public class Station {
     private final String name;
     private ArrayList<Food> foods;
 
-    /**
-     * Creates a station
-     * @param name the name of the Station e.g. South
-     */
     public Station(String name){
         this.name = name;
         foods = new ArrayList<Food>();
     }
 
-    /**
-     * adds a menu item to the station
-     * @param food a menu item served at the station
-     */
     public void addMenuItem(Food food){
        foods.add(food);
     }
@@ -41,16 +33,6 @@ public class Station {
     public String getName(){
         return name;
     }
-    /**
-     * @return a human readable representation of the Station
-     */
-    public String toString(){
-        String station = name + "\n";
-        for (Food food : foods){
-            station = station + food.toString() + "\n";
-        }
-        return station;
-    }
 
     /**
      * @param restriction a dietary restriction either vegan, vegetarian, made-without-gluten, or seafood-watch
@@ -65,7 +47,7 @@ public class Station {
         return items;
     }
 
-    public ArrayList<String> getMenuItemNames(){
+    public ArrayList<String> getFoodNames(){
         ArrayList<String> items = new ArrayList<String>();
         for (Food food : foods){
             items.add(food.getName());
