@@ -1,4 +1,8 @@
 package com.softdev.Model;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by jeffrey on 2/11/14.
  * a day represents all the food served in cafe mac during a given
@@ -6,27 +10,28 @@ package com.softdev.Model;
  */
 
 public class Day {
-    private Meal lunch;
-    private Meal dinner;
+    private Meal[] meals = new Meal[3];
 
     public Day(){
-        lunch = null;
-        dinner = null;
+    }
+    public Meal[] getMeals() {
+        return meals;
     }
 
-    public void setDinner(Meal dinner){
-        this.dinner = dinner;
+    public void setMeals(Meal[] meals) {
+        this.meals = meals;
     }
-
-    public void setLunch(Meal lunch){
-        this.lunch = lunch;
+    public void setMeal(Meal meal, MealType type){
+        meals[type.ordinal()] = meal;
     }
-
-    public Meal getDinner(){
-        return dinner;
+    public Meal getMeal(MealType type){
+        return meals[type.ordinal()];
     }
-
-    public Meal getLunch(){
-        return lunch;
+    public List<Meal> getRealMeals(){
+        List<Meal> mealList = new ArrayList<Meal>();
+        for(Meal meal : meals)
+            if (meal != null)
+                mealList.add(meal);
+        return mealList;
     }
 }

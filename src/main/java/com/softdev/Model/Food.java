@@ -15,6 +15,7 @@ public class Food {
     private Set<Review> reviews;
     private double rating;
     private int ratingCount;
+    private long foodID;
 
     public Food(String name, String description, Restriction restriction, boolean glutenFree, Set<Review> reviews){
         this.name = name;

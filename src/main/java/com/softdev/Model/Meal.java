@@ -9,8 +9,11 @@ import java.util.ArrayList;
 
 public class Meal {
     private ArrayList <Station> stations;
-    public Meal(){
+    private MealType mealType;
+
+    public Meal(MealType mealType){
         stations = new ArrayList<Station>();
+        this.mealType = mealType;
     }
 
     public void addStation(Station station){
@@ -37,5 +40,17 @@ public class Meal {
             stationHeaders.add(station.getName());
         }
         return stationHeaders;
+    }
+
+    public String toString(){
+        switch (mealType){
+            case BREAKFAST:
+                return "Breakfast";
+            case LUNCH:
+                return "Lunch";
+            case DINNER:
+                return "Dinner";
+        }
+        return "No Meal Published";
     }
 }

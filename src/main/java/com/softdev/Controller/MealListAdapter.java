@@ -11,14 +11,18 @@ import com.softdev.Model.Day;
 import com.softdev.Model.Meal;
 import com.softdev.R;
 
+import java.util.List;
+
 public class MealListAdapter extends BaseExpandableListAdapter {
 
     Context context;
     Day day;
+    List<Meal> meals;
 
     public MealListAdapter(Day day, Context context){
         this.context = context;
         this.day = day;
+        meals = day.getRealMeals();
     }
 
     @Override
@@ -46,37 +50,25 @@ public class MealListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        if (day.getLunch() == null)
-            return 0;
-        return 1;
+        return meals.size();
     }
 
     @Override
     public Object getGroup(int groupPosition) {
-        if (day.getLunch() == null)
-            return "No Meal Published";
-        if (groupPosition == 0){
-            return "Lunch";
-        } else if (groupPosition == 1){
-            return "Dinner";
-        }
-        return "";
+        if(meals.size() == 0)
+            return "No Meals Published";
+        return meals.get(groupPosition).toString();
     }
 
     public Meal getMeal(int groupPosition){
-        if (groupPosition == 0){
-            return day.getLunch();
-        } else if (groupPosition == 1){
-            return day.getDinner();
-        }
-        return null;
+        return meals.get(groupPosition);
     }
 
     @Override
     public int getGroupCount() {
-        if (day.getLunch() != null)
-            return 2;
-        return 1;
+        if (meals.size() == 0)
+            return 1;
+        return meals.size();
     }
 
     @Override
