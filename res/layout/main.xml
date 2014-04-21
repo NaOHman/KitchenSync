@@ -7,7 +7,7 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
 <RelativeLayout
         android:id="@+id/menuBar"
         android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_height="62dp"
         android:background="@color/darkBackground_Color" >
     <TextView
             android:layout_width="match_parent"
@@ -17,8 +17,7 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
             android:textStyle="italic" android:textSize="14dp"
             android:textColor="@color/background_Color"
             android:id="@+id/header_date"
-            android:layout_alignParentTop="true"
-            android:paddingTop="@dimen/edge_padding"/>
+            android:layout_alignParentTop="true"/>
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,9 +37,12 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Filtering:  "
+            android:gravity="center"
             android:textColor="@color/background_Color"
             android:textStyle="italic"
-            android:id="@+id/displayingFilterTextView" android:layout_centerVertical="true" android:layout_alignParentLeft="true"/>
+            android:id="@+id/displayingFilterTextView"
+            android:layout_marginLeft="108dp"
+            android:layout_above="@+id/currentMealDateDisplay" android:layout_alignParentLeft="true"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
