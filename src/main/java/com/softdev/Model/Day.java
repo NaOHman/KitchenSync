@@ -1,5 +1,7 @@
 package com.softdev.Model;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +34,7 @@ public class Day {
         for(Meal meal : meals)
             if (meal != null)
                 mealList.add(meal);
+        Log.d("---------->MEAL", "got " + mealList.size() + " Meals");
         return mealList;
     }
 }

@@ -42,6 +42,14 @@ public class Meal {
         return stationHeaders;
     }
 
+    public MealType getMealType() {
+        return mealType;
+    }
+
+    public void setMealType(MealType mealType) {
+        this.mealType = mealType;
+    }
+
     public String toString(){
         switch (mealType){
             case BREAKFAST:

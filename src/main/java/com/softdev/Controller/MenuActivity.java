@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.google.gson.Gson;
 import com.softdev.Model.Week;
+import com.softdev.Model.Weekday;
 import com.softdev.R;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
@@ -137,6 +138,7 @@ public class MenuActivity extends Activity {
                 InputStream inputStream = response.getEntity().getContent();
                 String json = IOUtils.toString(inputStream);
                 Week week = (new Gson()).fromJson(json, Week.class);
+                week.getDay(Weekday.MONDAY).getRealMeals();
                 return week;
             } catch (Exception e) {
                 Log.e("WeekDataFetcher", "Error collecting Data");
