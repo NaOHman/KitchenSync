@@ -1,30 +1,38 @@
 package com.softdev.Model;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * Created by jeffrey on 2/11/14.
  * a Station represents an actual station in cafe mac and contains menu items
  */
 public class Station {
-    private final String name;
-    private ArrayList<Food> foods;
+    private String name;
+    private Set<Food> foods;
+    private List<Food> listFoods;
 
     public Station(String name){
         this.name = name;
-        foods = new ArrayList<Food>();
+        foods = new HashSet<Food>();
     }
 
     public void addMenuItem(Food food){
        foods.add(food);
     }
 
-    public void setFoods(ArrayList<Food> foods){
+    public void setFoods(Set<Food> foods){
         this.foods = foods;
+        this.listFoods = new ArrayList<Food>(foods);
     }
     /**
      * @return all the menu items served at the station
      */
-    public ArrayList<Food> getFoods(){
-        return foods;
+    public List<Food> getFoods(){
+        if (listFoods == null)
+            listFoods = new ArrayList<Food>(foods);
+        return listFoods;
     }
 
     /**
@@ -38,18 +46,17 @@ public class Station {
      * @param restriction a dietary restriction either vegan, vegetarian, made-without-gluten, or seafood-watch
      * @return a list of all items at the station that match the restriction e.g. all vegan options
      */
-    public ArrayList<Food> getMatches(Restriction restriction, boolean matchGlutenFree){
-        ArrayList<Food> items = new ArrayList<Food>();
-        for (Food food : foods){
+    public Set<Food> getMatches(Restriction restriction, boolean matchGlutenFree){
+        Set<Food> items = new HashSet<Food>();
+        for (Food food : foods)
             if (food.matchRestriction(restriction, matchGlutenFree))
                 items.add(food);
-        }
         return items;
     }
 
     public ArrayList<String> getFoodNames(){
         ArrayList<String> items = new ArrayList<String>();
-        for (Food food : foods){
+        for (Food food : listFoods){
             items.add(food.getName());
         }
         return items;
