@@ -14,7 +14,7 @@ public class ReviewActivity extends Activity {
     private ExpandableListView reviewsExpList;
 
     @Override
-    public void OnCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.id.reviewlayout);
         reviewsExpList = (ExpandableListView) findViewById(R.id.reviewsExpandable);
