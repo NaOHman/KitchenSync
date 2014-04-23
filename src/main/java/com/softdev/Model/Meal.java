@@ -11,44 +11,36 @@ import java.util.Set;
  */
 
 public class Meal {
-    private Set<Station> stations;
+    private List<Station> stations;
     private MealType mealType;
-    private List<Station> stationList;
 
     public Meal(MealType mealType){
-        stations = new HashSet<Station>();
+        stations = new ArrayList<Station>();
         this.mealType = mealType;
     }
 
     public void addStation(Station station){
         this.stations.add(station);
-        this.stationList = new ArrayList<Station>(stations);
     }
 
     /**
      * @return a list of all the stations in a given meal
      */
     public List<Station> getStations(){
-        if (stationList == null)
-            stationList = new ArrayList<Station>(stations);
-        return stationList;
+        return stations;
     }
 
     /**
      * @param stations list of stations to replace the current list of stations
      */
-    public void setStations(Set<Station> stations){
+    public void setStations(List<Station> stations){
         this.stations = stations;
-        this.stationList = new ArrayList<Station>(stations);
     }
 
     public ArrayList<String> getStationHeaders(){
-        if (stationList == null)
-            stationList = new ArrayList<Station>(stations);
         ArrayList<String> stationHeaders = new ArrayList<String>();
-        for (Station station : stationList){
+        for (Station station : stations)
             stationHeaders.add(station.getName());
-        }
         return stationHeaders;
     }
 
@@ -70,5 +62,12 @@ public class Meal {
                 return "Dinner";
         }
         return "No Meal Published";
+    }
+
+    public String toDebugString(){
+        String meal = "--"+mealType.toString() + "\n";
+        for(Station station : stations)
+            meal += station.toString();
+        return meal;
     }
 }

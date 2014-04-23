@@ -138,7 +138,6 @@ public class MenuActivity extends Activity {
                 InputStream inputStream = response.getEntity().getContent();
                 String json = IOUtils.toString(inputStream);
                 Week week = (new Gson()).fromJson(json, Week.class);
-                week.getDay(Weekday.MONDAY).getRealMeals();
                 return week;
             } catch (Exception e) {
                 Log.e("WeekDataFetcher", "Error collecting Data");

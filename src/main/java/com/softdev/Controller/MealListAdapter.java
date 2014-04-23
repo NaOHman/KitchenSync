@@ -2,6 +2,7 @@ package com.softdev.Controller;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,9 @@ public class MealListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return meals.size();
+        if (meals.size() == 0)
+            return 0;
+        return 1;
     }
 
     @Override

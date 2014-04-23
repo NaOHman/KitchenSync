@@ -3,6 +3,7 @@ package com.softdev.Controller;
 import com.softdev.Model.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -52,7 +53,7 @@ public class Filter {
     }
 
     public Station applyFilter(Station station){
-        Set<Food> foods = station.getMatches(r, matchGluten);
+        List<Food> foods = station.getMatches(r, matchGluten);
         if (foods.size() > 0){
             Station newStation = new Station(station.getName());
             newStation.setFoods(foods);

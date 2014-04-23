@@ -2,6 +2,7 @@ package com.softdev.Controller;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,7 @@ import com.softdev.Model.Meal;
 import com.softdev.Model.Station;
 import com.softdev.R;
 
-
-
+import java.util.List;
 
 
 /**
@@ -22,20 +22,24 @@ import com.softdev.R;
 public class StationListAdapter extends BaseExpandableListAdapter {
     private Meal meal;
     private Context context;
+    private List<Station> stations;
 
 
     public StationListAdapter(Context context, Meal meal){
         this.meal = meal;
+        stations = meal.getStations();
         this.context = context;
     }
     @Override
     public int getGroupCount() {
-        return meal.getStations().size();
+        return stations.size();
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return meal.getStations().get(groupPosition).getFoodNames().size();
+        Log.d("Station List Adapter", "Found " + stations.get(groupPosition)
+                .getFoods().size() + " Foods at " +stations.get(groupPosition).getName());
+        return stations.get(groupPosition).getFoods().size();
     }
 
     @Override
@@ -45,12 +49,11 @@ public class StationListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        Station station = meal.getStations().get(groupPosition);
-        return station.getFoodNames().get(childPosition);
+        return stations.get(groupPosition).getFoods().get(childPosition).getName();
     }
     
     private Food getChildObject(int groupPosition, int childPosition){
-        Station station = meal.getStations().get(groupPosition);
+        Station station = stations.get(groupPosition);
         return station.getFoods().get(childPosition);
     }
 

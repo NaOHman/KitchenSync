@@ -26,4 +26,12 @@ public class Week {
     public Day getDay(Weekday day){
         return days[day.ordinal()];
     }
+
+    public String toString(){
+        String week = "";
+        for (Day day : days)
+            if (day != null)
+                week += day.toString();
+        return week;
+    }
 }

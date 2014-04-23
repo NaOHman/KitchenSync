@@ -37,4 +37,12 @@ public class Day {
         Log.d("---------->MEAL", "got " + mealList.size() + " Meals");
         return mealList;
     }
+
+    public String toString(){
+        String day = "day\n";
+        for(Meal meal : meals)
+            if (meal != null)
+                day += meal.toDebugString();
+        return day;
+    }
 }
