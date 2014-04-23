@@ -52,6 +52,16 @@ public class Meal {
         this.mealType = mealType;
     }
 
+    public List<DisplayItem> getDisplayItems(){
+        List<DisplayItem> displayItems = new ArrayList<DisplayItem>();
+        for (Station station : stations){
+            displayItems.add(station);
+            for (Food food : station.getFoods())
+                displayItems.add(food);
+        }
+        return displayItems;
+    }
+
     public String toString(){
         switch (mealType){
             case BREAKFAST:
