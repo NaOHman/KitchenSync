@@ -5,8 +5,8 @@
     <color name="primaryColor">#eaf263</color>
     <color name="secondaryColor">#be2f37</color>
     <color name="thirdColor">#43cac2</color>
-    <color name="trimColor">#fff9eeda</color>
-    <color name="background_Color">#fffdefde</color>
+    <color name="trimColor">#fffdefde</color>
+    <color name="background_Color">#fffff1e0</color>
 </resources>
 
 

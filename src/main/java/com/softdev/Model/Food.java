@@ -7,7 +7,7 @@ import java.util.Set;
  * a Food represents a dish being served in cafe mac
  * it also contains data about the food such as dietary restrictions
  */
-public class Food {
+public class Food extends DisplayItem{
     private String name;
     private String description;
     private Boolean glutenFree;
@@ -51,6 +51,10 @@ public class Food {
 
     public String getName(){
         return name;
+    }
+
+    public Class getType(){
+        return Food.class;
     }
 
     public Set<Review> getReviews(){

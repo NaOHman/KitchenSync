@@ -5,14 +5,28 @@
                 android:orientation="vertical"
                 android:background="@color/background_Color" android:paddingLeft="@dimen/edge_padding">
 
-    <TextView
-            android:id="@+id/lblListItem"
-            android:layout_width="match_parent"
+    <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/textColor"
-            android:textSize="17dip"
+            android:id="@+id/list_item_restrictionImgView"
+            android:src="@drawable/transparent"
+            android:layout_centerVertical="true" android:layout_toLeftOf="@+id/list_item_glutenImgview"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/list_item_glutenImgview"
+            android:src="@drawable/transparent"
+            android:layout_alignTop="@+id/list_item_restrictionImgView" android:layout_alignParentRight="true"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblListItem" android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentTop="true"
-            android:paddingLeft="@dimen/edge_padding" android:layout_alignParentRight="true"/>
+            android:paddingLeft="@dimen/edge_padding"
+            android:textSize="@dimen/listItemTextSize" android:layout_toLeftOf="@+id/list_item_restrictionImgView"/>
+
+
 
     <!--   android:paddingTop="5dp"
        android:paddingBottom="5dp"

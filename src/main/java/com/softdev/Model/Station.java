@@ -5,7 +5,7 @@ import java.util.List;
  * Created by jeffrey on 2/11/14.
  * a Station represents an actual station in cafe mac and contains menu items
  */
-public class Station {
+public class Station extends DisplayItem{
     private String name;
     private List<Food> foods;
 
@@ -52,5 +52,9 @@ public class Station {
         for (Food food : foods)
             station += "------" + food.getName() + "\n";
         return station;
+    }
+
+    public Class getType(){
+        return Station.class;
     }
 }
