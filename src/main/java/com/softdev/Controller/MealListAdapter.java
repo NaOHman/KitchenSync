@@ -8,8 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
-import com.softdev.Model.Day;
-import com.softdev.Model.Meal;
+import com.softdev.Model.*;
 import com.softdev.R;
 
 import java.util.List;
@@ -27,8 +26,8 @@ public class MealListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public Object getChild(int arg0, int arg1) {
-        return arg1;
+    public Object getChild(int groupPosition, int childPosition) {
+        return meals.get(groupPosition).getDisplayItems().get(childPosition);
     }
 
     @Override
@@ -39,21 +38,27 @@ public class MealListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
-        CustExpListview secondLevelexplv = new CustExpListview(context);
-        StationListAdapter adapter = new StationListAdapter(context, getMeal(groupPosition));
-        secondLevelexplv.setAdapter(adapter);
-        secondLevelexplv.setGroupIndicator(null);
-        for (int i=0; i < adapter.getGroupCount(); i++){
-            secondLevelexplv.expandGroup(i);
+        DisplayItem child = (DisplayItem) getChild(groupPosition,childPosition);
+        String name = child.getName();
+        if (convertView == null){
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.list_item, null);
         }
-        return secondLevelexplv;
+
+        TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
+        if (child.getType() == Station.class) {
+            //Todo Programatically make the stations look distinct
+            txtListChild.setTypeface(null,Typeface.BOLD);
+        }
+        txtListChild.setText(name);
+        return convertView;
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
         if (meals.size() == 0)
             return 0;
-        return 1;
+        return meals.get(groupPosition).getDisplayItems().size();
     }
 
     @Override
@@ -61,10 +66,6 @@ public class MealListAdapter extends BaseExpandableListAdapter {
         if(meals.size() == 0)
             return "No Meals Published";
         return meals.get(groupPosition).toString();
-    }
-
-    public Meal getMeal(int groupPosition){
-        return meals.get(groupPosition);
     }
 
     @Override
