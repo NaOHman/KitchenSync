@@ -1,3 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<dimen name="edge_padding">5dp</dimen></resources>
+
+    <!--layout.main-->
+    <dimen name="menuBarHeight">62dp</dimen>
+    <dimen name="currentMealTxtview_txtSize">14dp</dimen>
+    <dimen name="dividerTxtSize">7dp</dimen>
+    <dimen name="mainPannelPadding">2dp</dimen>
+
+
+    <!--layout.list_item-->
+    <dimen name="edge_padding">5dp</dimen>
+    <dimen name="listItemTextSize">17dp</dimen>
+</resources>
