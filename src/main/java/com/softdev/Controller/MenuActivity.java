@@ -23,13 +23,12 @@ import java.net.URI;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 import java.io.InputStream;
-import java.util.Set;
 
 public class MenuActivity extends Activity {
     private ExpandableListView expListView;
     private TextView dateDisplay,dateDisplayMeals;
     private ImageView[] displayFilters = new ImageView[4];
-    private int[] filterIcons = {R.drawable.veganicon, R.drawable.vegetarianicon, R.drawable.pescetarianicon, R.drawable.noglutenicon};
+    private int[] filterIcons = {R.drawable.vegan, R.drawable.vegetarian, R.drawable.seafoodwatch, R.drawable.glutenfree};
     private MenuModel model;
 
     /**
@@ -93,7 +92,7 @@ public class MenuActivity extends Activity {
         if (item.getGroupId() == R.id.mealOptionsMenu_None){
             for(int i=0;i<displayFilters.length;i++){
                 model.clearRestrictions();
-                displayFilters[i].setImageResource(R.drawable.transparent);
+                displayFilters[i].setImageResource(R.drawable.background);
             }
         }
         updateFilterImgs();
@@ -117,7 +116,7 @@ public class MenuActivity extends Activity {
         private ProgressDialog dialog = new ProgressDialog(MenuActivity.this);
         @Override
         protected void onPreExecute() {
-            this.dialog.setMessage("Welcome to KitchenSync! Collecting Menu Information..");
+            this.dialog.setMessage("Welcome to KitchenSync! Collecting Menu Information...");
             this.dialog.show();
         }
         @Override
