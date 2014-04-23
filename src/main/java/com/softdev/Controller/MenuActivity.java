@@ -29,7 +29,7 @@ public class MenuActivity extends Activity {
     private ExpandableListView expListView;
     private TextView dateDisplay,dateDisplayMeals;
     private ImageView[] displayFilters = new ImageView[4];
-    private int[] filterIcons = {R.drawable.veganicon, R.drawable.vegetarianicon, R.drawable.pescetarianicon, R.drawable.noglutenicon};
+    private int[] filterIcons = {R.drawable.vegan, R.drawable.vegetarian, R.drawable.seafoodwatch, R.drawable.glutenfree};
     private MenuModel model;
 
     /**

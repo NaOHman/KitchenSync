@@ -7,7 +7,7 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
 <RelativeLayout
         android:id="@+id/menuBar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/menu_Bar_Height"
+        android:layout_height="@dimen/menuBarHeight"
         android:background="@color/darkBackground_Color" >
     <TextView
             android:layout_width="match_parent"
@@ -31,8 +31,8 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
             android:text="@string/currentMealDateDisplay"
             android:gravity="center"
             android:textColor="@color/background_Color"
-            android:id="@+id/currentMealDateDisplay" android:layout_alignParentBottom="true" android:paddingBottom="@dimen/edge_padding"
-            android:textSize="@dimen/current_Meal_Date_Height" android:textStyle="italic"/>
+            android:id="@+id/currentMealDateDisplay" android:layout_alignParentBottom="true" android:paddingBottom="@dimen/listItem_EdgePadding"
+            android:textSize="@dimen/listItem_EdgePadding" android:textStyle="italic"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

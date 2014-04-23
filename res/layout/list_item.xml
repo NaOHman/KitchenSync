@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="35dip"
                 android:orientation="vertical"
-                android:background="@color/background_Color" android:paddingLeft="@dimen/edge_padding">
+                android:background="@color/background_Color" android:paddingLeft="@dimen/listItem_EdgePadding">
 
     <ImageView
             android:layout_width="wrap_content"
@@ -23,8 +23,8 @@
             android:id="@+id/lblListItem" android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_alignParentTop="true"
-            android:paddingLeft="@dimen/edge_padding"
-            android:textSize="@dimen/listItemTextSize" android:layout_toLeftOf="@+id/list_item_restrictionImgView"/>
+            android:paddingLeft="@dimen/listItem_EdgePadding"
+            android:textSize="@dimen/listItem_TextSize" android:layout_toLeftOf="@+id/list_item_restrictionImgView"/>
 
 
 
