@@ -93,7 +93,7 @@ public class MenuActivity extends Activity {
         if (item.getGroupId() == R.id.mealOptionsMenu_None){
             for(int i=0;i<displayFilters.length;i++){
                 model.clearRestrictions();
-                displayFilters[i].setImageResource(R.drawable.transparent);
+                displayFilters[i].setImageResource(R.drawable.background);
             }
         }
         updateFilterImgs();
