@@ -41,13 +41,13 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
             android:layout_height="wrap_content"
             android:id="@+id/filterImageView3"
             android:layout_alignTop="@+id/filterImageView2" android:layout_toRightOf="@+id/filterImageView2"
-            android:src="@drawable/transparent" android:layout_gravity="center_horizontal"
+            android:src="@drawable/background" android:layout_gravity="center_horizontal"
             android:padding="@dimen/mainPannelPadding"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/filterImageView0"
-            android:src="@drawable/transparent"
+            android:src="@drawable/background"
             android:layout_above="@+id/currentMealDateDisplay"
             android:layout_toRightOf="@+id/displayingFilterTextView"
             android:padding="@dimen/mainPannelPadding"/>
@@ -56,13 +56,13 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
             android:layout_height="wrap_content"
             android:id="@+id/filterImageView1"
             android:layout_toRightOf="@+id/filterImageView0" android:layout_alignTop="@+id/filterImageView0"
-            android:src="@drawable/transparent"
+            android:src="@drawable/background"
             android:padding="@dimen/mainPannelPadding"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/filterImageView2"
-            android:src="@drawable/transparent" android:layout_alignTop="@+id/filterImageView1"
+            android:src="@drawable/background" android:layout_alignTop="@+id/filterImageView1"
             android:layout_toRightOf="@+id/filterImageView1"
             android:padding="@dimen/mainPannelPadding"/>
 </RelativeLayout>
