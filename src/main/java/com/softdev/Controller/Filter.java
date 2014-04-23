@@ -3,6 +3,8 @@ package com.softdev.Controller;
 import com.softdev.Model.*;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by jeffrey on 3/14/14.
@@ -28,8 +30,10 @@ public class Filter {
         if (day == null)
                 return null;
         Day filteredDay = new Day();
-        filteredDay.setDinner(applyFilter(day.getDinner()));
-        filteredDay.setLunch(applyFilter(day.getLunch()));
+        for(int i=0; i<3; i++)
+            filteredDay.setMeal(
+                    applyFilter(day.getMeal(MealType.values()[i]))
+                    ,MealType.values()[i]);
         return filteredDay;
     }
 
@@ -37,7 +41,7 @@ public class Filter {
         if (meal == null)
             return null;
         ArrayList<Station> stations = new ArrayList<Station>();
-        Meal filteredMeal = new Meal();
+        Meal filteredMeal = new Meal(meal.getMealType());
         for (Station station: meal.getStations()){
             Station newStation = applyFilter(station);
             if (newStation != null)
@@ -49,7 +53,7 @@ public class Filter {
     }
 
     public Station applyFilter(Station station){
-        ArrayList<Food> foods = station.getMatches(r, matchGluten);
+        List<Food> foods = station.getMatches(r, matchGluten);
         if (foods.size() > 0){
             Station newStation = new Station(station.getName());
             newStation.setFoods(foods);
