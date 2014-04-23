@@ -7,11 +7,11 @@
     <dimen name="dividerTxtSize">7dp</dimen>
     <dimen name="mainPannelPadding">2dp</dimen>
 
-    <!--layout.reviewpage-->
+    <!--layout.review_main-->
     <dimen name="Reviewtitletxtsize">35dp</dimen>
     <dimen name="ReviewPadding">12dp</dimen>
 
-    <!--layout.writereview-->
+    <!--layout.review_write-->
     <integer name="displaylines">3</integer>
     <integer name="maxLines">10</integer>
 
