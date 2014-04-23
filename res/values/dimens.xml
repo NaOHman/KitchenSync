@@ -17,5 +17,6 @@
 
     <!--layout.list_item-->
     <dimen name="edge_padding">5dp</dimen>
-    <dimen name="listItemTextSize">17dp</dimen>
+    <dimen name="list_Item_TextSize">20dp</dimen><dimen name="list_Heading_TextSize">65dp</dimen><dimen name="list_Group_TextSize">75dp</dimen><dimen name="menu_Bar_Height">62dp</dimen><dimen name="menu_Accent_Height">7dp</dimen><dimen name="current_Meal_Date_Height">14dp</dimen>
+
 </resources>

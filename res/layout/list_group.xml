@@ -10,7 +10,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/textColor" android:textAllCaps="true"
-            android:textSize="20dip" android:layout_alignParentTop="true"
+            android:textSize="@dimen/list_Group_TextSize" android:layout_alignParentTop="true"
             android:text=""/>
     <!--   android:paddingTop="5dp"
      android:paddingBottom="5dp"

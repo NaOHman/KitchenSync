@@ -7,7 +7,7 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
 <RelativeLayout
         android:id="@+id/menuBar"
         android:layout_width="match_parent"
-        android:layout_height="62dp"
+        android:layout_height="@dimen/menu_Bar_Height"
         android:background="@color/darkBackground_Color" >
     <TextView
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
             android:gravity="center"
             android:textColor="@color/background_Color"
             android:id="@+id/currentMealDateDisplay" android:layout_alignParentBottom="true" android:paddingBottom="@dimen/edge_padding"
-            android:textSize="14dp" android:textStyle="italic"/>
+            android:textSize="@dimen/current_Meal_Date_Height" android:textStyle="italic"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,7 +72,7 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
 <RelativeLayout
         android:background="@color/secondaryColor"
         android:layout_width="fill_parent"
-        android:layout_height="7dp">
+        android:layout_height="@dimen/menu_Accent_Height">
 </RelativeLayout>
 <ExpandableListView android:layout_width="match_parent"
                     android:layout_height="fill_parent"

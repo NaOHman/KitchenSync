@@ -11,7 +11,7 @@
             android:background="@color/trimColor"
             android:textColor="@color/textColor"
             android:textStyle="bold"
-            android:textSize="65dip" android:textAllCaps="true" android:gravity="center"
+            android:textSize="@dimen/current_Meal_Date_Height" android:textAllCaps="true" android:gravity="center"
             android:layout_alignParentTop="true" android:layout_toRightOf="@+id/textView"
             />
     <TextView
