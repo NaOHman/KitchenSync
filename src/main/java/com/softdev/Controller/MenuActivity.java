@@ -1,8 +1,6 @@
 package com.softdev.Controller;
 
-import android.content.Intent;
 import android.widget.ImageView;
-import com.softdev.Model.Food;
 import com.softdev.R;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -12,19 +10,11 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ExpandableListView;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.view.*;
 import com.google.gson.Gson;
 import com.softdev.Model.Week;
-import com.softdev.Model.Weekday;
-import com.softdev.R;
-import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
+import org.apache.commons.io.IOUtils;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -33,13 +23,13 @@ import java.net.URI;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 import java.io.InputStream;
-import java.net.URI;
+import java.util.Set;
 
 public class MenuActivity extends Activity {
     private ExpandableListView expListView;
     private TextView dateDisplay,dateDisplayMeals;
     private ImageView[] displayFilters = new ImageView[4];
-    private int[] filterIcons = {R.drawable.vegan, R.drawable.vegetarian, R.drawable.seafoodwatch, R.drawable.glutenfree};
+    private int[] filterIcons = {R.drawable.veganicon, R.drawable.vegetarianicon, R.drawable.pescetarianicon, R.drawable.noglutenicon};
     private MenuModel model;
 
     /**
@@ -49,7 +39,7 @@ public class MenuActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        expListView = (ExpandableListView) findViewById(R.id.mealmenu_expandable);
+        expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
         model = new MenuModel(expListView, this);
         createDaydisplay();
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -61,6 +51,7 @@ public class MenuActivity extends Activity {
             //TODO network not connected do something
         }
     }
+
     /**
      * sets up menu bar in main Layout
      */
@@ -126,7 +117,7 @@ public class MenuActivity extends Activity {
         private ProgressDialog dialog = new ProgressDialog(MenuActivity.this);
         @Override
         protected void onPreExecute() {
-            this.dialog.setMessage("Welcome to KitchenSync! Collecting Menu Information...");
+            this.dialog.setMessage("Welcome to KitchenSync! Collecting Menu Information..");
             this.dialog.show();
         }
         @Override
@@ -158,18 +149,4 @@ public class MenuActivity extends Activity {
             }
         }
     }
-
-    //TODO: put onClick Listener in list_item
-    public void writeReview(String food){
-        Intent intent = new Intent(this, ReviewActivity.class);
-        TextView reviewTitle = (TextView) findViewById(R.id.reviewHeader_foodname);
-        reviewTitle.setText(food);
-        startActivity(intent);
-
-    }
-
-
-
-
-
 }
