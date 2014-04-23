@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:background="@color/thirdColor" android:padding="@dimen/Reviewpadding"
+                    android:id="@+id/relativeLayout" android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true">
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/trimColor">
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/reviewRatingSpinner"
+                    android:layout_alignParentTop="true" android:layout_toRightOf="@+id/nameEditTextWriteReview"
+                    android:layout_alignBottom="@+id/nameEditTextWriteReview"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editText"
+                    android:text="write a review.."
+                    android:layout_below="@+id/nameEditTextWriteReview" android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SUBMIT REVIEW"
+                    android:id="@+id/submitReviewButton"
+                    android:layout_below="@+id/editText" android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Name.."
+                    android:ems="10"
+                    android:id="@+id/nameEditTextWriteReview" android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

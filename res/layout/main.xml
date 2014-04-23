@@ -73,7 +73,7 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
 </RelativeLayout>
 <ExpandableListView android:layout_width="match_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/menu_expandable"
+                    android:id="@+id/mealmenu_expandable"
                     android:background="@color/trimColor">
 
 </ExpandableListView>
