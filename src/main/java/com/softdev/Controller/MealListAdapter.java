@@ -22,6 +22,7 @@ public class MealListAdapter extends BaseExpandableListAdapter {
     public MealListAdapter(Day day, Context context){
         this.context = context;
         this.day = day;
+        Log.e("MealListAdapter", "Day == null?" + (day == null));
         meals = day.getRealMeals();
     }
 
@@ -49,6 +50,8 @@ public class MealListAdapter extends BaseExpandableListAdapter {
         if (child.getType() == Station.class) {
             //Todo Programatically make the stations look distinct
             txtListChild.setTypeface(null,Typeface.BOLD);
+            txtListChild.setAllCaps(true);
+            txtListChild.setPadding(0,0,0,0);
         }
         txtListChild.setText(name);
         return convertView;

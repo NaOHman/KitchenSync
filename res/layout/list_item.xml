@@ -24,7 +24,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentTop="true"
             android:paddingLeft="@dimen/edge_padding"
-            android:textSize="@dimen/listItemTextSize" android:layout_toLeftOf="@+id/list_item_restrictionImgView"/>
+            android:textSize="@dimen/list_Item_TextSize" android:layout_toLeftOf="@+id/list_item_restrictionImgView"/>
 
 
 
