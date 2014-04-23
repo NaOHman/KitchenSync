@@ -1,5 +1,6 @@
 package com.softdev.Controller;
 
+import android.widget.ImageView;
 import com.softdev.R;
 import android.content.Context;
 import android.graphics.Typeface;

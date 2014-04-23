@@ -7,75 +7,73 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
 <RelativeLayout
         android:id="@+id/menuBar"
         android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:background="@color/darkBackground_Color" >
+        android:layout_height="67dp"
+        android:background="@color/darkBackground_Color"
+        android:onClick="optionsButtonClick">
     <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="defaultDateText"
             android:gravity="center"
             android:textStyle="italic" android:textSize="14dp"
             android:textColor="@color/background_Color"
             android:id="@+id/header_date"
-            android:layout_alignParentTop="true"/>
-    <ImageButton
+            android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/preferencesImageButton"
-            android:src="@drawable/settings"
-            android:layout_alignParentTop="true" android:layout_alignParentRight="true"
-            android:onClick="optionsButtonClick"/>
+            android:text="Displaying: THISDAY"
+            android:textColor="@color/background_Color"
+            android:id="@+id/currentMealDateDisplay" android:paddingBottom="@dimen/edge_padding"
+            android:textSize="@dimen/currentMealTxtview_txtSize"
+            android:layout_below="@+id/displayingFilterTextView" android:layout_centerHorizontal="true"/>
     <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/currentMealDateDisplay"
+            android:text="@string/filterDisplayText"
             android:gravity="center"
             android:textColor="@color/background_Color"
-            android:id="@+id/currentMealDateDisplay" android:layout_alignParentBottom="true" android:paddingBottom="@dimen/edge_padding"
-            android:textSize="14dp" android:textStyle="italic"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Filtering:  "
-            android:textColor="@color/background_Color"
-            android:textStyle="italic"
             android:id="@+id/displayingFilterTextView"
-            android:layout_marginLeft="90dp"
-            android:layout_above="@+id/currentMealDateDisplay" android:layout_alignParentLeft="true"/>
+            android:padding="@dimen/mainPannelPadding"
+            android:layout_below="@+id/header_date" android:layout_centerHorizontal="true"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/filterImageView3"
-            android:layout_alignTop="@+id/filterImageView2"
-            android:layout_toRightOf="@+id/filterImageView2"/>
+            android:layout_alignTop="@+id/filterImageView2" android:layout_toRightOf="@+id/filterImageView2"
+            android:src="@drawable/transparent" android:layout_gravity="center_horizontal"
+            android:padding="@dimen/mainPannelPadding"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/filterImageView0"
-            android:layout_alignTop="@+id/displayingFilterTextView"
-            android:layout_toRightOf="@+id/displayingFilterTextView"/>
+            android:src="@drawable/transparent"
+            android:layout_above="@+id/currentMealDateDisplay"
+            android:layout_toRightOf="@+id/displayingFilterTextView"
+            android:padding="@dimen/mainPannelPadding"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/filterImageView1"
-            android:layout_alignTop="@+id/filterImageView0"
-            android:layout_toRightOf="@+id/filterImageView0" />
+            android:layout_toRightOf="@+id/filterImageView0" android:layout_alignTop="@+id/filterImageView0"
+            android:src="@drawable/transparent"
+            android:padding="@dimen/mainPannelPadding"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/filterImageView2"
-            android:layout_alignTop="@+id/filterImageView1"
-            android:layout_toRightOf="@+id/filterImageView1"/>
+            android:src="@drawable/transparent" android:layout_alignTop="@+id/filterImageView1"
+            android:layout_toRightOf="@+id/filterImageView1"
+            android:padding="@dimen/mainPannelPadding"/>
 </RelativeLayout>
 <RelativeLayout
         android:background="@color/secondaryColor"
         android:layout_width="fill_parent"
-        android:layout_height="7dp">
+        android:layout_height="@dimen/dividerTxtSize">
 </RelativeLayout>
 <ExpandableListView android:layout_width="match_parent"
                     android:layout_height="fill_parent"
-                    android:paddingLeft="@dimen/boarder_padding" android:paddingRight="@dimen/edge_padding"
-                    android:id="@+id/menu_expandable"
+                    android:id="@+id/mealmenu_expandable"
                     android:background="@color/trimColor">
 
 </ExpandableListView>

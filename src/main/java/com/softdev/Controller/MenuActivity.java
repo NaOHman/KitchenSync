@@ -1,6 +1,8 @@
 package com.softdev.Controller;
 
+import android.content.Intent;
 import android.widget.ImageView;
+import com.softdev.Model.Food;
 import com.softdev.R;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -38,7 +40,7 @@ public class MenuActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
+        expListView = (ExpandableListView) findViewById(R.id.mealmenu_expandable);
         model = new MenuModel(expListView, this);
         createDaydisplay();
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -148,4 +150,18 @@ public class MenuActivity extends Activity {
             }
         }
     }
+
+    //TODO: put onClick Listener in list_item
+    public void writeReview(String food){
+        Intent intent = new Intent(this, ReviewActivity.class);
+        TextView reviewTitle = (TextView) findViewById(R.id.reviewHeader_foodname);
+        reviewTitle.setText(food);
+        startActivity(intent);
+
+    }
+
+
+
+
+
 }
