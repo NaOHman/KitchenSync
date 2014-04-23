@@ -52,6 +52,10 @@ public class MealListAdapter extends BaseExpandableListAdapter {
             txtListChild.setTypeface(null,Typeface.BOLD);
             txtListChild.setAllCaps(true);
             txtListChild.setPadding(0,0,0,0);
+        } else {
+            txtListChild.setTypeface(null, Typeface.NORMAL);
+            txtListChild.setAllCaps(false);
+            txtListChild.setPadding(5,0,0,0);
         }
         txtListChild.setText(name);
         return convertView;
@@ -99,7 +103,7 @@ public class MealListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean hasStableIds() {
-        return false;
+        return true;
     }
 
     @Override
