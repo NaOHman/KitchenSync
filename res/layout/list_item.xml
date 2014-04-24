@@ -3,7 +3,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="35dip"
                 android:orientation="vertical"
-                android:background="@color/background_Color" android:paddingLeft="@dimen/menuItem_EdgePadding">
+                android:background="@color/background_Color" android:paddingLeft="@dimen/menuItem_EdgePadding"
+                >
 
     <ImageView
             android:layout_width="wrap_content"
@@ -24,7 +25,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentTop="true"
             android:paddingLeft="@dimen/menuItem_EdgePadding"
-            android:textSize="@dimen/menuItem_TextSize" android:layout_toLeftOf="@+id/list_item_restrictionImgView"/>
+            android:textSize="@dimen/menuItem_TextSize" android:layout_toLeftOf="@+id/list_item_restrictionImgView"
+            android:drawableBottom="@drawable/dashed"/>
 
 
 
