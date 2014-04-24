@@ -8,14 +8,14 @@
             android:id="@+id/lblMealHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/trimColor"
-            android:textColor="@color/textColor"
+            android:background="@color/trim_Color"
+            android:textColor="@color/text_Color"
             android:textStyle="bold"
-            android:textSize="@dimen/current_Meal_Date_Height" android:textAllCaps="true" android:gravity="center"
+            android:textSize="@dimen/menuHeading_TextSize" android:textAllCaps="true" android:gravity="center"
             android:layout_alignParentTop="true" android:layout_toRightOf="@+id/textView"
             />
     <TextView
-            android:background="@color/trimColor"
+            android:background="@color/trim_Color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="     "

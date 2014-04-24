@@ -49,6 +49,8 @@ public class MealListAdapter extends BaseExpandableListAdapter {
         if (child.getType() == Station.class) {
             //Todo Programatically make the stations look distinct
             txtListChild.setTypeface(null,Typeface.BOLD);
+            txtListChild.setAllCaps(true);
+            txtListChild.setTextSize(30);
         }
         txtListChild.setText(name);
         return convertView;

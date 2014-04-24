@@ -7,14 +7,14 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
 <RelativeLayout
         android:id="@+id/menuBar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/menuBarHeight"
+        android:layout_height="@dimen/menuBar_Height"
         android:background="@color/darkBackground_Color" >
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="defaultDateText"
             android:gravity="center"
-            android:textStyle="italic" android:textSize="14dp"
+            android:textStyle="italic" android:textSize="@dimen/menuBar_CurrentDate_TextSize"
             android:textColor="@color/background_Color"
             android:id="@+id/header_date"
             android:layout_alignParentTop="true"/>
@@ -31,8 +31,8 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
             android:text="@string/currentMealDateDisplay"
             android:gravity="center"
             android:textColor="@color/background_Color"
-            android:id="@+id/currentMealDateDisplay" android:layout_alignParentBottom="true" android:paddingBottom="@dimen/listItem_EdgePadding"
-            android:textSize="@dimen/listItem_EdgePadding" android:textStyle="italic"/>
+            android:id="@+id/currentMealDateDisplay" android:layout_alignParentBottom="true"
+            android:textSize="@dimen/menuBar_CurrentMeal_TextSize" android:textStyle="italic"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,14 +70,14 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
             android:layout_toRightOf="@+id/filterImageView1"/>
 </RelativeLayout>
 <RelativeLayout
-        android:background="@color/secondaryColor"
+        android:background="@color/secondary_Color"
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/menu_Accent_Height">
+        android:layout_height="@dimen/menuBar_AccentHeight">
 </RelativeLayout>
 <ExpandableListView android:layout_width="match_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/menu_expandable"
-                    android:background="@color/trimColor">
+                    android:background="@color/trim_Color">
 
 </ExpandableListView>
 </LinearLayout>

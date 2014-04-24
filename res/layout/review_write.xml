@@ -7,14 +7,14 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical"
                     android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:background="@color/thirdColor" android:padding="@dimen/ReviewPadding"
+                    android:background="@color/third_Color" android:padding="@dimen/review_Padding"
                     android:id="@+id/relativeLayout" android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true">
         <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="@color/trimColor">
+                android:background="@color/trim_Color">
             <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

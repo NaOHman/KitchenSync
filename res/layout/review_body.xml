@@ -4,8 +4,8 @@
               android:orientation="vertical"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:background="@color/thirdColor"
-              android:padding="@dimen/ReviewPadding">
+              android:background="@color/third_Color"
+              android:padding="@dimen/review_Padding">
 
     <RelativeLayout
             android:layout_width="wrap_content"

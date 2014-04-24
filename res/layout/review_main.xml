@@ -7,17 +7,17 @@
               android:id="@+id/reviewlayout">
 
     <ListView android:layout_width="wrap_content" android:layout_height="fill_parent"
-                        android:id="@+id/reviewsExpandable" android:background="@color/trimColor"
+                        android:id="@+id/reviewsExpandable" android:background="@color/trim_Color"
                         android:layout_gravity="center_horizontal"/>
     <RelativeLayout android:id="@+id/relativeLayout2" android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:background="@color/darkBackground_Color" android:onClick="optionsButtonClick"
                     android:layout_centerHorizontal="true">
         <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
                   android:text="MEAL ITEM NAME" android:gravity="center" android:textStyle="italic"
-                  android:textSize="@dimen/Reviewtitletxtsize" android:textColor="@color/background_Color" android:id="@+id/reviewHeader_foodname"
+                  android:textSize="@dimen/reviewTitle_TextSize" android:textColor="@color/background_Color" android:id="@+id/reviewHeader_foodname"
                   android:layout_alignParentTop="true" android:layout_alignParentLeft="true"/>
     </RelativeLayout>
-    <RelativeLayout android:background="@color/secondaryColor" android:layout_width="fill_parent"
-                    android:layout_height="@dimen/dividerTxtSize" android:id="@+id/relativeLayout"
+    <RelativeLayout android:background="@color/secondary_Color" android:layout_width="fill_parent"
+                    android:layout_height="@dimen/menuBar_AccentHeight" android:id="@+id/relativeLayout"
                     android:layout_below="@+id/relativeLayout2" android:layout_centerHorizontal="true"/>
 </RelativeLayout>
