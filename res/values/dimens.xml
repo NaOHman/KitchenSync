@@ -16,6 +16,9 @@
     <integer name="review_Boarder">3</integer>
     <integer name="review_MaxBoarder">10</integer>
 
+    <!--layout.review_write-->
+    <dimen name="menu_Boarder">20dp</dimen>
+
     <!--layout.menu_item-->
     <dimen name="menuItem_EdgePadding">5dp</dimen>
     <dimen name="menuItem_TextSize">20dp</dimen>

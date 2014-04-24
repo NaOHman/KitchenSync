@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-android:background="@color/background_Color"
+android:background="@color/trim_Color"
 android:orientation="vertical"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
@@ -18,13 +18,6 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
             android:textColor="@color/background_Color"
             android:id="@+id/header_date"
             android:layout_alignParentTop="true"/>
-    <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/preferencesImageButton"
-            android:src="@drawable/settings"
-            android:layout_alignParentTop="true" android:layout_alignParentRight="true"
-            android:onClick="optionsButtonClick"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,6 +25,7 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
             android:gravity="center"
             android:textColor="@color/background_Color"
             android:id="@+id/currentMealDateDisplay" android:layout_alignParentBottom="true"
+            android:padding="@dimen/menuBar_Padding"
             android:textSize="@dimen/menuBar_CurrentMeal_TextSize" android:textStyle="italic"/>
     <TextView
             android:layout_width="wrap_content"

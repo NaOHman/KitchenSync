@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/list_item_glutenImgview"
             android:src="@drawable/transparent"
-            android:layout_alignTop="@+id/list_item_restrictionImgView" android:layout_alignParentRight="true"/>
+            android:layout_centerVertical="true" android:layout_alignParentRight="true"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             android:layout_alignParentTop="true"
             android:paddingLeft="@dimen/menuItem_EdgePadding"
             android:textSize="@dimen/menuItem_TextSize" android:layout_toLeftOf="@+id/list_item_restrictionImgView"
-            android:drawableBottom="@drawable/dashed"/>
+            />
 
 
 
