@@ -22,6 +22,7 @@ public class MealListAdapter extends BaseExpandableListAdapter {
     public MealListAdapter(Day day, Context context){
         this.context = context;
         this.day = day;
+        Log.e("MealListAdapter", "Day == null?" + (day == null));
         meals = day.getRealMeals();
     }
 
@@ -50,7 +51,11 @@ public class MealListAdapter extends BaseExpandableListAdapter {
             //Todo Programatically make the stations look distinct
             txtListChild.setTypeface(null,Typeface.BOLD);
             txtListChild.setAllCaps(true);
-            txtListChild.setTextSize(30);
+            txtListChild.setPadding(0,0,0,0);
+        } else {
+            txtListChild.setTypeface(null, Typeface.NORMAL);
+            txtListChild.setAllCaps(false);
+            txtListChild.setPadding(5,0,0,0);
         }
         txtListChild.setText(name);
         return convertView;
@@ -98,7 +103,7 @@ public class MealListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean hasStableIds() {
-        return false;
+        return true;
     }
 
     @Override

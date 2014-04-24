@@ -82,6 +82,7 @@ public class MenuModel extends Activity{
     private void update(){
         if (week != null){
             Day day = filter.applyFilter(week.getDay(displayDay));
+            Log.e("MenuModel", "Day is null?" + (day==null));
             listAdapter = new MealListAdapter(day, context);
             expListView.setAdapter(listAdapter);
             for (int i=0; i < listAdapter.getGroupCount(); i++) {

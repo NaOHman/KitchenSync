@@ -29,7 +29,7 @@ public class MenuActivity extends Activity {
     private ExpandableListView expListView;
     private TextView dateDisplay,dateDisplayMeals;
     private ImageView[] displayFilters = new ImageView[4];
-    private int[] filterIcons = {R.drawable.vegan, R.drawable.vegetarian, R.drawable.seafoodwatch, R.drawable.glutenfree};
+    private int[] filterIcons = {R.drawable.vegan, R.drawable.vegetarian, R.drawable.pescetarianicon, R.drawable.glutenfree};
     private MenuModel model;
 
     /**
@@ -131,6 +131,8 @@ public class MenuActivity extends Activity {
                 HttpResponse response = httpClient.execute(request);
                 InputStream inputStream = response.getEntity().getContent();
                 String json = IOUtils.toString(inputStream);
+                // check if success is true/false
+
                 Week week = (new Gson()).fromJson(json, Week.class);
                 return week;
             } catch (Exception e) {
@@ -143,7 +145,7 @@ public class MenuActivity extends Activity {
         protected void onPostExecute(final Week week) {
             if (dialog.isShowing())
                 dialog.dismiss();
-            if (week !=null){
+            if (week != null){
                 Log.d("WeekFetcher", "Sucessfully caught week");
                 model.setWeek(week);
             }
