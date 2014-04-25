@@ -38,7 +38,7 @@ public class MenuModel extends Activity{
     }
 
     public String getTodayText(){
-        return displayDay.toString() + ", " + calendar.get(Calendar.MONTH) + " / " + calendar.get(Calendar.DATE);
+        return displayDay.toString() + ", " + (calendar.get(Calendar.MONTH) + 1) + " / " + calendar.get(Calendar.DATE);
     }
 
     public Set<String> getCurrentRestrictions(){

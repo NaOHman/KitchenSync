@@ -4,7 +4,7 @@
                 android:layout_height="35dip"
                 android:orientation="vertical"
                 android:background="@color/background_Color" android:paddingLeft="@dimen/menuItem_EdgePadding"
-                >
+                android:onClick="startReviewActivity">
 
     <ImageView
             android:layout_width="wrap_content"
@@ -25,13 +25,6 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentTop="true"
             android:paddingLeft="@dimen/menuItem_EdgePadding"
-            android:textSize="@dimen/menuItem_TextSize" android:layout_toLeftOf="@+id/list_item_restrictionImgView"
-            />
+            android:textSize="@dimen/menuItem_TextSize" android:layout_toLeftOf="@+id/list_item_restrictionImgView"/>
 
-
-
-    <!--   android:paddingTop="5dp"
-       android:paddingBottom="5dp"
-       android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
-       -->
 </RelativeLayout>

@@ -8,7 +8,8 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
         android:id="@+id/menuBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/menuBar_Height"
-        android:background="@color/darkBackground_Color" >
+        android:background="@color/darkBackground_Color"
+        android:onClick="optionsButtonClick">
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,8 +36,7 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
             android:textColor="@color/background_Color"
             android:textStyle="italic"
             android:id="@+id/displayingFilterTextView"
-            android:layout_marginLeft="108dp"
-            android:layout_above="@+id/currentMealDateDisplay" android:layout_alignParentLeft="true"/>
+            android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

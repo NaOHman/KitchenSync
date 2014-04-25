@@ -1,5 +1,6 @@
 package com.softdev.Controller;
 
+import android.content.Intent;
 import android.widget.ImageView;
 import com.softdev.R;
 import android.app.Activity;
@@ -79,6 +80,13 @@ public class MenuActivity extends Activity {
         openOptionsMenu();
     }
 
+    public void startReviewActivity(View v){
+        Intent intent = new Intent(MenuActivity.this, ReviewActivity.class);
+        // TODO v.getResources().getText(R.id)
+        startActivity(intent);
+    }
+
+
     /**
      * day or filter option chosen in menu
      */
@@ -150,5 +158,6 @@ public class MenuActivity extends Activity {
                 model.setWeek(week);
             }
         }
+
     }
 }
