@@ -10,13 +10,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/list_item_restrictionImgView"
-            android:src="@drawable/transparent"
+            android:src="@drawable/backgroundlight"
             android:layout_centerVertical="true" android:layout_toLeftOf="@+id/list_item_glutenImgview"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/list_item_glutenImgview"
-            android:src="@drawable/transparent"
+            android:src="@drawable/backgroundlight"
             android:layout_centerVertical="true" android:layout_alignParentRight="true"/>
     <TextView
             android:layout_width="wrap_content"
