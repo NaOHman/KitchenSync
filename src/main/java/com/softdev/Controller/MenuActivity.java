@@ -19,12 +19,11 @@ import org.apache.commons.io.IOUtils;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-
 import java.net.URI;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 import java.io.InputStream;
-import java.util.Set;
+
 
 public class MenuActivity extends Activity {
     private ExpandableListView expListView;
@@ -81,8 +80,9 @@ public class MenuActivity extends Activity {
     }
 
     public void startReviewActivity(View v){
+        //TODO: assign unique ID to each food
+        Log.d("--------------------------->","MEAL ID=" + (v.getTag()) + "");
         Intent intent = new Intent(MenuActivity.this, ReviewActivity.class);
-        // TODO v.getResources().getText(R.id)
         startActivity(intent);
     }
 

@@ -7,7 +7,7 @@
               android:id="@+id/reviewlayout">
 
     <ListView android:layout_width="wrap_content" android:layout_height="fill_parent"
-                        android:id="@+id/reviewsExpandable" android:background="@color/trim_Color"
+                        android:id="@+id/reviewslist" android:background="@color/trim_Color"
                         android:layout_gravity="center_horizontal"/>
     <RelativeLayout android:id="@+id/relativeLayout2" android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:background="@color/darkBackground_Color" android:onClick="optionsButtonClick"

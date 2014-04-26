@@ -18,6 +18,7 @@ public class MealListAdapter extends BaseExpandableListAdapter {
     Context context;
     Day day;
     List<Meal> meals;
+    int tagID = 0;
 
     public MealListAdapter(Day day, Context context){
         this.context = context;
@@ -58,6 +59,8 @@ public class MealListAdapter extends BaseExpandableListAdapter {
             txtListChild.setPadding(5,0,0,0);
         }
         txtListChild.setText(name);
+        //TODO find way to set unique tag txtListChild.setTag(tagID, name);
+        tagID++;
         return convertView;
     }
 
