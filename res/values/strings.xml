@@ -7,6 +7,17 @@
     <string name="currentMealDateDisplay">currentMealDateDisplay</string>
     <string name="filterDisplayText">Filtering:  </string>
 
+    <!--"ReviewWrite-->
+    <string name="buttonSubmitReview">SUBMIT REVIEW</string>
+    <string name="editTextName">Name...</string>
+    <string name="editWriteAReview">Write a review...</string>
+
+    <!--"ReviewBody-->
+    <string name="reviewAuthor">Author</string>
+    <string name="reviewDate">Date</string>
+    <string name="reviewRating">Rating</string>
+    <string name="reviewContent">THIS FOOD IS AWESOMETHIS FOOD IS AWESOMETHIS FOOD IS AWESOMETHIS FOOD IS AWESOMETHIS FOOD IS AWESOMETHIS FOOD IS AWESOME</string>
+
     <!--"popupMenu-->
     <string name="Sunday">Sunday </string>
     <string name="Monday">Monday</string>

@@ -5,9 +5,7 @@
 
 
     <stroke
-        android:dashGap="2dip"
-        android:dashWidth="2dip"
-        android:color="@android:color/background_dark" />
+        android:color="@color/trim_Color" />
 
     <size
         android:width="500dp"

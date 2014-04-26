@@ -4,38 +4,59 @@
               android:orientation="vertical"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:background="@color/third_Color"
+              android:background="@color/trim_Color"
               android:padding="@dimen/review_Padding">
 
     <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/background_Color" android:layout_below="@+id/relativeLayout"
+            android:background="@color/background_Color"
+            android:layout_below="@+id/relativeLayout"
             android:layout_alignParentRight="true">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="THIS FOOD IS AWESOMETHIS FOOD IS AWESOMETHIS FOOD IS AWESOMETHIS FOOD IS AWESOMETHIS FOOD IS AWESOMETHIS FOOD IS AWESOME"
-                android:id="@+id/reviewText" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+                android:text="@string/reviewContent"
+                android:id="@+id/reviewText"
+                android:padding="@dimen/review_Padding"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
                 />
     </RelativeLayout>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:background="@color/third_Color" android:padding="@dimen/review_Padding"
-                    android:id="@+id/relativeLayout" android:layout_alignParentTop="true"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/review_Padding"
+                    android:background="@color/background_Color"
+                    android:id="@+id/relativeLayout"
+                    android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true">
-        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
-                        android:background="@color/background_Color">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AUTHOR"
-                      android:id="@+id/reviewTitleAuthor" android:layout_alignParentTop="true"
-                      android:layout_alignParentLeft="true" android:layout_alignParentRight="true"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="RATING"
-                      android:id="@+id/reviewTitleRating" android:layout_centerHorizontal="true"
-                      android:layout_alignParentTop="true"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DATE"
-                      android:id="@+id/reviewTitleDate" android:layout_gravity="center_horizontal"
-                      android:layout_alignParentTop="true" android:layout_alignParentRight="true"/>
-        </RelativeLayout>
+            <RelativeLayout android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/background_Color">
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="@string/reviewAuthor"
+                                  android:id="@+id/reviewTitleAuthor"
+                                  android:layout_alignParentTop="true"
+                                  android:layout_alignParentLeft="true"
+                                  android:layout_alignParentRight="true"/>
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="@string/reviewRating"
+                                  android:id="@+id/reviewTitleRating"
+                                  android:layout_centerHorizontal="true"
+                                  android:layout_alignParentTop="true"/>
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="@string/reviewDate"
+                                  android:id="@+id/reviewTitleDate"
+                                  android:layout_gravity="center_horizontal"
+                                  android:layout_alignParentTop="true"
+                                  android:layout_alignParentRight="true"/>
+            </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>

@@ -5,19 +5,34 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:id="@+id/reviewlayout">
+    <ListView android:id="@+id/reviewslist"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:background="@color/trim_Color"
+              android:layout_gravity="center_horizontal"/>
 
-    <ListView android:layout_width="wrap_content" android:layout_height="fill_parent"
-                        android:id="@+id/reviewslist" android:background="@color/trim_Color"
-                        android:layout_gravity="center_horizontal"/>
-    <RelativeLayout android:id="@+id/relativeLayout2" android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:background="@color/darkBackground_Color" android:onClick="optionsButtonClick"
-                    android:layout_centerHorizontal="true">
-        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
-                  android:text="MEAL ITEM NAME" android:gravity="center" android:textStyle="italic"
-                  android:textSize="@dimen/reviewTitle_TextSize" android:textColor="@color/background_Color" android:id="@+id/reviewHeader_foodname"
-                  android:layout_alignParentTop="true" android:layout_alignParentLeft="true"/>
-    </RelativeLayout>
-    <RelativeLayout android:background="@color/secondary_Color" android:layout_width="fill_parent"
-                    android:layout_height="@dimen/menuBar_AccentHeight" android:id="@+id/relativeLayout"
-                    android:layout_below="@+id/relativeLayout2" android:layout_centerHorizontal="true"/>
+    <RelativeLayout android:id="@+id/relativeLayout2"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/darkBackground_Color"
+              android:onClick="optionsButtonClick"
+              android:layout_centerHorizontal="true">
+        <TextView android:id="@+id/reviewHeader_foodname"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:text="MEAL ITEM NAME"
+                  android:textSize="@dimen/reviewTitle_TextSize"
+                  android:textStyle="italic"
+                  android:textColor="@color/background_Color"
+                  android:gravity="center"
+                  android:layout_alignParentTop="true"
+                  android:layout_alignParentLeft="true"/>
 </RelativeLayout>
+
+    <RelativeLayout android:id="@+id/relativeLayout"
+              android:layout_width="fill_parent"
+              android:layout_height="@dimen/menuBar_AccentHeight"
+              android:background="@color/secondary_Color"
+              android:layout_below="@+id/relativeLayout2"
+              android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
