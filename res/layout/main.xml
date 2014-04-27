@@ -3,22 +3,14 @@
 android:background="@color/trim_Color"
 android:orientation="vertical"
 android:layout_width="fill_parent"
-android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+        >
 <RelativeLayout
         android:id="@+id/menuBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/menuBar_Height"
         android:background="@color/darkBackground_Color"
-        android:onClick="optionsButtonClick">
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="defaultDateText"
-            android:gravity="center"
-            android:textStyle="italic" android:textSize="@dimen/menuBar_CurrentDate_TextSize"
-            android:textColor="@color/background_Color"
-            android:id="@+id/header_date"
-            android:layout_alignParentTop="true"/>
+        android:onClick="optionsButtonClick" android:padding="@dimen/menuBar_Padding">
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,11 +23,13 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Filtering:  "
+            android:text="@string/filterDisplayText"
             android:gravity="center"
             android:textColor="@color/background_Color"
             android:textStyle="italic"
+            android:padding="@dimen/menuBar_Padding"
             android:id="@+id/displayingFilterTextView"
+            android:layout_alignParentTop="true"
             android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
     <ImageView
             android:layout_width="wrap_content"
@@ -71,7 +65,8 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
 <ExpandableListView android:layout_width="match_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/menu_expandable"
-                    android:background="@color/trim_Color">
+                    android:background="@color/trim_Color"
+                    android:padding="@dimen/menuItem_EdgePadding">
 
 </ExpandableListView>
 </LinearLayout>
