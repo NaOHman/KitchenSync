@@ -10,12 +10,13 @@
                         android:id="@+id/reviewslist" android:background="@color/trim_Color"
                         android:layout_gravity="center_horizontal"/>
     <RelativeLayout android:id="@+id/relativeLayout2" android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:background="@color/darkBackground_Color" android:onClick="optionsButtonClick"
+                    android:background="@color/darkBackground_Color"
                     android:layout_centerHorizontal="true">
         <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
-                  android:text="MEAL ITEM NAME" android:gravity="center" android:textStyle="italic"
-                  android:textSize="@dimen/reviewTitle_TextSize" android:textColor="@color/background_Color" android:id="@+id/reviewHeader_foodname"
-                  android:layout_alignParentTop="true" android:layout_alignParentLeft="true"/>
+                  android:gravity="center"
+                  android:textSize="@dimen/reviewTitle_TextSize" android:textColor="@color/background_Color" android:id="@+id/reviewHeader_foodName"
+                  android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+                  android:text="MENU TITLE HERE"/>
     </RelativeLayout>
     <RelativeLayout android:background="@color/secondary_Color" android:layout_width="fill_parent"
                     android:layout_height="@dimen/menuBar_AccentHeight" android:id="@+id/relativeLayout"

@@ -10,10 +10,11 @@ import com.softdev.Model.Review;
 import com.softdev.R;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by dgoldste on 4/25/14.
- * with the help of https://github.com/survivingwithandroid/Surviving-with-android/blob/master/SimpleList/src/com/survivingwithandroid/listview/SimpleList/PlanetAdapter.java
+ * adapted from https://github.com/survivingwithandroid/Surviving-with-android/blob/master/SimpleList/src/com/survivingwithandroid/listview/SimpleList/PlanetAdapter.java
  */
 public class ReviewListAdapter extends ArrayAdapter<Review>{
     private List<Review> reviewList;
@@ -25,9 +26,11 @@ public class ReviewListAdapter extends ArrayAdapter<Review>{
         this.context = context;
     }
 
+    /*
     public int getCount(){
         return reviewList.size();
     }
+    */
 
     public Review getItem(int position){
         return reviewList.get(position);
@@ -44,6 +47,7 @@ public class ReviewListAdapter extends ArrayAdapter<Review>{
 
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            v = inflater.inflate(R.layout.review_body, null);
 
             TextView authorView = (TextView) v.findViewById(R.id.reviewTitleAuthor);
             TextView ratingView = (TextView) v.findViewById(R.id.reviewTitleRating);
@@ -55,19 +59,18 @@ public class ReviewListAdapter extends ArrayAdapter<Review>{
             holder.reviewDate = dateView;
             holder.reviewText = textView;
 
-            //TODO how does this work?
             v.setTag(holder);
         }
 
-        else{
-            holder = (ReviewHolder) v.getTag();
-
-        }
+        else holder = (ReviewHolder) v.getTag();
 
 
         Review review = reviewList.get(position);
         holder.reviewAuthor.setText(review.getText());
-        //TODO finish
+        holder.reviewRating.setText("" + review.getRating());
+        holder.reviewDate.setText("" + review.getDate());
+        holder.reviewText.setText(review.getText());
+
         return v;
     }
 

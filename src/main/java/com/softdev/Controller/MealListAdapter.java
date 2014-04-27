@@ -59,7 +59,7 @@ public class MealListAdapter extends BaseExpandableListAdapter {
             txtListChild.setPadding(5,0,0,0);
         }
         txtListChild.setText(name);
-        //TODO find way to set unique tag txtListChild.setTag(tagID, name);
+        txtListChild.setTag(name);
         tagID++;
         return convertView;
     }
