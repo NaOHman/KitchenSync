@@ -22,7 +22,6 @@ public class MenuModel extends Activity{
     private Weekday displayDay;
     private MealListAdapter listAdapter;
     private ExpandableListView expListView;
-    private Set<String> currentRestrictions = new HashSet<String>();
     private static Calendar calendar = Calendar.getInstance();
 
     public MenuModel(ExpandableListView expListView, Context context){
@@ -41,24 +40,23 @@ public class MenuModel extends Activity{
         return displayDay.toString() + ", " + (calendar.get(Calendar.MONTH) + 1) + " / " + calendar.get(Calendar.DATE);
     }
 
-    public Set<String> getCurrentRestrictions(){
-        return currentRestrictions;
-    }
 
     public boolean getGluten(){
         return filter.getMatchGluten();
     }
 
     public void setRestriction(String r){
-        currentRestrictions.add(r);
-        filter.setRestriction(Restriction.valueOf(r.toUpperCase()));
+        Restriction restriction = Restriction.valueOf(r.toUpperCase());
+        if (filter.getRestriction() == restriction)
+            filter.setRestriction(Restriction.NONE);
+        else
+            filter.setRestriction(restriction);
         update();
     }
 
     public void clearRestrictions(){
         filter.setRestriction(Restriction.NONE);
         filter.setMatchGluten(false);
-        currentRestrictions.clear();
         update();
     }
 
@@ -67,16 +65,18 @@ public class MenuModel extends Activity{
         displayDay = Weekday.valueOf(weekday.toUpperCase());
         update();
     }
-
     public void setMatchGluten(){
-        if (filter.getMatchGluten())filter.setMatchGluten(false);
-        else filter.setMatchGluten(true);
+        filter.setMatchGluten(!filter.getMatchGluten());
         this.update();
     }
 
     public void setWeek(Week week){
         this.week = week;
         update();
+    }
+
+    public Restriction getRestriction(){
+        return filter.getRestriction();
     }
 
     private void update(){

@@ -2,6 +2,7 @@ package com.softdev.Controller;
 
 import android.content.Intent;
 import android.widget.ImageView;
+import com.softdev.Model.Restriction;
 import com.softdev.R;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -31,7 +32,7 @@ import java.util.Set;
 public class MenuActivity extends Activity {
     private ExpandableListView expListView;
     private TextView dateDisplay,dateDisplayMeals;
-    private ImageView[] displayFilters = new ImageView[4];
+    private ImageView[] displayFilters = new ImageView[2];
     private int[] filterIcons = {R.drawable.vegan, R.drawable.vegetarian, R.drawable.pescetarianicon, R.drawable.glutenfree};
     private MenuModel model;
     public final static String MEAL_NAME= "Controller.MenuActivity.MEAL_NAME";
@@ -66,8 +67,6 @@ public class MenuActivity extends Activity {
 
         displayFilters[0]  = (ImageView) findViewById(R.id.filterImageView0);
         displayFilters[1] = (ImageView) findViewById(R.id.filterImageView1);
-        displayFilters[2] = (ImageView) findViewById(R.id.filterImageView2);
-        displayFilters[3] = (ImageView) findViewById(R.id.filterImageView3);
     }
 
     //creates options menu
@@ -104,29 +103,33 @@ public class MenuActivity extends Activity {
             model.setDisplayDay(item.getTitle().toString());
             dateDisplayMeals.setText(model.getDisplayText());
         }
-        if (item.getGroupId() == R.id.menuFilterGroup) model.setRestriction(item.getTitle().toString());
-        if (item.getGroupId() == R.id.GlutenFreeBoolean) model.setMatchGluten();
-        if (item.getGroupId() == R.id.mealOptionsMenu_None){
-            for(int i=0;i<displayFilters.length;i++){
-                model.clearRestrictions();
-                displayFilters[i].setImageResource(R.drawable.background);
-            }
-        }
+        if (item.getGroupId() == R.id.menuFilterGroup)
+            model.setRestriction(item.getTitle().toString());
+        if (item.getGroupId() == R.id.GlutenFreeBoolean)
+            model.setMatchGluten();
+        if (item.getGroupId() == R.id.mealOptionsMenu_None)
+            model.clearRestrictions();
         updateFilterImgs();
         super.onOptionsItemSelected(item);
         return true;
     }
 
     private void updateFilterImgs(){
-        int i = 0;
-        for(String r : model.getCurrentRestrictions()){
-            if(r==getString(R.string.vegan)) displayFilters[i].setImageResource(filterIcons[0]);
-            if(r==getString(R.string.vegetarian)) displayFilters[i].setImageResource(filterIcons[1]);
-            if(r==getString(R.string.pescetarian)) displayFilters[i].setImageResource(filterIcons[2]);
-            i++;
+        displayFilters[1].setImageResource(R.drawable.background);
+        displayFilters[0].setImageResource(R.drawable.background);
+        Restriction r = model.getRestriction();
+        if(r == Restriction.VEGAN)
+            displayFilters[0].setImageResource(filterIcons[0]);
+        if(r == Restriction.VEGETARIAN)
+            displayFilters[0].setImageResource(filterIcons[1]);
+        if(r == Restriction.PESCETARIAN)
+            displayFilters[0].setImageResource(filterIcons[2]);
+        if(model.getGluten()) {
+            if (r == Restriction.NONE)
+                displayFilters[0].setImageResource(filterIcons[3]);
+            else
+                displayFilters[1].setImageResource(filterIcons[3]);
         }
-        if(model.getGluten()) displayFilters[i].setImageResource(filterIcons[3]);
-
     }
 
     private class WeekDataFetcher extends AsyncTask<String, Void, Week> {
