@@ -1,7 +1,8 @@
 package com.softdev.Model;
 
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,12 +15,12 @@ public class Food extends DisplayItem implements Serializable{
     private String description;
     private Boolean glutenFree;
     private Restriction restriction;
-    private Set<Review> reviews;
+    private List<Review> reviews;
     private double rating;
     private int ratingCount;
     private long foodID;
 
-    public Food(String name, String description, Restriction restriction, boolean glutenFree, Set<Review> reviews){
+    public Food(String name, String description, Restriction restriction, boolean glutenFree, List<Review> reviews){
         this.name = name;
         this.description = description;
         this.restriction = restriction;
@@ -59,7 +60,7 @@ public class Food extends DisplayItem implements Serializable{
         return Food.class;
     }
 
-    public Set<Review> getReviews(){
+    public List<Review> getReviews(){
         return reviews;
     }
 
