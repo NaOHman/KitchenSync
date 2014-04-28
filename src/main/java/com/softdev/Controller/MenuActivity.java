@@ -1,5 +1,7 @@
 package com.softdev.Controller;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.widget.ImageView;
 import com.softdev.Model.Restriction;
@@ -54,7 +56,20 @@ public class MenuActivity extends Activity {
         if (networkInfo != null && networkInfo.isConnected()) {
             new WeekDataFetcher().execute(getString(R.string.server_url));
         } else {
-            //TODO network not connected do something
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setTitle("Not Connected to the Internet");
+            alertDialogBuilder
+                    .setMessage("Please connect to the internet so we can fetch today's menu")
+                    .setCancelable(false)
+                    .setNegativeButton("Okay",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            // if this button is clicked, just close
+                            // the dialog box and do nothing
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
         }
     }
 
@@ -74,6 +89,7 @@ public class MenuActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.popupmenu, menu);
+
         return true;
     }
 
@@ -119,16 +135,16 @@ public class MenuActivity extends Activity {
         displayFilters[0].setImageResource(R.drawable.background);
         Restriction r = model.getRestriction();
         if(r == Restriction.VEGAN)
-            displayFilters[0].setImageResource(filterIcons[0]);
+            displayFilters[0].setImageResource(R.drawable.vegan);
         if(r == Restriction.VEGETARIAN)
-            displayFilters[0].setImageResource(filterIcons[1]);
+            displayFilters[0].setImageResource(R.drawable.vegetarian);
         if(r == Restriction.PESCETARIAN)
-            displayFilters[0].setImageResource(filterIcons[2]);
+            displayFilters[0].setImageResource(R.drawable.pescetarianicon);
         if(model.getGluten()) {
             if (r == Restriction.NONE)
-                displayFilters[0].setImageResource(filterIcons[3]);
+                displayFilters[0].setImageResource(R.drawable.glutenfree);
             else
-                displayFilters[1].setImageResource(filterIcons[3]);
+                displayFilters[1].setImageResource(R.drawable.glutenfree);
         }
     }
 

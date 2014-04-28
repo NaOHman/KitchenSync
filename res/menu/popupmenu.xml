@@ -24,8 +24,8 @@
         <menu android:id="@+id/FilterOptionsMenu">
             <group android:id="@+id/menuFilterGroup">
                 <item android:id="@+id/mealOptionsMenu_Vegan" android:title="@string/vegan" android:icon="@drawable/vegan"/>
-                <item android:id="@+id/mealOptionsMenu_Pescatarian" android:title="@string/pescetarian" android:icon="@drawable/seafoodwatch" android:showAsAction="always"/>
                 <item android:id="@+id/mealOptionsMenu_Vegetarian" android:title="@string/vegetarian" android:icon="@drawable/vegetarian"/>
+                <item android:id="@+id/mealOptionsMenu_Pescatarian" android:title="@string/pescetarian" android:icon="@drawable/seafoodwatch" android:showAsAction="always"/>
 
                 <group android:id="@+id/GlutenFreeBoolean">
                     <item android:id="@+id/mealOptionsMenu_Glutenfree" android:title="@string/GlutenFree" android:icon="@drawable/glutenfree"/>
