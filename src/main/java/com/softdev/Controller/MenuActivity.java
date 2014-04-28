@@ -63,8 +63,6 @@ public class MenuActivity extends Activity {
     private void createDaydisplay(){
         dateDisplayMeals = (TextView) findViewById(R.id.currentMealDateDisplay);
         dateDisplayMeals.setText(model.getDisplayText());
-        dateDisplay = (TextView) findViewById(R.id.header_date);
-        dateDisplay.setText(model.getTodayText());
 
         displayFilters[0]  = (ImageView) findViewById(R.id.filterImageView0);
         displayFilters[1] = (ImageView) findViewById(R.id.filterImageView1);
