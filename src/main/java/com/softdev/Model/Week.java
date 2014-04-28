@@ -1,4 +1,8 @@
 package com.softdev.Model;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by jeffrey on 2/11/14.
  * the week class provides describes the menu for a week in cafe mac

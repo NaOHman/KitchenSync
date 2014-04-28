@@ -1,5 +1,7 @@
 package com.softdev.Model;
 
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -7,7 +9,7 @@ import java.util.Set;
  * a Food represents a dish being served in cafe mac
  * it also contains data about the food such as dietary restrictions
  */
-public class Food extends DisplayItem{
+public class Food extends DisplayItem implements Serializable{
     private String name;
     private String description;
     private Boolean glutenFree;

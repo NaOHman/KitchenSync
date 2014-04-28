@@ -14,7 +14,7 @@ public class Station extends DisplayItem{
         foods = new ArrayList<Food>();
     }
 
-    public void addMenuItem(Food food){
+    public void addFood(Food food){
        foods.add(food);
     }
 

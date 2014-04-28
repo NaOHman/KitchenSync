@@ -34,7 +34,8 @@ public class ReviewActivity extends Activity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        String mealName = intent.getStringExtra(MenuActivity.MEAL_NAME);
+        Food food = (Food) intent.getSerializableExtra("Food");
+        Log.d("Caught FOOD in Review Page" , food.getName());
 
         setContentView(R.layout.review_main);
         reviewsList = (ListView) findViewById(R.id.reviewslist);
@@ -42,7 +43,7 @@ public class ReviewActivity extends Activity {
 //TODO        reviewsList.setAdapter(reviewAdapter);
 
         mealNameTxtView = (TextView) findViewById(R.id.reviewHeader_foodName);
-        mealNameTxtView.setText(mealName);
+        mealNameTxtView.setText(food.getName());
         reviewsList= (ListView) findViewById(R.id.reviewslist);
 
         //TODO reviewsList.addFooterView(R.layout.review_write);

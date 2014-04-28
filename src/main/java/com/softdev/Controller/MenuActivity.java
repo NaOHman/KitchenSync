@@ -33,9 +33,8 @@ import java.util.Set;
 
 public class MenuActivity extends Activity {
     private ExpandableListView expListView;
-    private TextView dateDisplay,dateDisplayMeals;
+    private TextView dateDisplayMeals;
     private ImageView[] displayFilters = new ImageView[2];
-    private int[] filterIcons = {R.drawable.vegan, R.drawable.vegetarian, R.drawable.pescetarianicon, R.drawable.glutenfree};
     private MenuModel model;
     public final static String MEAL_NAME= "Controller.MenuActivity.MEAL_NAME";
     private final static Set<String> stations = new HashSet<String>(Arrays.asList("Breakfast Special", "Pasta", "Pizza", "Soup of the Day", "South", "East", "Grill"));
@@ -73,6 +72,19 @@ public class MenuActivity extends Activity {
         }
     }
 
+/*    public void startReviewActivity(View v){
+        Intent intent = new Intent(MenuActivity.this, ReviewActivity.class);
+        String mealName = (v.findViewById(R.id.lblListItem).getTag()).toString();
+
+        //verifies itemLayout is not a station
+        if(stations.contains(mealName)) return;
+
+
+        intent.putExtra(MEAL_NAME, mealName);
+        startActivity(intent);
+    }*/
+
+
     /**
      * sets up menu bar in main Layout
      */
@@ -97,19 +109,6 @@ public class MenuActivity extends Activity {
     public void optionsButtonClick(View v){
         openOptionsMenu();
     }
-
-    public void startReviewActivity(View v){
-        Intent intent = new Intent(MenuActivity.this, ReviewActivity.class);
-        String mealName = (v.findViewById(R.id.lblListItem).getTag()).toString();
-
-        //verifies itemLayout is not a station
-        if(stations.contains(mealName)) return;
-
-
-        intent.putExtra(MEAL_NAME, mealName);
-        startActivity(intent);
-    }
-
 
     /**
      * day or filter option chosen in menu

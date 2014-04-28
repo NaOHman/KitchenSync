@@ -1,6 +1,7 @@
 package com.softdev.Controller;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,7 +41,7 @@ public class MealListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
-        DisplayItem child = (DisplayItem) getChild(groupPosition,childPosition);
+        final DisplayItem child = (DisplayItem) getChild(groupPosition,childPosition);
         String name = child.getName();
         if (convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -57,6 +58,15 @@ public class MealListAdapter extends BaseExpandableListAdapter {
             txtListChild.setTypeface(null, Typeface.NORMAL);
             txtListChild.setAllCaps(false);
             txtListChild.setPadding(5,0,0,0);
+            txtListChild.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, ReviewActivity.class);
+                    Food food = (Food) child;
+                    intent.putExtra("Food", food);
+                    context.startActivity(intent);
+                }
+            });
         }
         txtListChild.setText(name);
         txtListChild.setTag(name);
