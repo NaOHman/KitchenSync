@@ -34,12 +34,6 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/filterImageView3"
-            android:layout_alignTop="@+id/filterImageView2" android:layout_toRightOf="@+id/filterImageView2"
-            android:src="@drawable/background" android:layout_gravity="center_horizontal"/>
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/filterImageView0"
             android:src="@drawable/background"
             android:layout_alignTop="@+id/displayingFilterTextView"
@@ -50,12 +44,6 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
             android:id="@+id/filterImageView1"
             android:layout_toRightOf="@+id/filterImageView0" android:layout_alignTop="@+id/filterImageView0"
             android:src="@drawable/background"/>
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/filterImageView2"
-            android:src="@drawable/background" android:layout_alignTop="@+id/filterImageView1"
-            android:layout_toRightOf="@+id/filterImageView1"/>
 </RelativeLayout>
 <RelativeLayout
         android:background="@color/secondary_Color"

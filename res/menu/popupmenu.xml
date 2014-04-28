@@ -43,7 +43,8 @@
             </group>
         </menu>
     </item>
-
+    <item android:id="@+id/mealOptionsMenu_refresh"
+          android:title="Refresh"/>
 
     <item android:id="@+id/mealOptionsMenu_help" android:title="Help" android:icon="@drawable/helpicon" android:showAsAction="ifRoom"/>
 </menu>

@@ -49,6 +49,10 @@ public class MenuActivity extends Activity {
         expListView = (ExpandableListView) findViewById(R.id.menu_expandable);
         model = new MenuModel(expListView, this);
         createDaydisplay();
+        pullWeek();
+    }
+
+    public void pullWeek(){
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -62,8 +66,6 @@ public class MenuActivity extends Activity {
                     .setCancelable(false)
                     .setNegativeButton("Okay",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {
-                            // if this button is clicked, just close
-                            // the dialog box and do nothing
                             dialog.cancel();
                         }
                     });
@@ -71,18 +73,6 @@ public class MenuActivity extends Activity {
             alertDialog.show();
         }
     }
-
-/*    public void startReviewActivity(View v){
-        Intent intent = new Intent(MenuActivity.this, ReviewActivity.class);
-        String mealName = (v.findViewById(R.id.lblListItem).getTag()).toString();
-
-        //verifies itemLayout is not a station
-        if(stations.contains(mealName)) return;
-
-
-        intent.putExtra(MEAL_NAME, mealName);
-        startActivity(intent);
-    }*/
 
 
     /**
@@ -128,8 +118,10 @@ public class MenuActivity extends Activity {
             model.setMatchGluten();
             item.setChecked(model.getGluten());
         }
-        if (item.getGroupId() == R.id.mealOptionsMenu_None)
-            model.clearRestrictions();
+        if (item.getItemId() == R.id.mealOptionsMenu_refresh)
+        {
+            pullWeek();
+        }
         updateFilterImgs();
         super.onOptionsItemSelected(item);
         return true;

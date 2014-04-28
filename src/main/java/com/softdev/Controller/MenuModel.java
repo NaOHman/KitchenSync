@@ -68,7 +68,7 @@ public class MenuModel extends Activity{
     }
 
     public void setRestriction(String r){
-        if(r.equals(getString(R.id.mealOptionsMenu_None))) {
+        if(r.equals("Omnivore")) {
             filter.setRestriction(Restriction.NONE);
         } else {
             Restriction restriction = Restriction.valueOf(r.toUpperCase());
