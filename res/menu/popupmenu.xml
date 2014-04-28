@@ -6,7 +6,9 @@
     <item android:id="@+id/ChooseDayMenuOption" android:title="Choose Day" >
         <!--"meal Day Submenu-->
         <menu android:id="@+id/mealOptionsMenu">
-            <group android:id="@+id/menuMealGroup" android:orderInCategory="1">
+            <group android:id="@+id/menuMealGroup" android:orderInCategory="1"
+                   android:checkable="true"
+                   android:checkableBehavior="single">
                 <item android:id="@+id/mealOptionsMenu_Sunday" android:title="@string/Sunday"/>
                 <item android:id="@+id/mealOptionsMenu_Monday" android:title="@string/Monday"/>
                 <item android:id="@+id/mealOptionsMenu_Tuesday" android:title="@string/Tuesday"/>
@@ -23,16 +25,20 @@
         <!--"meal Filter Submenu-->
         <menu android:id="@+id/FilterOptionsMenu">
             <group android:id="@+id/menuFilterGroup">
-                <item android:id="@+id/mealOptionsMenu_Vegan" android:title="@string/vegan" android:icon="@drawable/vegan"/>
-                <item android:id="@+id/mealOptionsMenu_Vegetarian" android:title="@string/vegetarian" android:icon="@drawable/vegetarian"/>
-                <item android:id="@+id/mealOptionsMenu_Pescatarian" android:title="@string/pescetarian" android:icon="@drawable/seafoodwatch" android:showAsAction="always"/>
-
-                <group android:id="@+id/GlutenFreeBoolean">
-                    <item android:id="@+id/mealOptionsMenu_Glutenfree" android:title="@string/GlutenFree" android:icon="@drawable/glutenfree"/>
+                <group android:id="@+id/DietaryRestrictions"
+                       android:checkable="true"
+                       android:checkableBehavior="single">
+                    <item android:id="@+id/mealOptionsMenu_Vegan" android:title="@string/vegan" android:icon="@drawable/vegan"/>
+                    <item android:id="@+id/mealOptionsMenu_Vegetarian" android:title="@string/vegetarian" android:icon="@drawable/vegetarian"/>
+                    <item android:id="@+id/mealOptionsMenu_Pescatarian" android:title="@string/pescetarian" android:icon="@drawable/seafoodwatch" android:showAsAction="always"/>
+                    <item android:id="@+id/mealOptionsMenu_None" android:title="@string/None"/>
                 </group>
 
-                <group android:id="@+id/mealOptionsMenu_None">
-                    <item android:id="@+id/mealOptionsMenu_None" android:title="@string/None"/>
+                <group android:id="@+id/GlutenFreeBoolean">
+                    <item android:id="@+id/mealOptionsMenu_Glutenfree"
+                          android:title="@string/GlutenFree"
+                          android:icon="@drawable/glutenfree"
+                          android:checkable="true"/>
                 </group>
             </group>
         </menu>

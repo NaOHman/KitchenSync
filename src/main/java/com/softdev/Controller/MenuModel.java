@@ -8,6 +8,8 @@ import com.softdev.Model.Day;
 import com.softdev.Model.Restriction;
 import com.softdev.Model.Week;
 import com.softdev.Model.Weekday;
+import com.softdev.R;
+
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
@@ -40,17 +42,38 @@ public class MenuModel extends Activity{
         return displayDay.toString() + ", " + (calendar.get(Calendar.MONTH) + 1) + " / " + calendar.get(Calendar.DATE);
     }
 
+    public int getTodayID(){
+        int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+        switch(day){
+            case 0:
+                return R.id.mealOptionsMenu_Sunday;
+            case 1:
+                return R.id.mealOptionsMenu_Monday;
+            case 2:
+                return R.id.mealOptionsMenu_Tuesday;
+            case 3:
+                return R.id.mealOptionsMenu_Wednesday;
+            case 4:
+                return R.id.mealOptionsMenu_Thursday;
+            case 5:
+                return R.id.mealOptionsMenu_Friday;
+            default:
+                return R.id.mealOptionsMenu_Saturday;
+        }
+    }
+
 
     public boolean getGluten(){
         return filter.getMatchGluten();
     }
 
     public void setRestriction(String r){
-        Restriction restriction = Restriction.valueOf(r.toUpperCase());
-        if (filter.getRestriction() == restriction)
+        if(r.equals("Omnivore")) {
             filter.setRestriction(Restriction.NONE);
-        else
+        } else {
+            Restriction restriction = Restriction.valueOf(r.toUpperCase());
             filter.setRestriction(restriction);
+        }
         update();
     }
 
@@ -82,7 +105,6 @@ public class MenuModel extends Activity{
     private void update(){
         if (week != null){
             Day day = filter.applyFilter(week.getDay(displayDay));
-            Log.e("MenuModel", "Day is null?" + (day==null));
             listAdapter = new MealListAdapter(day, context);
             expListView.setAdapter(listAdapter);
             for (int i=0; i < listAdapter.getGroupCount(); i++) {

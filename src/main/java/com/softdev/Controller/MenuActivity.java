@@ -89,7 +89,8 @@ public class MenuActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.popupmenu, menu);
-
+        menu.findItem(R.id.mealOptionsMenu_None).setChecked(true);
+        menu.findItem(model.getTodayID()).setChecked(true);
         return true;
     }
 
@@ -118,11 +119,16 @@ public class MenuActivity extends Activity {
         if (item.getGroupId() == R.id.menuMealGroup) {
             model.setDisplayDay(item.getTitle().toString());
             dateDisplayMeals.setText(model.getDisplayText());
+            item.setChecked(true);
         }
-        if (item.getGroupId() == R.id.menuFilterGroup)
+        if (item.getGroupId() == R.id.DietaryRestrictions) {
+            item.setChecked(true);
             model.setRestriction(item.getTitle().toString());
-        if (item.getGroupId() == R.id.GlutenFreeBoolean)
+        }
+        if (item.getGroupId() == R.id.GlutenFreeBoolean) {
             model.setMatchGluten();
+            item.setChecked(model.getGluten());
+        }
         if (item.getGroupId() == R.id.mealOptionsMenu_None)
             model.clearRestrictions();
         updateFilterImgs();
