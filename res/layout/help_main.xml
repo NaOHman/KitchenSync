@@ -2,8 +2,28 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@color/background_Color"
               android:id="@+id/help_main">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="@dimen/helpBar_Height"
+                    android:background="@color/darkBackground_Color"
+                    android:id="@+id/helpBar"
+                    android:padding="@dimen/helpBar_Padding">
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Help"
+                android:textSize="@dimen/menuHeading_TextSize"
+                android:textColor="@color/background_Color"
+                android:gravity="center"
+                android:id="@+id/textView"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:background="@color/secondary_Color"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/menuBar_AccentHeight"
+            android:layout_below="@id/helpBar"/>
 
 </RelativeLayout>

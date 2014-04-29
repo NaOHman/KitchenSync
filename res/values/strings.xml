@@ -18,6 +18,9 @@
     <string name="reviewRating">Rating</string>
     <string name="reviewDenomenator"> / 5</string>
 
+    <!--"HelpMenu-->
+    <string name="helpMenu">Help</string>
+
     <!--"popupMenu-->
     <string name="Sunday">Sunday </string>
     <string name="Monday">Monday</string>

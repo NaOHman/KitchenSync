@@ -27,4 +27,9 @@
     <!--layout.menu_heading-->
     <dimen name="menuHeading_TextSize">40dp</dimen>
 
+    <!--layout.help_main-->
+    <dimen name="helpBar_Height">40dp</dimen>
+    <dimen name="helpBar_Padding">4dp</dimen>
+
+
 </resources>
