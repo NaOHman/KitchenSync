@@ -22,6 +22,7 @@
     <!--layout.menu_item-->
     <dimen name="menuItem_EdgePadding">5dp</dimen>
     <dimen name="menuItem_TextSize">20dp</dimen>
+    <dimen name="minHeight">48dp</dimen>
 
     <!--layout.menu_heading-->
     <dimen name="menuHeading_TextSize">40dp</dimen>
