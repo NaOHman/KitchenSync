@@ -7,7 +7,7 @@
                     android:id="@+id/relativeLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/third_Color"
+                    android:background="@color/trim_Color"
                     android:padding="@dimen/review_Padding"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true">
@@ -16,14 +16,15 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="@color/trim_Color">
+                android:background="@color/background_Color">
             <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/reviewRatingSpinner"
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/nameEditTextWriteReview"
-                    android:layout_alignBottom="@+id/nameEditTextWriteReview"/>
+                    android:layout_alignBottom="@+id/nameEditTextWriteReview"
+                    android:entries="@array/rating_array"/>
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

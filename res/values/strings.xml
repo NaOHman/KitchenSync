@@ -16,7 +16,7 @@
     <string name="reviewAuthor">Author</string>
     <string name="reviewDate">Date</string>
     <string name="reviewRating">Rating</string>
-    <string name="reviewContent">THIS FOOD IS AWESOMETHIS FOOD IS AWESOMETHIS FOOD IS AWESOMETHIS FOOD IS AWESOMETHIS FOOD IS AWESOMETHIS FOOD IS AWESOME</string>
+    <string name="reviewDenomenator"> / 5</string>
 
     <!--"popupMenu-->
     <string name="Sunday">Sunday </string>

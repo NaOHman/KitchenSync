@@ -7,6 +7,7 @@
     <color name="third_Color">#ff31948d</color>
     <color name="trim_Color">#ffeee1d0</color>
     <color name="background_Color">#fffff1e0</color>
+    <color name="black">#ff000000</color>
 </resources>
 
 

@@ -23,6 +23,7 @@ import java.util.Set;
 
 /**
  * Created by dgoldste on 4/22/14.
+ * with the help of the excellent ListView tutorial https://www.youtube.com/watch?v=WRANgDgM2Zg
  */
 
 public class ReviewActivity extends Activity {
@@ -39,20 +40,31 @@ public class ReviewActivity extends Activity {
 
         setContentView(R.layout.review_main);
         setTitleView(food);
-
-        Log.d("-----------------------------> current Reviews", reviews.toString());
-
         reviewList = (ListView) findViewById(R.id.reviewslist);
-        if(reviews.size() > 0) {
-            populateListView();
-        }
+
+        //TODO add space review so reviews != null
+        Review space = new Review("", "", food, 0);
+        reviews.add(space);
+
+        Review test = new Review("David", "bloody diarrhea :(", food, 1);
+        reviews.add(test);
+        Review test1 = new Review("Jeffrey", "I would rather be strangled by Paul ", food, 1);
+        reviews.add(test1);
+        Review test2 = new Review("Hanna", "best meal all week!!", food, 5);
+        reviews.add(test2);
+        Review test3 = new Review("Paul", "I would rather be stranged by Jeffrey!!", food, 3);
+        reviews.add(test3);
+
+
+        populateListView();
+
 
     }
 
     private void populateListView(){
         ArrayAdapter<Review> adapter = new ReviewListAdapter();
+        addFooter();
         reviewList.setAdapter(adapter);
-        reviewList.addFooterView(findViewById(R.layout.review_write));
     }
 
     private class ReviewListAdapter extends ArrayAdapter<Review> {
@@ -65,10 +77,8 @@ public class ReviewActivity extends Activity {
             View v = convertView;
 
             //make sure actually working with a view
-            if(v == null){
+            if(v == null)
                 v = getLayoutInflater().inflate(R.layout.review_body, parent, false);
-
-            }
 
             //find Review to work with
             Review currReview = reviews.get(position);
@@ -87,6 +97,11 @@ public class ReviewActivity extends Activity {
 
             return v;
         }
+    }
+
+    private void addFooter(){
+        View footerView = View.inflate(this, R.layout.review_write, null);
+        reviewList.addFooterView(footerView);
     }
 
     private void setTitleView(Food food){

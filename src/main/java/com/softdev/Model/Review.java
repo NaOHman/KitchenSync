@@ -1,6 +1,8 @@
 package com.softdev.Model;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by jeffrey on 4/19/14.
@@ -11,13 +13,21 @@ public class Review {
     private String text;
     private Integer rating;
     private Date date;
+    private Calendar calendar;
+    private Integer day;
+    private Integer month;
+    private Integer year;
 
     public Review(String reviewer, String text, Food food, int rating){
+        this.text = text;
         this.food = food;
         this.reviewer = reviewer;
         this.food = food;
         this.rating = rating;
-        date = new Date();
+        calendar = new GregorianCalendar();
+        this.day = calendar.get(Calendar.DATE);
+        this.month = calendar.get(Calendar.MONTH);
+        this.year = calendar.get(Calendar.YEAR);
     }
 
     public Food getFood() {
@@ -37,7 +47,7 @@ public class Review {
     }
 
     public String getDate(){
-        return date.toString();
+        return(day + "-" + month + "-" + year);
     }
 
     public void setReviewer(String reviewer) {
