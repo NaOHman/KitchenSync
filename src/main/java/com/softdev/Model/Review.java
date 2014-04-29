@@ -9,7 +9,7 @@ public class Review {
     private Food food;
     private String reviewer;
     private String text;
-    private int rating;
+    private Integer rating;
     private Date date;
 
     public Review(String reviewer, String text, Food food, int rating){
@@ -32,12 +32,12 @@ public class Review {
         return reviewer;
     }
 
-    public int getRating(){
-        return rating;
+    public String getRating(){
+        return rating.toString();
     }
 
-    public Date getDate(){
-        return date;
+    public String getDate(){
+        return date.toString();
     }
 
     public void setReviewer(String reviewer) {
