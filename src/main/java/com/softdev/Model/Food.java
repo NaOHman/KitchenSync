@@ -16,9 +16,6 @@ public class Food extends DisplayItem implements Serializable{
     private Boolean glutenFree;
     private Restriction restriction;
     private List<Review> reviews;
-    private double rating;
-    private int ratingCount;
-    private long foodID;
 
     public Food(String name, String description, Restriction restriction, boolean glutenFree, List<Review> reviews){
         this.name = name;
@@ -36,20 +33,16 @@ public class Food extends DisplayItem implements Serializable{
         return (restriction.ordinal() <= r.ordinal()) && (glutenFree || !matchGluten);
     }
 
-    public double getRating() {
-        return rating;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
-    public int getRatingCount() {
-        return ratingCount;
-    }
-
-    public void setRatingCount(int ratingCount) {
-        this.ratingCount = ratingCount;
+    public double getAverageRating(){
+        int rateCount = 0;
+        double rating = 0;
+        for(Review review: reviews){
+            if (review.getRating() != 0){
+                rating += review.getRating();
+                rateCount++;
+            }
+        }
+        return rating/rateCount;
     }
 
     public String getName(){
@@ -62,10 +55,6 @@ public class Food extends DisplayItem implements Serializable{
 
     public List<Review> getReviews(){
         return reviews;
-    }
-
-    public String getDescription(){
-        return description;
     }
 
     public Restriction getRestriction(){

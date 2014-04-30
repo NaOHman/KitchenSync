@@ -36,12 +36,14 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
             android:layout_height="wrap_content"
             android:id="@+id/filterImageView0"
             android:src="@drawable/background"
+            android:padding="@dimen/menuItem_EdgePadding"
             android:layout_alignParentTop="true" android:paddingTop="@dimen/menuItem_EdgePadding"
             android:layout_toRightOf="@+id/displayingFilterTextView"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/filterImageView1"
+            android:padding="@dimen/menuItem_EdgePadding"
             android:src="@drawable/background"
             android:layout_alignParentTop="true" android:paddingTop="@dimen/menuItem_EdgePadding"
             android:layout_toRightOf="@+id/filterImageView0" />

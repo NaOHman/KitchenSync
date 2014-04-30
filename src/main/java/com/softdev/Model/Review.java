@@ -1,5 +1,6 @@
 package com.softdev.Model;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -8,46 +9,30 @@ import java.util.GregorianCalendar;
  * Created by jeffrey on 4/19/14.
  */
 public class Review {
-    private Food food;
     private String reviewer;
     private String text;
-    private Integer rating;
-    private Date date;
-    private Calendar calendar;
-    private Integer day;
-    private Integer month;
-    private Integer year;
+    private int rating;
+    private Date createdAt;
 
-    public Review(String reviewer, String text, Food food, int rating){
+    public Review(String reviewer, String text, int rating){
         this.text = text;
-        this.food = food;
         this.reviewer = reviewer;
-        this.food = food;
         this.rating = rating;
-        calendar = new GregorianCalendar();
-        this.day = calendar.get(Calendar.DATE);
-        this.month = calendar.get(Calendar.MONTH);
-        this.year = calendar.get(Calendar.YEAR);
-    }
-
-    public Food getFood() {
-        return food;
-    }
-
-    public void setFood(Food food) {
-        this.food = food;
+        Calendar calendar = Calendar.getInstance();
+        this.createdAt = calendar.getTime();
     }
 
     public String getReviewer() {
         return reviewer;
     }
 
-    public String getRating(){
-        return rating.toString();
+    public int getRating(){
+        return rating;
     }
 
     public String getDate(){
-        return(day + "-" + month + "-" + year);
+        SimpleDateFormat df2 = new SimpleDateFormat("EEE MMM dd, yyyy");
+        return df2.format(createdAt);
     }
 
     public void setReviewer(String reviewer) {

@@ -43,16 +43,16 @@ public class ReviewActivity extends Activity {
         reviewList = (ListView) findViewById(R.id.reviewslist);
 
         //TODO add space review so reviews != null
-        Review space = new Review("", "", food, 0);
+        Review space = new Review("", "", 0);
         reviews.add(space);
 
-        Review test = new Review("David", "bloody diarrhea :(", food, 1);
+        Review test = new Review("David", "bloody diarrhea :(", 1);
         reviews.add(test);
-        Review test1 = new Review("Jeffrey", "I would rather be strangled by Paul ", food, 1);
+        Review test1 = new Review("Jeffrey", "I would rather be strangled by Paul ", 1);
         reviews.add(test1);
-        Review test2 = new Review("Hanna", "best meal all week!!", food, 5);
+        Review test2 = new Review("Hanna", "best meal all week!!", 5);
         reviews.add(test2);
-        Review test3 = new Review("Paul", "I would rather be stranged by Jeffrey!!", food, 3);
+        Review test3 = new Review("Paul", "I would rather be stranged by Jeffrey!!", 3);
         reviews.add(test3);
 
 
