@@ -12,14 +12,12 @@ import java.util.Set;
  */
 public class Food extends DisplayItem implements Serializable{
     private String name;
-    private String description;
     private Boolean glutenFree;
     private Restriction restriction;
     private List<Review> reviews;
 
     public Food(String name, String description, Restriction restriction, boolean glutenFree, List<Review> reviews){
         this.name = name;
-        this.description = description;
         this.restriction = restriction;
         this.glutenFree = glutenFree;
         this.reviews = reviews;
