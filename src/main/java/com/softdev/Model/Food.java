@@ -45,6 +45,17 @@ public class Food extends DisplayItem implements Serializable{
         return rating/rateCount;
     }
 
+    public List<Review> getTextReviews(){
+        List<Review> textReviews = new ArrayList<Review>();
+        for(Review review : reviews){
+            if(review.getText() != null)
+                if (review.getReviewer() == "")
+                    review.setReviewer("Anonymous");
+            textReviews.add(review);
+        }
+        return reviews;
+    }
+
     public String getName(){
         return name;
     }

@@ -36,7 +36,7 @@ public class ReviewActivity extends Activity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         Food food = (Food) intent.getSerializableExtra("Food");
-        this.reviews = food.getReviews();
+        this.reviews = food.getTextReviews();
 
         setContentView(R.layout.review_main);
         setTitleView(food);
