@@ -15,7 +15,6 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:background="@color/darkBackground_Color"
-              android:onClick="optionsButtonClick"
               android:layout_centerHorizontal="true">
         <TextView android:id="@+id/reviewHeader_foodName"
                   android:layout_width="fill_parent"

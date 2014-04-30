@@ -50,7 +50,7 @@ public class ReviewActivity extends Activity {
         reviews.add(test);
         Review test1 = new Review("Jeffrey", "I would rather be strangled by Paul ", food, 1);
         reviews.add(test1);
-        Review test2 = new Review("Hanna", "best meal all week!!", food, 5);
+        Review test2 = new Review("Hannah", "best meal all week!!", food, 5);
         reviews.add(test2);
         Review test3 = new Review("Paul", "I would rather be stranged by Jeffrey!!", food, 3);
         reviews.add(test3);
