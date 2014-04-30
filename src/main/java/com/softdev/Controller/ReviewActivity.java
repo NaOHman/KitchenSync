@@ -30,6 +30,7 @@ public class ReviewActivity extends Activity {
     private List<Review> reviews = new ArrayList<Review>();
     private TextView mealNameTxtView;
     private ListView reviewList;
+    private double averageRating;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -37,6 +38,7 @@ public class ReviewActivity extends Activity {
         Intent intent = getIntent();
         Food food = (Food) intent.getSerializableExtra("Food");
         this.reviews = food.getTextReviews();
+        this.averageRating = food.getAverageRating();
 
         setContentView(R.layout.review_main);
         setTitleView(food);
