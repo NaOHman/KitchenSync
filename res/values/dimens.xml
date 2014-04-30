@@ -28,8 +28,10 @@
     <dimen name="menuHeading_TextSize">40dp</dimen>
 
     <!--layout.help_main-->
-    <dimen name="helpBar_Height">40dp</dimen>
-    <dimen name="helpBar_Padding">4dp</dimen>
-
+    <dimen name="helpBar_Height">50dp</dimen>
+    <dimen name="helpBar_TextSize">35dp</dimen>
+    <dimen name="helpPage_Padding">4dp</dimen>
+    <dimen name="help_Heading">50dp</dimen>
+    <dimen name="helpHeading_TextSize">20dp</dimen>
 
 </resources>

@@ -32,6 +32,7 @@ import java.util.Set;
 
 
 public class MenuActivity extends Activity {
+    Context context;
     private ExpandableListView expListView;
     private TextView dateDisplayMeals;
     private ImageView[] displayFilters = new ImageView[2];
@@ -122,9 +123,17 @@ public class MenuActivity extends Activity {
         {
             pullWeek();
         }
+        if (item.getItemId() == R.id.mealOptionsMenu_help){
+            openHelpActivity();
+        }
         updateFilterImgs();
         super.onOptionsItemSelected(item);
         return true;
+    }
+
+    private void openHelpActivity(){
+        Intent helpIntent = new Intent(this, HelpActivity.class);
+        startActivity(helpIntent);
     }
 
     private void updateFilterImgs(){

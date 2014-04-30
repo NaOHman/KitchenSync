@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".Controller.HelpActivity"
+                  android:label="@string/HelpActivity"
+                  android:parentActivityName=".Controller.MenuActivity">
+        </activity>
         <activity android:name=".Controller.ReviewActivity"
                   android:label="ReviewActivity"/>
     </application>

@@ -19,7 +19,22 @@
     <string name="reviewDenomenator"> / 5</string>
 
     <!--"HelpMenu-->
-    <string name="helpMenu">Help</string>
+    <string name="HelpActivity">Help Activity</string>
+    <string name="helpBarTitle">Help</string>
+    <string name="helpAboutTitle">About</string>
+    <string name="helpAboutContent">View Café Mac’s published menus for breakfast, lunch, and dinner, for a whole week. Use reviews and ratings for menu items.</string>
+    <string name="helpChooseDayTitle">Choose Day</string>
+    <string name="helpChooseDayContent">Change the day by selecting the options menu, or the bar above the menu, then select ‘Choose Day’.</string>
+    <string name="helpFilterForTitle">Filter For</string>
+    <string name="helpFilterForContent">Change filters for Vegan, Vegetarian, Pescetarian, and Gluten Free by selecting the options menu, or the bar above the menu, and then select ‘Filter For’.</string>
+    <string name="helpRefreshTitle">Refresh</string>
+    <string name="helpRefreshContent">Refreshes the menu by selecting the options menu, or the bar above the menu, and then select ‘Refresh’.</string>
+    <string name="helpReviewsTitle">Reviews</string>
+    <string name="helpReviewsContent">See reviews by touching a menu item. Post a rating and/or review at the bottom of food item’s review page.</string>
+    <string name="helpHardwareTitle">Hardware</string>
+    <string name="helpHardwareContent">KitchenSync is designed to run on any Android device.</string>
+
+
 
     <!--"popupMenu-->
     <string name="Sunday">Sunday </string>
