@@ -16,42 +16,39 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="@color/background_Color">
-            <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/reviewRatingSpinner"
-                    android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/nameEditTextWriteReview"
-                    android:layout_alignBottom="@+id/nameEditTextWriteReview"
-                    android:entries="@array/rating_array"/>
-            <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText"
-                    android:hint="@string/editWriteAReview"
-                    android:layout_below="@+id/nameEditTextWriteReview"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/buttonSubmitReview"
-                    android:textStyle="bold"
-                    android:background="@color/secondary_Color"
-                    android:id="@+id/submitReviewButton"
-                    android:layout_below="@+id/editText"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"/>
-            <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:hint="@string/editTextName"
-                    android:ems="10"
-                    android:id="@+id/nameEditTextWriteReview"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"/>
+                android:background="@color/background_Color" android:id="@+id/relativeLayout2">
         </RelativeLayout>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/buttonSubmitReview"
+                android:textStyle="bold"
+                android:background="@color/secondary_Color"
+                android:id="@+id/submitReviewButton"
+                android:layout_below="@+id/editText" android:layout_alignParentLeft="true"
+                android:layout_alignRight="@+id/editText"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText"
+                android:hint="@string/editWriteAReview"
+                android:layout_below="@+id/enterNameEditText" android:layout_alignParentLeft="true"
+                android:layout_alignRight="@+id/reviewRatingSpinner"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/editTextName"
+                android:ems="10"
+                android:id="@+id/enterNameEditText"
+                android:layout_below="@+id/relativeLayout2" android:layout_alignParentLeft="true"
+                android:layout_alignBottom="@+id/reviewRatingSpinner"/>
+        <Spinner
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/reviewRatingSpinner"
+                android:entries="@array/rating_array"
+                android:layout_alignParentTop="true" android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/enterNameEditText"/>
     </RelativeLayout>
 </RelativeLayout>

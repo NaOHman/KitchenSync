@@ -30,6 +30,8 @@ public class ReviewActivity extends Activity {
     private List<Review> reviews = new ArrayList<Review>();
     private TextView mealNameTxtView;
     private ListView reviewList;
+    private EditText editName, editReviewText;
+    private Spinner ratingSpinner;
     private double averageRating;
 
     @Override
@@ -93,12 +95,22 @@ public class ReviewActivity extends Activity {
 
             //set views
             authorView.setText(currReview.getReviewer());
-            ratingView.setText(currReview.getRating());
+            ratingView.setText(currReview.getStringRating());
             dateView.setText(currReview.getDate());
             reviewTextView.setText(currReview.getText());
 
             return v;
         }
+    }
+
+    /*
+    * gets text after submit button pressed and returns review
+    * @
+    */
+    private void submitReview(View v){
+        Log.d("------------------------>", "got here");
+
+
     }
 
     private void addFooter(){
