@@ -25,12 +25,12 @@
                 android:textStyle="bold"
                 android:background="@color/secondary_Color"
                 android:id="@+id/submitReviewButton"
-                android:layout_below="@+id/editText" android:layout_alignParentLeft="true"
-                android:layout_alignRight="@+id/editText"/>
+                android:layout_below="@+id/editReviewText" android:layout_alignParentLeft="true"
+                android:onClick="submitReview" android:layout_alignRight="@+id/editReviewText"/>
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText"
+                android:id="@+id/editReviewText"
                 android:hint="@string/editWriteAReview"
                 android:layout_below="@+id/enterNameEditText" android:layout_alignParentLeft="true"
                 android:layout_alignRight="@+id/reviewRatingSpinner"/>

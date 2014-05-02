@@ -1,7 +1,9 @@
 package com.softdev.Controller;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,9 +32,8 @@ public class ReviewActivity extends Activity {
     private List<Review> reviews = new ArrayList<Review>();
     private TextView mealNameTxtView;
     private ListView reviewList;
-    private EditText editName, editReviewText;
-    private Spinner ratingSpinner;
     private double averageRating;
+    private ArrayAdapter<Review> adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -44,9 +45,9 @@ public class ReviewActivity extends Activity {
 
         setContentView(R.layout.review_main);
         setTitleView(food);
+
         reviewList = (ListView) findViewById(R.id.reviewslist);
 
-        //TODO add space review so reviews != null
         Review space = new Review("", "", 0);
         reviews.add(space);
 
@@ -66,8 +67,13 @@ public class ReviewActivity extends Activity {
     }
 
     private void populateListView(){
-        ArrayAdapter<Review> adapter = new ReviewListAdapter();
+        adapter = new ReviewListAdapter();
         addFooter();
+        reviewList.setAdapter(adapter);
+    }
+
+    private void updateListView(){
+        adapter = new ReviewListAdapter();
         reviewList.setAdapter(adapter);
     }
 
@@ -104,13 +110,57 @@ public class ReviewActivity extends Activity {
     }
 
     /*
-    * gets text after submit button pressed and returns review
-    * @
+    * gets text after submit button pressed
+    * return Review
+    * checks entered atleast rating or review
     */
-    private void submitReview(View v){
-        Log.d("------------------------>", "got here");
+
+    public void submitReview(View v){
+        String author, text, rating;
 
 
+        final EditText editName = (EditText) findViewById(R.id.enterNameEditText);
+        final EditText editReviewText = (EditText) findViewById(R.id.editReviewText);
+        final Spinner ratingSpinner = (Spinner) findViewById(R.id.reviewRatingSpinner);
+
+        author = editName.getText().toString();
+        text = editReviewText.getText().toString();
+        rating = ratingSpinner.getSelectedItem().toString();
+
+        //verifies user entered at least rating or review
+        if(rating.equals("None") && text.equals("")){
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setTitle("Review Parameters");
+            alertDialogBuilder
+                    .setMessage("You must enter at least a rating or review to submit a rating")
+                    .setCancelable(false)
+                    .setNegativeButton("Yeah, feel bad about it",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+            return;
+        }
+
+
+        if(rating.equals("None"))
+           rating = "0";  //TODO
+        if(rating.equals("Death"))
+            rating = "-10";
+
+        int intRating = Integer.parseInt(rating); //thanks to stackOverFlow Rob Hruska
+
+        Review newReview = new Review(author, text, intRating);
+        reviews.add(newReview);
+        updateListView();
+        //TODO what else todo?
+
+        //clears EditViews
+        editName.setText("");
+        editReviewText.setText("");
+        ratingSpinner.setSelection(0);
     }
 
     private void addFooter(){
@@ -122,5 +172,6 @@ public class ReviewActivity extends Activity {
         mealNameTxtView = (TextView) findViewById(R.id.reviewHeader_foodName);
         mealNameTxtView.setText(food.getName());
     }
+
 
 }
