@@ -53,5 +53,4 @@ public class Review implements Serializable {
         this.text = text;
     }
 
-
 }

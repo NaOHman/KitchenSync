@@ -1,34 +1,25 @@
 package com.softdev.Controller;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import com.google.gson.Gson;
 import com.softdev.Model.Food;
+import com.softdev.Model.Restriction;
 import com.softdev.Model.Review;
 import com.softdev.R;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONObject;
-import android.widget.Button;
-import android.widget.EditText;;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by dgoldste on 4/22/14.
@@ -39,9 +30,8 @@ public class ReviewActivity extends Activity {
     private List<Review> reviews = new ArrayList<Review>();
     private TextView mealNameTxtView;
     private ListView reviewList;
-    private EditText editName, editReviewText;
-    private Spinner ratingSpinner;
     private double averageRating;
+    private ArrayAdapter<Review> adapter;
     private Food food;
     private Button submit;
 
@@ -52,7 +42,6 @@ public class ReviewActivity extends Activity {
         food = (Food) intent.getSerializableExtra("Food");
         this.reviews = food.getTextReviews();
         this.averageRating = food.getAverageRating();
-
         setContentView(R.layout.review_main);
         setTitleView(food);
         reviewList = (ListView) findViewById(R.id.reviewslist);
@@ -61,12 +50,16 @@ public class ReviewActivity extends Activity {
 
         populateListView();
 
-
     }
 
     private void populateListView(){
-        ArrayAdapter<Review> adapter = new ReviewListAdapter();
+        adapter = new ReviewListAdapter();
         addFooter();
+        reviewList.setAdapter(adapter);
+    }
+
+    private void updateListView(){
+        adapter = new ReviewListAdapter();
         reviewList.setAdapter(adapter);
     }
 
@@ -103,23 +96,72 @@ public class ReviewActivity extends Activity {
     }
 
     /*
-    * gets text after submit button pressed and returns review
-    * @
+    * gets text after submit button pressed
+    * return Review
+    * checks entered atleast rating or review
     */
-    private void submitReview(View v){
-        Log.d("------------------------>", "got here");
+
+    public void submitReview(View v){
+        String author, text, rating;
+        final EditText editName = (EditText) findViewById(R.id.enterNameEditText);
+        final EditText editReviewText = (EditText) findViewById(R.id.editReviewText);
+        final Spinner ratingSpinner = (Spinner) findViewById(R.id.reviewRatingSpinner);
+
+        author = editName.getText().toString();
+        text = editReviewText.getText().toString();
+        rating = ratingSpinner.getSelectedItem().toString();
+
+        //verifies user entered at least rating or review
+        if(rating.equals("None") && text.equals("")){
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setTitle("Review Parameters");
+            alertDialogBuilder
+                    .setMessage("You must enter at least a rating or review")
+                    .setCancelable(false)
+                    .setNegativeButton("Yeah, feel bad about it",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+            return;
+        }
+
+        //puts 'none' and 'death' into numbers TODO
+        if(rating.equals("None"))
+           rating = "3";
+        if(rating.equals("Death"))
+            rating = "-10";
+
+        //puts author to anonymous if none entered
+        if(author.equals(""))
+            author = "Anonymous Reviewer";
+
+        int intRating;
+        try{
+            //string => int
+            intRating = Integer.parseInt(rating); //thanks to stackOverFlow Rob Hruska
+        }
+        catch (IllegalStateException e){
+            intRating = 0;
+            Log.d("--------------------->","ill state exception caught");
+        }
 
 
+        Review newReview = new Review(author, text, intRating);
+        reviews.add(newReview);
+        updateListView();
+        //TODO what else todo?
+
+        //clears EditViews
+        editName.setText("");
+        editReviewText.setText("");
+        ratingSpinner.setSelection(0);
     }
 
     private void addFooter(){
         View footerView = View.inflate(this, R.layout.review_write, null);
-        footerView.findViewById(R.id.submitReviewButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pushReview(new Review("Jeffrey","Testing 1...2...3",4));
-            }
-        });
         reviewList.addFooterView(footerView);
     }
 
