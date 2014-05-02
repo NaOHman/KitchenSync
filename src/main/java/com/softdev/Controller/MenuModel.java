@@ -76,11 +76,25 @@ public class MenuModel extends Activity{
         }
         update();
     }
+    public boolean isToday(){
+        int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+        return displayDay == Weekday.values()[day];
+    }
 
-    public void clearRestrictions(){
+    public void resetFilter(){
         filter.setRestriction(Restriction.NONE);
         filter.setMatchGluten(false);
         update();
+    }
+
+    public boolean filterChanged(){
+        return !(filter.getRestriction() == Restriction.NONE
+            && !filter.getMatchGluten());
+    }
+
+    public void setToday(){
+        int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+        setDisplayDay(Weekday.values()[day].toString());
     }
 
     public void setDisplayDay(String weekday){

@@ -15,6 +15,7 @@ public class Food extends DisplayItem implements Serializable{
     private Boolean glutenFree;
     private Restriction restriction;
     private List<Review> reviews;
+    private long foodId;
 
     public Food(String name, String description, Restriction restriction, boolean glutenFree, List<Review> reviews){
         this.name = name;
@@ -72,5 +73,9 @@ public class Food extends DisplayItem implements Serializable{
 
     public Boolean getGlutenFree(){
         return glutenFree;
+    }
+
+    public long getFoodId() {
+        return foodId;
     }
 }

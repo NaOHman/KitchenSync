@@ -3,7 +3,9 @@ package com.softdev.Controller;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.widget.ImageView;
+import android.widget.*;
+import com.softdev.Model.DisplayItem;
+import com.softdev.Model.Food;
 import com.softdev.Model.Restriction;
 import com.softdev.R;
 import android.app.Activity;
@@ -23,8 +25,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import java.net.URI;
-import android.widget.ExpandableListView;
-import android.widget.TextView;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -33,10 +33,12 @@ import java.util.Set;
 
 public class MenuActivity extends Activity {
     Context context;
+    private long backPressedTime = 0;    // used by onBackPressed()
     private ExpandableListView expListView;
     private TextView dateDisplayMeals;
     private ImageView[] displayFilters = new ImageView[2];
     private MenuModel model;
+    private Menu menu;
     public final static String MEAL_NAME= "Controller.MenuActivity.MEAL_NAME";
     private final static Set<String> stations = new HashSet<String>(Arrays.asList("Breakfast Special", "Pasta", "Pizza", "Soup of the Day", "South", "East", "Grill"));
 
@@ -90,6 +92,7 @@ public class MenuActivity extends Activity {
     //creates options menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
+        this.menu = menu;
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.popupmenu, menu);
         menu.findItem(R.id.mealOptionsMenu_None).setChecked(true);
@@ -129,6 +132,32 @@ public class MenuActivity extends Activity {
         updateFilterImgs();
         super.onOptionsItemSelected(item);
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {   //resets then exits
+        if(model.filterChanged()){
+            model.resetFilter();
+            menu.findItem(R.id.mealOptionsMenu_None).setChecked(true);
+            menu.findItem(R.id.mealOptionsMenu_Glutenfree).setChecked(false);
+            updateFilterImgs();
+            return;
+        }
+        if(!model.isToday()){
+            model.setToday();
+            menu.findItem(model.getTodayID()).setChecked(true);
+            dateDisplayMeals.setText(model.getDisplayText());
+            return;
+        }
+        long t = System.currentTimeMillis();
+        if (t - backPressedTime > 2000) {    // 2 secs
+            backPressedTime = t;
+            Toast.makeText(this, "Press back again to exit",
+                    Toast.LENGTH_SHORT).show();
+        } else {    // this guy is serious
+            // clean up
+            super.onBackPressed();       // bye
+        }
     }
 
     private void openHelpActivity(){
