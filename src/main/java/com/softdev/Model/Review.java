@@ -52,5 +52,4 @@ public class Review {
         this.text = text;
     }
 
-
 }

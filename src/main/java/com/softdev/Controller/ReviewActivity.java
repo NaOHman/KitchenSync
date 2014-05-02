@@ -42,7 +42,6 @@ public class ReviewActivity extends Activity {
         Food food = (Food) intent.getSerializableExtra("Food");
         this.reviews = food.getTextReviews();
         this.averageRating = food.getAverageRating();
-
         setContentView(R.layout.review_main);
         setTitleView(food);
 
@@ -51,18 +50,7 @@ public class ReviewActivity extends Activity {
         Review space = new Review("", "", 0);
         reviews.add(space);
 
-        Review test = new Review("David", "bloody diarrhea :(", 1);
-        reviews.add(test);
-        Review test1 = new Review("Jeffrey", "I would rather be strangled by Paul ", 1);
-        reviews.add(test1);
-        Review test2 = new Review("Hanna", "best meal all week!!", 5);
-        reviews.add(test2);
-        Review test3 = new Review("Paul", "I would rather be stranged by Jeffrey!!", 3);
-        reviews.add(test3);
-
-
         populateListView();
-
 
     }
 
@@ -117,8 +105,6 @@ public class ReviewActivity extends Activity {
 
     public void submitReview(View v){
         String author, text, rating;
-
-
         final EditText editName = (EditText) findViewById(R.id.enterNameEditText);
         final EditText editReviewText = (EditText) findViewById(R.id.editReviewText);
         final Spinner ratingSpinner = (Spinner) findViewById(R.id.reviewRatingSpinner);
@@ -144,13 +130,26 @@ public class ReviewActivity extends Activity {
             return;
         }
 
-
+        //puts 'none' and 'death' into numbers TODO
         if(rating.equals("None"))
-           rating = "0";  //TODO
+           rating = "3";
         if(rating.equals("Death"))
             rating = "-10";
 
-        int intRating = Integer.parseInt(rating); //thanks to stackOverFlow Rob Hruska
+        //puts author to anonymous if none entered
+        if(author.equals(""))
+            author = "Anonymous Reviewer";
+
+        int intRating;
+        try{
+            //string => int
+            intRating = Integer.parseInt(rating); //thanks to stackOverFlow Rob Hruska
+        }
+        catch (IllegalStateException e){
+            intRating = 0;
+            Log.d("--------------------->","ill state exception caught");
+        }
+
 
         Review newReview = new Review(author, text, intRating);
         reviews.add(newReview);
