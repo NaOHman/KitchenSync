@@ -32,8 +32,10 @@ public class Review implements Serializable {
     }
 
     public String getStringRating(){
+        if (rating == 0)
+            return "";
         Integer r = rating;
-        return r.toString();
+        return r.toString() + " / 5";
     }
 
     public String getDate(){

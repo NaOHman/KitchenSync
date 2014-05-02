@@ -16,7 +16,6 @@
     <string name="reviewAuthor">Author</string>
     <string name="reviewDate">Date</string>
     <string name="reviewRating">Rating</string>
-    <string name="reviewDenomenator"> / 5</string>
 
     <!--"HelpMenu-->
     <string name="HelpActivity">Help Activity</string>

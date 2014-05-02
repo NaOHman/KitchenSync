@@ -89,7 +89,7 @@ public class ReviewActivity extends Activity {
 
             //find Review to work with
             Review currReview = reviews.get(position);
-            Log.e("Review Found", currReview.getText());
+            Log.d("Review Found", currReview.getText());
 
             //find views
             TextView authorView = (TextView) v.findViewById(R.id.reviewTitleAuthor);

@@ -41,12 +41,6 @@
                                   android:layout_gravity="center_horizontal"
                                   android:layout_alignParentTop="true"
                                   android:layout_alignParentRight="true"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/reviewDenomenator"
-                        android:id="@+id/reviewTitleRatingDenomenator" android:layout_centerVertical="true"
-                        android:layout_toRightOf="@+id/reviewTitleRating"/>
             </RelativeLayout>
     </RelativeLayout>
     <TextView
