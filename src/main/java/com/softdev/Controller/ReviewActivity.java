@@ -1,25 +1,32 @@
 package com.softdev.Controller;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+import com.google.gson.Gson;
 import com.softdev.Model.Food;
-import com.softdev.Model.Restriction;
 import com.softdev.Model.Review;
 import com.softdev.R;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by dgoldste on 4/22/14.
@@ -33,15 +40,18 @@ public class ReviewActivity extends Activity {
     private double averageRating;
     private ArrayAdapter<Review> adapter;
     private Food food;
-    private Button submit;
+    EditText editName;
+    EditText editReviewText;
+    Spinner ratingSpinner;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         food = (Food) intent.getSerializableExtra("Food");
-        this.reviews = food.getTextReviews();
-        this.averageRating = food.getAverageRating();
+        reviews = food.getTextReviews();
+        averageRating = food.getAverageRating();
         setContentView(R.layout.review_main);
         setTitleView(food);
         reviewList = (ListView) findViewById(R.id.reviewslist);
@@ -59,6 +69,7 @@ public class ReviewActivity extends Activity {
     }
 
     private void updateListView(){
+        reviews = food.getTextReviews();
         adapter = new ReviewListAdapter();
         reviewList.setAdapter(adapter);
     }
@@ -78,6 +89,7 @@ public class ReviewActivity extends Activity {
 
             //find Review to work with
             Review currReview = reviews.get(position);
+            Log.e("Review Found", currReview.getText());
 
             //find views
             TextView authorView = (TextView) v.findViewById(R.id.reviewTitleAuthor);
@@ -103,9 +115,6 @@ public class ReviewActivity extends Activity {
 
     public void submitReview(View v){
         String author, text, rating;
-        final EditText editName = (EditText) findViewById(R.id.enterNameEditText);
-        final EditText editReviewText = (EditText) findViewById(R.id.editReviewText);
-        final Spinner ratingSpinner = (Spinner) findViewById(R.id.reviewRatingSpinner);
 
         author = editName.getText().toString();
         text = editReviewText.getText().toString();
@@ -128,11 +137,9 @@ public class ReviewActivity extends Activity {
             return;
         }
 
-        //puts 'none' and 'death' into numbers TODO
+        //none gets processed as 0, averageReviews ignores zero values
         if(rating.equals("None"))
-           rating = "3";
-        if(rating.equals("Death"))
-            rating = "-10";
+           rating = "0";
 
         //puts author to anonymous if none entered
         if(author.equals(""))
@@ -148,13 +155,11 @@ public class ReviewActivity extends Activity {
             Log.d("--------------------->","ill state exception caught");
         }
 
-
         Review newReview = new Review(author, text, intRating);
-        reviews.add(newReview);
-        updateListView();
-        //TODO what else todo?
+        pushReview(newReview);
+    }
 
-        //clears EditViews
+    public void clearInputFields(){
         editName.setText("");
         editReviewText.setText("");
         ratingSpinner.setSelection(0);
@@ -162,6 +167,9 @@ public class ReviewActivity extends Activity {
 
     private void addFooter(){
         View footerView = View.inflate(this, R.layout.review_write, null);
+        editName = (EditText) footerView.findViewById(R.id.enterNameEditText);;
+        editReviewText = (EditText) footerView.findViewById(R.id.editReviewText);
+        ratingSpinner = (Spinner) footerView.findViewById(R.id.reviewRatingSpinner);
         reviewList.addFooterView(footerView);
     }
 
@@ -192,14 +200,24 @@ public class ReviewActivity extends Activity {
         }
     }
 
-    private class ReviewPusher extends AsyncTask<Review, Void, Void> {
+    private class ReviewPusher extends AsyncTask<Review, Void, ServerResponse> {
         @Override
         protected void onPreExecute() {
             Toast.makeText(getApplicationContext(), " Posting Review ", Toast.LENGTH_SHORT).show();
         }
 
         @Override
-        protected Void doInBackground(final Review... args) {
+        protected void onPostExecute(ServerResponse response) {
+            if (response.success){
+                clearInputFields();
+                food.getReviews().add(response.review);
+                updateListView();
+            }
+            Toast.makeText(getApplicationContext(),response.error, Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        protected ServerResponse doInBackground(final Review... args) {
             HttpClient client = new DefaultHttpClient();
             HttpPost post = new HttpPost(getString(R.string.server_post));
             Review review = args[0];
@@ -212,13 +230,30 @@ public class ReviewActivity extends Activity {
                 Log.d("JSON",body.toString());
                 post.setEntity(new StringEntity(body.toString()));
                 HttpResponse response = client.execute(post);
-                String result = EntityUtils.toString(response.getEntity());
-                Log.d("Response",result);
+                JSONObject result = new JSONObject(EntityUtils.toString(response.getEntity()));
+                boolean success = result.getBoolean("success");
+                String error;
+                if (success)
+                    error = "Review Posted";
+                else
+                    error = result.getString("error");
+                return(new ServerResponse(review, success, error));
             } catch (Exception e) {
                 e.printStackTrace();
+                return new ServerResponse(null, false, "Error connecting to server");
             }
-            return null;
         }
 
+    }
+    private class ServerResponse{
+        public Review review;
+        public boolean success;
+        public String error;
+
+        private ServerResponse(Review review, boolean success, String error) {
+            this.review = review;
+            this.success = success;
+            this.error = error;
+        }
     }
 }
