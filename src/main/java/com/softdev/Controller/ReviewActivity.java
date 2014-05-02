@@ -1,10 +1,7 @@
 package com.softdev.Controller;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -41,6 +38,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -74,6 +73,8 @@ public class ReviewActivity extends Activity {
     private List<Review> reviews = new ArrayList<Review>();
     private TextView mealNameTxtView;
     private ListView reviewList;
+    private EditText editName, editReviewText;
+    private Spinner ratingSpinner;
     private double averageRating;
     private Food food;
     private Button submit;
@@ -103,7 +104,10 @@ public class ReviewActivity extends Activity {
         Review test3 = new Review("Paul", "I would rather be stranged by Jeffrey!!", 3);
         reviews.add(test3);
 
+
         populateListView();
+
+
     }
 
     private void populateListView(){
@@ -136,12 +140,22 @@ public class ReviewActivity extends Activity {
 
             //set views
             authorView.setText(currReview.getReviewer());
-//            ratingView.setText(currReview.getRating());
+            ratingView.setText(currReview.getStringRating());
             dateView.setText(currReview.getDate());
             reviewTextView.setText(currReview.getText());
 
             return v;
         }
+    }
+
+    /*
+    * gets text after submit button pressed and returns review
+    * @
+    */
+    private void submitReview(View v){
+        Log.d("------------------------>", "got here");
+
+
     }
 
     private void addFooter(){
@@ -211,4 +225,3 @@ public class ReviewActivity extends Activity {
 
     }
 }
-

@@ -30,6 +30,11 @@ public class Review {
         return rating;
     }
 
+    public String getStringRating(){
+        Integer r = rating;
+        return r.toString();
+    }
+
     public String getDate(){
         SimpleDateFormat df2 = new SimpleDateFormat("EEE MMM dd, yyyy");
         return df2.format(createdAt);
