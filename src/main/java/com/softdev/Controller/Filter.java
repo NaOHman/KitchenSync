@@ -47,9 +47,7 @@ public class Filter {
             if (newStation != null)
                 filteredMeal.addStation(newStation);
         }
-        if (filteredMeal.getStations().size() > 0)
-                return filteredMeal;
-        return null;
+        return filteredMeal;
     }
 
     public Station applyFilter(Station station){

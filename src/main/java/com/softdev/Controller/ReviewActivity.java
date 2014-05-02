@@ -1,7 +1,9 @@
 package com.softdev.Controller;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -56,18 +58,6 @@ public class ReviewActivity extends Activity {
         reviewList = (ListView) findViewById(R.id.reviewslist);
 
         //TODO add space review so reviews != null
-        Review space = new Review("", "", 0);
-        reviews.add(space);
-
-        Review test = new Review("David", "bloody diarrhea :(", 1);
-        reviews.add(test);
-        Review test1 = new Review("Jeffrey", "I would rather be strangled by Paul ", 1);
-        reviews.add(test1);
-        Review test2 = new Review("Hanna", "best meal all week!!", 5);
-        reviews.add(test2);
-        Review test3 = new Review("Paul", "I would rather be stranged by Jeffrey!!", 3);
-        reviews.add(test3);
-
 
         populateListView();
 
@@ -173,14 +163,15 @@ public class ReviewActivity extends Activity {
             Review review = args[0];
             // check for success tag
             try {
-                JSONArray body = new JSONArray();
-                String id = new JSONObject().put("id", food.getFoodId()).toString();
+                JSONObject body = new JSONObject();
                 String json = new Gson().toJson(review);
-                body.put(id);
-                body.put(json);
+                body.put("id", food.getFoodId());
+                body.put("review", json);
+                Log.d("JSON",body.toString());
                 post.setEntity(new StringEntity(body.toString()));
                 HttpResponse response = client.execute(post);
                 String result = EntityUtils.toString(response.getEntity());
+                Log.d("Response",result);
             } catch (Exception e) {
                 e.printStackTrace();
             }

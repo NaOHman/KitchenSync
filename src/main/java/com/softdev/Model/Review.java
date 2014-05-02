@@ -1,5 +1,6 @@
 package com.softdev.Model;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.GregorianCalendar;
 /**
  * Created by jeffrey on 4/19/14.
  */
-public class Review {
+public class Review implements Serializable {
     private String reviewer;
     private String text;
     private int rating;
