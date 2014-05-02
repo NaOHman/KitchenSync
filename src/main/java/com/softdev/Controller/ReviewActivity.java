@@ -118,7 +118,7 @@ public class ReviewActivity extends Activity {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle("Review Parameters");
             alertDialogBuilder
-                    .setMessage("You must enter at least a rating or review to submit a rating")
+                    .setMessage("You must enter at least a rating or review")
                     .setCancelable(false)
                     .setNegativeButton("Yeah, feel bad about it",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {
