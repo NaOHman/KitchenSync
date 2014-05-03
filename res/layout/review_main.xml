@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:id="@+id/reviewlayout">
-    <ListView android:id="@+id/reviewslist"
-              android:layout_width="wrap_content"
-              android:layout_height="fill_parent"
-              android:background="@color/trim_Color"
-              android:layout_gravity="center_horizontal"/>
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/reviewlayout">
+    !FoodName Layout
     <RelativeLayout android:id="@+id/relativeLayout2"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@color/darkBackground_Color"
-              android:layout_centerHorizontal="true">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/darkBackground_Color"
+                    android:layout_centerHorizontal="true">
         <TextView android:id="@+id/reviewHeader_foodName"
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
@@ -26,12 +21,69 @@
                   android:gravity="center"
                   android:layout_alignParentTop="true"
                   android:layout_alignParentLeft="true"/>
-</RelativeLayout>
-
-    <RelativeLayout android:id="@+id/relativeLayout"
-              android:layout_width="fill_parent"
-              android:layout_height="@dimen/menuBar_AccentHeight"
-              android:background="@color/secondary_Color"
-              android:layout_below="@+id/relativeLayout2"
-              android:layout_centerHorizontal="true"/>
     </RelativeLayout>
+    !Menubar Accent
+    <RelativeLayout android:id="@+id/relativeLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/menuBar_AccentHeight"
+                    android:background="@color/secondary_Color"
+                    android:layout_below="@+id/relativeLayout2"
+                    android:layout_centerHorizontal="true"/>
+
+    <ListView android:id="@+id/reviewslist"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:layout_weight="1"
+              android:background="@color/trim_Color"
+            />
+!Review entry
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical"
+                    android:id="@+id/relativeLayoutR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/trim_Color"
+                    android:padding="@dimen/review_Padding"
+                    android:layout_below="@id/reviewslist"
+                    android:layout_centerHorizontal="true">
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/background_Color"
+                android:id="@+id/relativeLayout2R">
+        </RelativeLayout>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/buttonSubmitReview"
+                android:textStyle="bold"
+                android:background="@color/secondary_Color"
+                android:id="@+id/submitReviewButton"
+                android:layout_below="@+id/editReviewText" android:layout_alignParentLeft="true"
+                android:onClick="submitReview" android:layout_alignRight="@+id/editReviewText"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editReviewText"
+                android:hint="@string/editWriteAReview"
+                android:layout_below="@+id/enterNameEditText" android:layout_alignParentLeft="true"
+                android:layout_alignRight="@+id/reviewRatingSpinner"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/editTextName"
+                android:ems="10"
+                android:id="@+id/enterNameEditText"
+                android:layout_below="@+id/relativeLayout2R" android:layout_alignParentLeft="true"
+                android:layout_alignBottom="@+id/reviewRatingSpinner"/>
+        <Spinner
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/reviewRatingSpinner"
+                android:entries="@array/rating_array"
+                android:layout_alignParentTop="true" android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/enterNameEditText"/>
+    </RelativeLayout>
+</LinearLayout>

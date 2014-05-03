@@ -50,22 +50,17 @@ public class ReviewActivity extends Activity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         food = (Food) intent.getSerializableExtra("Food");
-        reviews = food.getTextReviews();
         averageRating = food.getAverageRating();
         setContentView(R.layout.review_main);
         setTitleView(food);
+
+        editName = (EditText) findViewById(R.id.enterNameEditText);;
+        editReviewText = (EditText) findViewById(R.id.editReviewText);
+        ratingSpinner = (Spinner) findViewById(R.id.reviewRatingSpinner);
         reviewList = (ListView) findViewById(R.id.reviewslist);
 
-        //TODO add space review so reviews != null
+        updateListView();
 
-        populateListView();
-
-    }
-
-    private void populateListView(){
-        adapter = new ReviewListAdapter();
-        addFooter();
-        reviewList.setAdapter(adapter);
     }
 
     private void updateListView(){
@@ -163,14 +158,6 @@ public class ReviewActivity extends Activity {
         editName.setText("");
         editReviewText.setText("");
         ratingSpinner.setSelection(0);
-    }
-
-    private void addFooter(){
-        View footerView = View.inflate(this, R.layout.review_write, null);
-        editName = (EditText) footerView.findViewById(R.id.enterNameEditText);;
-        editReviewText = (EditText) footerView.findViewById(R.id.editReviewText);
-        ratingSpinner = (Spinner) footerView.findViewById(R.id.reviewRatingSpinner);
-        reviewList.addFooterView(footerView);
     }
 
     private void setTitleView(Food food){
