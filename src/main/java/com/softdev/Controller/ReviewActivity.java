@@ -10,6 +10,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
@@ -35,14 +36,13 @@ import java.util.List;
 
 public class ReviewActivity extends Activity {
     private List<Review> reviews = new ArrayList<Review>();
-    private TextView mealNameTxtView;
+    private TextView mealNameTxtView, averageRatingTextView;
     private ListView reviewList;
     private double averageRating;
     private ArrayAdapter<Review> adapter;
     private Food food;
-    EditText editName;
-    EditText editReviewText;
-    Spinner ratingSpinner;
+    private EditText editName, editReviewText;
+    private Spinner ratingSpinner;
 
 
     @Override
@@ -54,10 +54,11 @@ public class ReviewActivity extends Activity {
         setContentView(R.layout.review_main);
         setTitleView(food);
 
-        editName = (EditText) findViewById(R.id.enterNameEditText);;
+        editName = (EditText) findViewById(R.id.enterNameEditText);
         editReviewText = (EditText) findViewById(R.id.editReviewText);
         ratingSpinner = (Spinner) findViewById(R.id.reviewRatingSpinner);
         reviewList = (ListView) findViewById(R.id.reviewslist);
+        averageRatingTextView = (TextView) findViewById(R.id.AverageUserRatingTextView);
 
         updateListView();
 
@@ -67,6 +68,33 @@ public class ReviewActivity extends Activity {
         reviews = food.getTextReviews();
         adapter = new ReviewListAdapter();
         reviewList.setAdapter(adapter);
+        updateAvgReview();
+    }
+
+    private void updateAvgReview(){
+        if(reviews.size() == 0){
+            averageRatingTextView.setText("Average user rating: Not yet reviewed");
+            return;
+        }
+        double totalRating = 0;
+        int totalNumberOfRatings = 0;
+        for(Review r: reviews){
+            if(r.getRating() != 0){
+                totalRating += r.getRating();
+                totalNumberOfRatings++;
+            }
+        }
+        averageRating = totalRating / totalNumberOfRatings;
+        averageRatingTextView.setText("Average user rating: " + averageRating + " / 5");
+    }
+
+    private void adjustFoodNameSize(){
+        int nameLength = mealNameTxtView.length();
+        Log.d("------------>", nameLength + "");
+        if(nameLength > 25 && nameLength < 35)
+            mealNameTxtView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, getResources().getDimension(R.dimen.reviewTitle_TextSizeMedium));
+        if(nameLength > 35)
+            mealNameTxtView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, getResources().getDimension(R.dimen.reviewTitle_TextSizeSmall));
     }
 
     private class ReviewListAdapter extends ArrayAdapter<Review> {
@@ -120,9 +148,9 @@ public class ReviewActivity extends Activity {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle("Review Parameters");
             alertDialogBuilder
-                    .setMessage("You must enter at least a rating or review")
+                    .setMessage("You must enter at least a rating or review to submit")
                     .setCancelable(false)
-                    .setNegativeButton("Yeah, feel bad about it",new DialogInterface.OnClickListener() {
+                    .setNegativeButton("Okay",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {
                             dialog.cancel();
                         }
@@ -147,7 +175,7 @@ public class ReviewActivity extends Activity {
         }
         catch (IllegalStateException e){
             intRating = 0;
-            Log.d("--------------------->","ill state exception caught");
+            Log.d("ill state exception",intRating + "");
         }
 
         Review newReview = new Review(author, text, intRating);
@@ -163,6 +191,7 @@ public class ReviewActivity extends Activity {
     private void setTitleView(Food food){
         mealNameTxtView = (TextView) findViewById(R.id.reviewHeader_foodName);
         mealNameTxtView.setText(food.getName());
+        adjustFoodNameSize();
     }
 
     public void pushReview(Review review){

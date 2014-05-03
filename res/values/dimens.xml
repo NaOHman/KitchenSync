@@ -10,6 +10,8 @@
 
     <!--layout.review_main-->
     <dimen name="reviewTitle_TextSize">35dp</dimen>
+    <dimen name="reviewTitle_TextSizeMedium">25dp</dimen>
+    <dimen name="reviewTitle_TextSizeSmall">15dp</dimen>
     <dimen name="review_Padding">7dp</dimen>
 
     <!--layout.review_write-->
