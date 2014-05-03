@@ -138,7 +138,7 @@ public class ReviewActivity extends Activity {
 
         //puts author to anonymous if none entered
         if(author.equals(""))
-            author = "Anonymous Reviewer";
+            author = "Anonymous";
 
         int intRating;
         try{
