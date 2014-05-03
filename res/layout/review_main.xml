@@ -16,13 +16,19 @@
                   android:layout_height="wrap_content"
                   android:text="MEAL ITEM NAME"
                   android:textSize="@dimen/reviewTitle_TextSize"
-                  android:textStyle="italic"
+                  android:textStyle="bold"
                   android:textColor="@color/background_Color"
                   android:gravity="center"
                   android:layout_alignParentTop="true"
                   android:layout_alignParentLeft="true"/>
     </RelativeLayout>
     !Menubar Accent
+    <TextView android:id="@+id/AverageUserRatingTextView" android:layout_width="fill_parent"
+              android:layout_height="wrap_content" android:text="Average User Rating:  "
+              android:textSize="@dimen/menuBar_CurrentMeal_TextSize"
+              android:textColor="@color/background_Color" android:gravity="center" android:layout_alignParentTop="true"
+              android:layout_alignParentLeft="true"
+              android:background="@color/text_Color"/>
     <RelativeLayout android:id="@+id/relativeLayout"
                     android:layout_width="fill_parent"
                     android:layout_height="@dimen/menuBar_AccentHeight"
