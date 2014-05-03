@@ -24,6 +24,9 @@ import org.apache.commons.io.IOUtils;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.net.URI;
 import java.io.InputStream;
 import java.util.Arrays;
@@ -165,6 +168,21 @@ public class MenuActivity extends Activity {
         startActivity(helpIntent);
     }
 
+    private void serverError(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Server error");
+        alertDialogBuilder
+                .setMessage("Our bad, please try again later")
+                .setCancelable(false)
+                .setNegativeButton("Okay",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        finish();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
     private void updateFilterImgs(){
         displayFilters[1].setImageResource(R.drawable.background);
         displayFilters[0].setImageResource(R.drawable.background);
@@ -202,7 +220,15 @@ public class MenuActivity extends Activity {
                 InputStream inputStream = response.getEntity().getContent();
                 String json = IOUtils.toString(inputStream);
                 // check if success is true/false
-
+                try {
+                    JSONObject reply = new JSONObject(json);
+                    if (!reply.getBoolean("success")) {
+                        Log.d("Server returned", "False");
+                        return null;
+                    }
+                } catch (JSONException e){
+                    Log.d("Server Returned", "Week");
+                }
                 Week week = (new Gson()).fromJson(json, Week.class);
                 return week;
             } catch (Exception e) {
@@ -218,6 +244,8 @@ public class MenuActivity extends Activity {
             if (week != null){
                 Log.d("WeekFetcher", "Sucessfully caught week");
                 model.setWeek(week);
+            }else{
+                serverError();
             }
         }
 

@@ -5,7 +5,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/reviewlayout">
-    !FoodName Layout
     <RelativeLayout android:id="@+id/relativeLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -22,7 +21,6 @@
                   android:layout_alignParentTop="true"
                   android:layout_alignParentLeft="true"/>
     </RelativeLayout>
-    !Menubar Accent
     <TextView android:id="@+id/AverageUserRatingTextView" android:layout_width="fill_parent"
               android:layout_height="wrap_content" android:text="Average User Rating:  "
               android:textSize="@dimen/menuBar_CurrentMeal_TextSize"
@@ -42,7 +40,6 @@
               android:layout_weight="1"
               android:background="@color/trim_Color"
             />
-!Review entry
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical"
                     android:id="@+id/relativeLayoutR"
                     android:layout_width="wrap_content"

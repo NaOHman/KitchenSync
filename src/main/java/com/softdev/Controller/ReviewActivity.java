@@ -26,6 +26,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,6 @@ public class ReviewActivity extends Activity {
     private List<Review> reviews = new ArrayList<Review>();
     private TextView mealNameTxtView, averageRatingTextView;
     private ListView reviewList;
-    private double averageRating;
     private ArrayAdapter<Review> adapter;
     private Food food;
     private EditText editName, editReviewText;
@@ -50,7 +50,6 @@ public class ReviewActivity extends Activity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         food = (Food) intent.getSerializableExtra("Food");
-        averageRating = food.getAverageRating();
         setContentView(R.layout.review_main);
         setTitleView(food);
 
@@ -68,24 +67,13 @@ public class ReviewActivity extends Activity {
         reviews = food.getTextReviews();
         adapter = new ReviewListAdapter();
         reviewList.setAdapter(adapter);
-        updateAvgReview();
-    }
-
-    private void updateAvgReview(){
-        if(reviews.size() == 0){
+        Double averageRating = food.getAverageRating();
+        if(averageRating == 0){
             averageRatingTextView.setText("Average user rating: Not yet reviewed");
             return;
         }
-        double totalRating = 0;
-        int totalNumberOfRatings = 0;
-        for(Review r: reviews){
-            if(r.getRating() != 0){
-                totalRating += r.getRating();
-                totalNumberOfRatings++;
-            }
-        }
-        averageRating = totalRating / totalNumberOfRatings;
-        averageRatingTextView.setText("Average user rating: " + averageRating + " / 5");
+        String ratings = new DecimalFormat("#.#").format(averageRating);
+        averageRatingTextView.setText("Average rating: " + ratings + " / 5");
     }
 
     private void adjustFoodNameSize(){
@@ -112,7 +100,6 @@ public class ReviewActivity extends Activity {
 
             //find Review to work with
             Review currReview = reviews.get(position);
-            Log.d("Review Found", currReview.getText());
 
             //find views
             TextView authorView = (TextView) v.findViewById(R.id.reviewTitleAuthor);
@@ -170,7 +157,6 @@ public class ReviewActivity extends Activity {
 
         int intRating;
         try{
-            //string => int
             intRating = Integer.parseInt(rating); //thanks to stackOverFlow Rob Hruska
         }
         catch (IllegalStateException e){
@@ -254,8 +240,7 @@ public class ReviewActivity extends Activity {
                 else
                     error = result.getString("error");
                 return(new ServerResponse(review, success, error));
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e) {;
                 return new ServerResponse(null, false, "Error connecting to server");
             }
         }
