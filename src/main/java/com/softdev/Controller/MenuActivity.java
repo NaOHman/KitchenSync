@@ -222,12 +222,12 @@ public class MenuActivity extends Activity {
                 // check if success is true/false
                 try {
                     JSONObject reply = new JSONObject(json);
-                    if (!reply.getBoolean("success")) {
-                        Log.d("Server returned", "False");
-                        return null;
+                    if (reply.getBoolean("success")){
+                        String weekJson = reply.getJSONObject("week").toString();
+                        return new Gson().fromJson(weekJson, Week.class);
                     }
                 } catch (JSONException e){
-                    Log.d("Server Returned", "Week");
+                    Log.d("WeekCatcher", "Malformed Data");
                 }
                 Week week = (new Gson()).fromJson(json, Week.class);
                 return week;
