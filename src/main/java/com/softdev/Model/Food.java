@@ -32,7 +32,7 @@ public class Food extends DisplayItem implements Serializable{
         return (restriction.ordinal() <= r.ordinal()) && (glutenFree || !matchGluten);
     }
 
-    public double getAverageRating(){
+    public Double getAverageRating(){
         int rateCount = 0;
         double rating = 0;
         for(Review review: reviews){
@@ -41,6 +41,8 @@ public class Food extends DisplayItem implements Serializable{
                 rateCount++;
             }
         }
+        if (rateCount == 0)
+            return 0.0;
         return rating/rateCount;
     }
 

@@ -232,15 +232,20 @@ public class ReviewActivity extends Activity {
                 Log.d("JSON",body.toString());
                 post.setEntity(new StringEntity(body.toString()));
                 HttpResponse response = client.execute(post);
-                JSONObject result = new JSONObject(EntityUtils.toString(response.getEntity()));
+                String responseString = EntityUtils.toString(response.getEntity());
+                Log.d("Server Response", responseString);
+                JSONObject result = new JSONObject(responseString);
                 boolean success = result.getBoolean("success");
                 String error;
-                if (success)
+                if (success) {
                     error = "Review Posted";
-                else
+                } else {
                     error = result.getString("error");
+                    Log.d("Connection error", error);
+                }
                 return(new ServerResponse(review, success, error));
             } catch (Exception e) {;
+                e.printStackTrace();
                 return new ServerResponse(null, false, "Error connecting to server");
             }
         }
