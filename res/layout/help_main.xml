@@ -10,7 +10,8 @@
                     android:layout_height="@dimen/helpBar_Height"
                     android:background="@color/darkBackground_Color"
                     android:id="@+id/helpBar"
-                    android:padding="@dimen/helpPage_Padding">
+                    android:padding="@dimen/helpPage_Padding"
+                    android:onClick="optionsButtonClick">
         <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
