@@ -42,7 +42,7 @@ public class ReviewActivity extends Activity {
     private ArrayAdapter<Review> adapter;
     private Food food;
     private EditText editName, editReviewText;
-    private Spinner ratingSpinner;
+    private RatingBar reviewRatingBar;
 
 
     @Override
@@ -55,9 +55,9 @@ public class ReviewActivity extends Activity {
 
         editName = (EditText) findViewById(R.id.enterNameEditText);
         editReviewText = (EditText) findViewById(R.id.editReviewText);
-        ratingSpinner = (Spinner) findViewById(R.id.reviewRatingSpinner);
         reviewList = (ListView) findViewById(R.id.reviewslist);
         averageRatingTextView = (TextView) findViewById(R.id.AverageUserRatingTextView);
+        reviewRatingBar = (RatingBar) findViewById(R.id.reviewRatingBar);
 
         updateListView();
 
@@ -78,7 +78,6 @@ public class ReviewActivity extends Activity {
 
     private void adjustFoodNameSize(){
         int nameLength = mealNameTxtView.length();
-        Log.d("------------>", nameLength + "");
         if(nameLength > 25 && nameLength < 35)
             mealNameTxtView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, getResources().getDimension(R.dimen.reviewTitle_TextSizeMedium));
         if(nameLength > 35)
@@ -124,14 +123,17 @@ public class ReviewActivity extends Activity {
     */
 
     public void submitReview(View v){
-        String author, text, rating;
-
+        String author, text;
         author = editName.getText().toString();
         text = editReviewText.getText().toString();
-        rating = ratingSpinner.getSelectedItem().toString();
+
+        float currRating;
+        currRating = reviewRatingBar.getRating();
+        int submittedRating = (int) Math.round(currRating);
+
 
         //verifies user entered at least rating or review
-        if(rating.equals("None") && text.equals("")){
+        if(currRating == 0 && text.equals("")){
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle("Review Parameters");
             alertDialogBuilder
@@ -146,32 +148,13 @@ public class ReviewActivity extends Activity {
             alertDialog.show();
             return;
         }
-
-        //none gets processed as 0, averageReviews ignores zero values
-        if(rating.equals("None"))
-           rating = "0";
-
-        //puts author to anonymous if none entered
-        if(author.equals(""))
-            author = "Anonymous";
-
-        int intRating;
-        try{
-            intRating = Integer.parseInt(rating); //thanks to stackOverFlow Rob Hruska
-        }
-        catch (IllegalStateException e){
-            intRating = 0;
-            Log.d("ill state exception",intRating + "");
-        }
-
-        Review newReview = new Review(author, text, intRating);
+        Review newReview = new Review(author, text, submittedRating);
         pushReview(newReview);
     }
 
     public void clearInputFields(){
         editName.setText("");
         editReviewText.setText("");
-        ratingSpinner.setSelection(0);
     }
 
     private void setTitleView(Food food){

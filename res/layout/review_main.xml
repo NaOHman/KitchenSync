@@ -48,14 +48,6 @@
                     android:padding="@dimen/review_Padding"
                     android:layout_below="@id/reviewslist"
                     android:layout_centerHorizontal="true">
-        <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:background="@color/background_Color"
-                android:id="@+id/relativeLayout2R">
-        </RelativeLayout>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,8 +55,9 @@
                 android:textStyle="bold"
                 android:background="@color/secondary_Color"
                 android:id="@+id/submitReviewButton"
+                android:onClick="submitReview"
                 android:layout_below="@+id/editReviewText" android:layout_alignParentLeft="true"
-                android:onClick="submitReview" android:layout_alignRight="@+id/editReviewText"/>
+                android:layout_alignParentRight="true"/>
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,7 +67,7 @@
                 android:maxLength ="2000"
                 android:hint="@string/editWriteAReview"
                 android:layout_below="@+id/enterNameEditText" android:layout_alignParentLeft="true"
-                android:layout_alignRight="@+id/reviewRatingSpinner"/>
+                android:layout_alignParentRight="true"/>
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -83,14 +76,15 @@
                 android:ems="10"
                 android:maxLength="15"
                 android:id="@+id/enterNameEditText"
-                android:layout_below="@+id/relativeLayout2R" android:layout_alignParentLeft="true"
-                android:layout_alignBottom="@+id/reviewRatingSpinner"/>
-        <Spinner
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/reviewRatingSpinner"
-                android:entries="@array/rating_array"
-                android:layout_alignParentTop="true" android:layout_alignParentRight="true"
-                android:layout_toRightOf="@+id/enterNameEditText"/>
+                android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/reviewRatingBar"/>
+        <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:id="@+id/reviewRatingBar"
+                android:stepSize="1"
+                android:numStars="5"
+                style="@style/foodRatingBar"
+                android:layout_alignBottom="@+id/enterNameEditText" android:layout_alignParentRight="true"/>
     </RelativeLayout>
 </LinearLayout>
