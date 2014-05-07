@@ -133,7 +133,7 @@ public class ReviewActivity extends Activity {
 
 
         //verifies user entered at least rating or review
-        if(currRating == 0 && text.equals("")){
+        if(currRating == 0 && text.replaceAll("\\s","").equals("")){
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle("Review Parameters");
             alertDialogBuilder
@@ -148,6 +148,8 @@ public class ReviewActivity extends Activity {
             alertDialog.show();
             return;
         }
+        if (author.replaceAll("\\s","").equals(""))
+            author = "Anonymous";
         Review newReview = new Review(author, text, submittedRating);
         pushReview(newReview);
     }

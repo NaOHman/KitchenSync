@@ -30,7 +30,7 @@
                        android:checkableBehavior="single">
                     <item android:id="@+id/mealOptionsMenu_Vegan" android:title="@string/vegan" android:icon="@drawable/vegan"/>
                     <item android:id="@+id/mealOptionsMenu_Vegetarian" android:title="@string/vegetarian" android:icon="@drawable/vegetarian"/>
-                    <item android:id="@+id/mealOptionsMenu_Pescatarian" android:title="@string/pescetarian" android:icon="@drawable/seafoodwatch" android:showAsAction="always"/>
+                    <item android:id="@+id/mealOptionsMenu_Pescatarian" android:title="@string/pescetarian" android:icon="@drawable/pescetarianicon" android:showAsAction="always"/>
                     <item android:id="@+id/mealOptionsMenu_None" android:title="@string/None"/>
                 </group>
 
