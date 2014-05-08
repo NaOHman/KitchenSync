@@ -1,7 +1,6 @@
 package com.softdev.Controller;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.softdev.R;
@@ -17,7 +16,6 @@ public class HelpActivity extends Activity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
         setContentView(R.layout.help_main);
     }
 

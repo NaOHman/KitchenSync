@@ -1,8 +1,5 @@
 package com.softdev.Model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by jeffrey on 2/11/14.
  * the week class provides describes the menu for a week in cafe mac
@@ -14,10 +11,6 @@ public class Week {
     private Day[] days = new Day[7];
 
     public Week(){
-    }
-
-    public Day[] getDays(){
-        return days;
     }
 
     public void setDay(Day day, Weekday dayOfWeek){

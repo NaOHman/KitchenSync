@@ -14,10 +14,6 @@ public class Station extends DisplayItem{
         foods = new ArrayList<Food>();
     }
 
-    public void addFood(Food food){
-       foods.add(food);
-    }
-
     public void setFoods(List<Food> foods){
         this.foods = foods;
     }

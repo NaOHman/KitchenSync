@@ -2,9 +2,7 @@ package com.softdev.Controller;
 
 import com.softdev.Model.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by jeffrey on 3/14/14.
@@ -18,6 +16,7 @@ public class Filter {
         this.matchGluten = matchGluten;
     }
 
+    //Helpful for debugging
     public Week applyFilter(Week week){
         Week filteredWeek = new Week();
         for (Weekday weekday : Weekday.values()){
@@ -40,7 +39,6 @@ public class Filter {
     public Meal applyFilter(Meal meal){
         if (meal == null)
             return null;
-        ArrayList<Station> stations = new ArrayList<Station>();
         Meal filteredMeal = new Meal(meal.getMealType());
         for (Station station: meal.getStations()){
             Station newStation = applyFilter(station);

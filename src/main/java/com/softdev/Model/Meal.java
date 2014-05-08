@@ -1,9 +1,7 @@
 package com.softdev.Model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by jeffrey on 2/11/14.
@@ -23,18 +21,8 @@ public class Meal {
         this.stations.add(station);
     }
 
-    /**
-     * @return a list of all the stations in a given meal
-     */
     public List<Station> getStations(){
         return stations;
-    }
-
-    /**
-     * @param stations list of stations to replace the current list of stations
-     */
-    public void setStations(List<Station> stations){
-        this.stations = stations;
     }
 
     public ArrayList<String> getStationHeaders(){
@@ -46,10 +34,6 @@ public class Meal {
 
     public MealType getMealType() {
         return mealType;
-    }
-
-    public void setMealType(MealType mealType) {
-        this.mealType = mealType;
     }
 
     public List<DisplayItem> getDisplayItems(){
