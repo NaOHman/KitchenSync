@@ -15,16 +15,16 @@ import com.softdev.R;
 
 import java.util.List;
 
+/**
+ * a class that allows us to display the menu in a nested format
+ */
 public class MealListAdapter extends BaseExpandableListAdapter {
 
     Context context;
-    Day day;
     List<Meal> meals;
-    int tagID = 0;
 
     public MealListAdapter(Day day, Context context){
         this.context = context;
-        this.day = day;
         Log.e("MealListAdapter", "Day == null?" + (day == null));
         meals = day.getRealMeals();
     }
@@ -39,6 +39,10 @@ public class MealListAdapter extends BaseExpandableListAdapter {
         return childPosition;
     }
 
+    /**
+     * Since the children are both Stations and Foods this method must manually
+     * format the layout to distinguish between the two of them.
+     */
     @Override
     public View getChildView(int groupPosition, int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
@@ -55,8 +59,8 @@ public class MealListAdapter extends BaseExpandableListAdapter {
         img1.setImageResource(R.drawable.backgroundlight);
         img2.setImageResource(R.drawable.backgroundlight);
         ImageView restrictImg = img1;
+
         if (child.getType() == Station.class) {
-            //Todo Programatically make the stations look distinct
             txtListChild.setTypeface(null,Typeface.BOLD);
             txtListChild.setAllCaps(true);
             txtListChild.setPadding(0,0,0,0);
@@ -87,7 +91,6 @@ public class MealListAdapter extends BaseExpandableListAdapter {
         }
         txtListChild.setText(name);
         txtListChild.setTag(name);
-        tagID++;
         return convertView;
     }
 

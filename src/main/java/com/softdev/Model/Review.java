@@ -7,6 +7,7 @@ import java.util.Date;
 
 /**
  * Created by jeffrey on 4/19/14.
+ * Represents a user's opinion of a food
  */
 public class Review implements Serializable {
     private String reviewer;

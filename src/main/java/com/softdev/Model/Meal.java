@@ -25,13 +25,6 @@ public class Meal {
         return stations;
     }
 
-    public ArrayList<String> getStationHeaders(){
-        ArrayList<String> stationHeaders = new ArrayList<String>();
-        for (Station station : stations)
-            stationHeaders.add(station.getName());
-        return stationHeaders;
-    }
-
     public MealType getMealType() {
         return mealType;
     }

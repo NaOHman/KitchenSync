@@ -8,6 +8,7 @@ import com.softdev.R;
 
 /**
  * Created by hannahbrown on 4/29/14.
+ * A screen that shows help text to the user
  */
 public class HelpActivity extends Activity{
     /**

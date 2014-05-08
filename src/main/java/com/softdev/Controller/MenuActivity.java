@@ -4,8 +4,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.widget.*;
-import com.softdev.Model.DisplayItem;
-import com.softdev.Model.Food;
 import com.softdev.Model.Restriction;
 import com.softdev.R;
 import android.app.Activity;
@@ -29,13 +27,11 @@ import org.json.JSONObject;
 
 import java.net.URI;
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-
+/**
+ * the Activity that displays the menu for a given day
+ */
 public class MenuActivity extends Activity {
-    Context context;
     private long backPressedTime = 0;    // used by onBackPressed()
     private ExpandableListView expListView;
     private TextView dateDisplayMeals;
@@ -43,11 +39,7 @@ public class MenuActivity extends Activity {
     private MenuModel model;
     private Menu menu;
     public final static String MEAL_NAME= "Controller.MenuActivity.MEAL_NAME";
-    private final static Set<String> stations = new HashSet<String>(Arrays.asList("Breakfast Special", "Pasta", "Pizza", "Soup of the Day", "South", "East", "Grill"));
 
-    /**
-     * Called when the activity is first created.
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,10 +103,7 @@ public class MenuActivity extends Activity {
     public void optionsButtonClick(View v){
         openOptionsMenu();
     }
-
-    /**
-     * day or filter option chosen in menu
-     */
+    //day or filter option chosen in menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getGroupId() == R.id.menuMealGroup) {
@@ -142,8 +131,13 @@ public class MenuActivity extends Activity {
         return true;
     }
 
+    /**
+     * the back button first resets the filter
+     * then it resets the day
+     * finally, if it is hit twice it exits the app
+     */
     @Override
-    public void onBackPressed() {   //resets then exits
+    public void onBackPressed() {
         if(model.filterChanged()){
             model.resetFilter();
             menu.findItem(R.id.mealOptionsMenu_None).setChecked(true);
@@ -163,7 +157,6 @@ public class MenuActivity extends Activity {
             Toast.makeText(this, "Press back again to exit",
                     Toast.LENGTH_SHORT).show();
         } else {    // this guy is serious
-            // clean up
             super.onBackPressed();       // bye
         }
     }
@@ -173,6 +166,31 @@ public class MenuActivity extends Activity {
         startActivity(helpIntent);
     }
 
+    /**
+     * sets the images in the header that correspond to the filter
+     */
+    private void updateFilterImgs(){
+        displayFilters[1].setImageResource(R.drawable.background);
+        displayFilters[0].setImageResource(R.drawable.background);
+        Restriction r = model.getRestriction();
+        if(r == Restriction.VEGAN)
+            displayFilters[0].setImageResource(R.drawable.vegan);
+        if(r == Restriction.VEGETARIAN)
+            displayFilters[0].setImageResource(R.drawable.vegetarian);
+        if(r == Restriction.PESCETARIAN)
+            displayFilters[0].setImageResource(R.drawable.pescetarianicon);
+        if(model.getGluten()) {
+            if (r == Restriction.NONE)
+                displayFilters[0].setImageResource(R.drawable.glutenfree);
+            else
+                displayFilters[1].setImageResource(R.drawable.glutenfree);
+        }
+    }
+
+    /**
+     * throws up a dialog telling the user what went wrong in case of
+     * a server error
+     */
     private void serverError(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Server error");
@@ -193,24 +211,9 @@ public class MenuActivity extends Activity {
         alertDialog.show();
     }
 
-    private void updateFilterImgs(){
-        displayFilters[1].setImageResource(R.drawable.background);
-        displayFilters[0].setImageResource(R.drawable.background);
-        Restriction r = model.getRestriction();
-        if(r == Restriction.VEGAN)
-            displayFilters[0].setImageResource(R.drawable.vegan);
-        if(r == Restriction.VEGETARIAN)
-            displayFilters[0].setImageResource(R.drawable.vegetarian);
-        if(r == Restriction.PESCETARIAN)
-            displayFilters[0].setImageResource(R.drawable.pescetarianicon);
-        if(model.getGluten()) {
-            if (r == Restriction.NONE)
-                displayFilters[0].setImageResource(R.drawable.glutenfree);
-            else
-                displayFilters[1].setImageResource(R.drawable.glutenfree);
-        }
-    }
-
+    /**
+     * Starts new thread that tries to grab a week from the server
+     */
     private class WeekDataFetcher extends AsyncTask<String, Void, Week> {
         private ProgressDialog dialog = new ProgressDialog(MenuActivity.this);
         @Override
@@ -255,7 +258,7 @@ public class MenuActivity extends Activity {
             if (dialog.isShowing())
                 dialog.dismiss();
             if (week != null){
-                Log.d("WeekFetcher", "Sucessfully caught week");
+                Log.d("WeekFetcher", "Successfully caught week");
                 model.setWeek(week);
             }else{
                 serverError();

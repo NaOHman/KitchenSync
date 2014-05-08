@@ -6,6 +6,9 @@ import java.util.List;
 
 /**
  * Created by jeffrey on 3/14/14.
+ * Filters contain a set of dietary restrictions and
+ * can be applied to any level of the model to return a version
+ * with onl the food that meets those restrictions
  */
 public class Filter {
     private Restriction r;
