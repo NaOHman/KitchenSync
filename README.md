@@ -2,8 +2,14 @@
 The cafe mac app
 Macalester COMP 225 Spring 2014. This repository holds the code for our group's android mobile application KitchenSync.
 ##Dependencies
-Maven, Gson, Apache Commons, and Apache httmlComponents
+Android, Maven, Gson, Apache Commons, and Apache httmlComponents
 Our app connects to a server. The server code can be found at https://github.com/paulyeo21/KitchenSync_Server
+
+##Architecture
+Our app fetches a week JSon object from our server using Apache APIs. The main activity is MenuActivity which displays the menu, clicking on food launches the review activity that allows users to post a review to the server again using the Apache API. Then MenuActivity code uses the MenuModel facade to handle changes to the structure of the menu model and updates the menu display accordingly.
+
+##Client Developement
+Our app for Android phones running >= Android 4.0. If you are using Intellij, import the project from VCS, import the maven dependencies, create an emulator and run the app on the emulator. Alternatively you can hit build and then send the KitchenSync APK located in KitchenSync/targets/classes/ to an android phone and then install it.
 
 ##Controller: 
 the package containing all the UI classes
