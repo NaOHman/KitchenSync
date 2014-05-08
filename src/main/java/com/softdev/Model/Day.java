@@ -16,13 +16,7 @@ public class Day {
 
     public Day(){
     }
-    public Meal[] getMeals() {
-        return meals;
-    }
 
-    public void setMeals(Meal[] meals) {
-        this.meals = meals;
-    }
     public void setMeal(Meal meal, MealType type){
         meals[type.ordinal()] = meal;
     }

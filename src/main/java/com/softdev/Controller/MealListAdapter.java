@@ -15,16 +15,16 @@ import com.softdev.R;
 
 import java.util.List;
 
+/**
+ * a class that allows us to display the menu in a nested format
+ */
 public class MealListAdapter extends BaseExpandableListAdapter {
 
     Context context;
-    Day day;
     List<Meal> meals;
-    int tagID = 0;
 
     public MealListAdapter(Day day, Context context){
         this.context = context;
-        this.day = day;
         Log.e("MealListAdapter", "Day == null?" + (day == null));
         meals = day.getRealMeals();
     }
@@ -39,6 +39,10 @@ public class MealListAdapter extends BaseExpandableListAdapter {
         return childPosition;
     }
 
+    /**
+     * Since the children are both Stations and Foods this method must manually
+     * format the layout to distinguish between the two of them.
+     */
     @Override
     public View getChildView(int groupPosition, int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
@@ -50,12 +54,13 @@ public class MealListAdapter extends BaseExpandableListAdapter {
         }
 
         TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
-        ImageView restrictImg = (ImageView) convertView.findViewById(R.id.list_item_glutenImgview);
-        ImageView glutenImg = (ImageView) convertView.findViewById(R.id.list_item_restrictionImgView);
-        restrictImg.setImageResource(R.drawable.backgroundlight);
-        glutenImg.setImageResource(R.drawable.backgroundlight);
+        ImageView img1 = (ImageView) convertView.findViewById(R.id.list_item_glutenImgview);
+        ImageView img2 = (ImageView) convertView.findViewById(R.id.list_item_restrictionImgView);
+        img1.setImageResource(R.drawable.backgroundlight);
+        img2.setImageResource(R.drawable.backgroundlight);
+        ImageView restrictImg = img1;
+
         if (child.getType() == Station.class) {
-            //Todo Programatically make the stations look distinct
             txtListChild.setTypeface(null,Typeface.BOLD);
             txtListChild.setAllCaps(true);
             txtListChild.setPadding(0,0,0,0);
@@ -64,18 +69,16 @@ public class MealListAdapter extends BaseExpandableListAdapter {
             txtListChild.setAllCaps(false);
             txtListChild.setPadding(5,0,0,0);
             Restriction r = ((Food) child).getRestriction();
+            if (((Food) child).getGlutenFree()){
+                img1.setImageResource(R.drawable.glutenfree);
+                restrictImg = img2;
+            }
             if(r == Restriction.VEGAN)
                 restrictImg.setImageResource(R.drawable.vegan);
             if(r == Restriction.VEGETARIAN)
                 restrictImg.setImageResource(R.drawable.vegetarian);
             if(r == Restriction.PESCETARIAN)
                 restrictImg.setImageResource(R.drawable.pescetarianicon);
-            if(((Food) child).getGlutenFree()){
-                if(r == Restriction.NONE)
-                    restrictImg.setImageResource(R.drawable.glutenfree);
-                else
-                    glutenImg.setImageResource(R.drawable.glutenfree);
-            }
             txtListChild.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -88,7 +91,6 @@ public class MealListAdapter extends BaseExpandableListAdapter {
         }
         txtListChild.setText(name);
         txtListChild.setTag(name);
-        tagID++;
         return convertView;
     }
 

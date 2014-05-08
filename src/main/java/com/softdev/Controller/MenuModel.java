@@ -11,11 +11,11 @@ import com.softdev.Model.Weekday;
 import com.softdev.R;
 
 import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by jeffrey on 4/8/14.
+ * This is a facade that simplifies some of the UI programming
+ * in the MenuActivity class
  */
 public class MenuModel extends Activity{
     private Filter filter;
@@ -38,10 +38,11 @@ public class MenuModel extends Activity{
         return "Displaying: " + displayDay.toString();
     }
 
-    public String getTodayText(){
-        return displayDay.toString() + ", " + (calendar.get(Calendar.MONTH) + 1) + " / " + calendar.get(Calendar.DATE);
-    }
-
+    /**
+     * @return the id of the menu option layout that corresponds
+     * to today. This is needed to make sure the right day is
+     * checked in the menu
+     */
     public int getTodayID(){
         int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
         switch(day){
@@ -62,7 +63,6 @@ public class MenuModel extends Activity{
         }
     }
 
-
     public boolean getGluten(){
         return filter.getMatchGluten();
     }
@@ -76,6 +76,10 @@ public class MenuModel extends Activity{
         }
         update();
     }
+
+    /**
+     * @return whether the app is displaying today's menu
+     */
     public boolean isToday(){
         int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
         return displayDay == Weekday.values()[day];
@@ -87,20 +91,29 @@ public class MenuModel extends Activity{
         update();
     }
 
+    /**
+     * @return whether the filter is in it's default state
+     */
     public boolean filterChanged(){
         return !(filter.getRestriction() == Restriction.NONE
             && !filter.getMatchGluten());
     }
 
+    /**
+     * make the display show today's menu
+     */
     public void setToday(){
         int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
         setDisplayDay(Weekday.values()[day].toString());
     }
 
     public void setDisplayDay(String weekday){
-        //Todo catch bad strings here
-        displayDay = Weekday.valueOf(weekday.toUpperCase());
-        update();
+        try {
+            displayDay = Weekday.valueOf(weekday.toUpperCase());
+            update();
+        } catch (Exception e) { //bad string was passed
+            return;
+        }
     }
     public void setMatchGluten(){
         filter.setMatchGluten(!filter.getMatchGluten());
@@ -116,6 +129,9 @@ public class MenuModel extends Activity{
         return filter.getRestriction();
     }
 
+    /**
+     * update the display
+     */
     private void update(){
         if (week != null){
             Day day = filter.applyFilter(week.getDay(displayDay));

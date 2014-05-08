@@ -2,12 +2,13 @@ package com.softdev.Controller;
 
 import com.softdev.Model.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by jeffrey on 3/14/14.
+ * Filters contain a set of dietary restrictions and
+ * can be applied to any level of the model to return a version
+ * with onl the food that meets those restrictions
  */
 public class Filter {
     private Restriction r;
@@ -18,6 +19,7 @@ public class Filter {
         this.matchGluten = matchGluten;
     }
 
+    //Helpful for debugging
     public Week applyFilter(Week week){
         Week filteredWeek = new Week();
         for (Weekday weekday : Weekday.values()){
@@ -40,7 +42,6 @@ public class Filter {
     public Meal applyFilter(Meal meal){
         if (meal == null)
             return null;
-        ArrayList<Station> stations = new ArrayList<Station>();
         Meal filteredMeal = new Meal(meal.getMealType());
         for (Station station: meal.getStations()){
             Station newStation = applyFilter(station);

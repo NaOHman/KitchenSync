@@ -14,7 +14,6 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import com.google.gson.Gson;
 import com.softdev.Model.Food;
@@ -35,6 +34,7 @@ import java.util.List;
 /**
  * Created by dgoldste on 4/22/14.
  * with the help of the excellent ListView tutorial https://www.youtube.com/watch?v=WRANgDgM2Zg
+ * Displays details about a food and allows users to review and rate the food.
  */
 
 public class ReviewActivity extends Activity {
@@ -69,8 +69,7 @@ public class ReviewActivity extends Activity {
     }
 
     private void updateListView(){
-        reviews = food.getTextReviews();
-        adapter = new ReviewListAdapter();
+        adapter = new ReviewListAdapter(food.getTextReviews());
         reviewList.setAdapter(adapter);
         Double averageRating = food.getAverageRating();
         if(averageRating == 0){
@@ -81,6 +80,9 @@ public class ReviewActivity extends Activity {
         averageRatingTextView.setText("Average rating: " + ratings + " / 5");
     }
 
+    /**
+     * makes sure the food name doesn't take up too much space on the screen
+     */
     private void adjustFoodNameSize(){
         int nameLength = mealNameTxtView.length();
         if(nameLength > 25 && nameLength < 35)
@@ -90,8 +92,10 @@ public class ReviewActivity extends Activity {
     }
 
     private class ReviewListAdapter extends ArrayAdapter<Review> {
-        public ReviewListAdapter(){
+        List<Review> reviews;
+        public ReviewListAdapter(List<Review> reviews){
             super(ReviewActivity.this, R.layout.review_body, reviews);
+            this.reviews = reviews;
         }
 
         @Override
@@ -124,7 +128,7 @@ public class ReviewActivity extends Activity {
     /*
     * gets text after submit button pressed
     * return Review
-    * checks entered atleast rating or review
+    * checks entered at least rating or review
     */
 
     public void submitReview(View v){
@@ -132,13 +136,11 @@ public class ReviewActivity extends Activity {
         author = editName.getText().toString();
         text = editReviewText.getText().toString();
 
-        float currRating;
-        currRating = reviewRatingBar.getRating();
-        int submittedRating = (int) Math.round(currRating);
+        int submittedRating = Math.round(reviewRatingBar.getRating());
 
 
         //verifies user entered at least rating or review
-        if(currRating == 0 && text.replaceAll("\\s","").equals("")){
+        if(submittedRating == 0 && text.replaceAll("\\s","").equals("")){
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle("Review Parameters");
             alertDialogBuilder
@@ -159,6 +161,10 @@ public class ReviewActivity extends Activity {
         pushReview(newReview);
     }
 
+    /**
+     * attempts to push a review to the server, handles connectivity errors
+     * @param review the review to be pushed
+     */
     public void pushReview(Review review){
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -181,6 +187,9 @@ public class ReviewActivity extends Activity {
         }
     }
 
+    /**
+     * a threaded task that attempts to post the review to the server
+     */
     private class ReviewPusher extends AsyncTask<Review, Void, ServerResponse> {
         @Override
         protected void onPreExecute() {
@@ -232,6 +241,10 @@ public class ReviewActivity extends Activity {
         }
 
     }
+
+    /**
+     * basically a 3-tuple
+     */
     private class ServerResponse{
         public Review review;
         public boolean success;

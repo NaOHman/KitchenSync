@@ -5,7 +5,6 @@ import android.util.Log;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by jeffrey on 2/11/14.
@@ -19,7 +18,7 @@ public class Food extends DisplayItem implements Serializable{
     private List<Review> reviews;
     private long foodId;
 
-    public Food(String name, String description, Restriction restriction, boolean glutenFree, List<Review> reviews){
+    public Food(String name, Restriction restriction, boolean glutenFree, List<Review> reviews){
         this.name = name;
         this.restriction = restriction;
         this.glutenFree = glutenFree;
