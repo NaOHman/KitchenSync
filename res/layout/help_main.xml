@@ -29,13 +29,10 @@
             android:background="@color/secondary_Color"
             android:id="@+id/helpBar_Accent"
             android:layout_below="@id/helpBar"/>
-    <RelativeLayout android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
-                    android:background="@color/text_Color"
-                    android:padding="@dimen/helpPage_Padding"
-                    android:layout_below="@id/helpBar_Accent"
-                    >
-        <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:background="@color/text_Color"
+                android:padding="@dimen/helpPage_Padding"
+                android:layout_below="@id/helpBar_Accent">
             <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:orientation="vertical">
                 <TextView
@@ -166,6 +163,5 @@
                         android:layout_alignParentLeft="true"/>
             </LinearLayout>
         </ScrollView>
-    </RelativeLayout>
 
 </RelativeLayout>
