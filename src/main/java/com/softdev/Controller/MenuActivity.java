@@ -70,9 +70,14 @@ public class MenuActivity extends Activity {
             alertDialogBuilder
                     .setMessage("Please connect to the internet so we can fetch today's menu")
                     .setCancelable(false)
-                    .setNegativeButton("Okay",new DialogInterface.OnClickListener() {
+                    .setNegativeButton("Exit",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {
-                            dialog.cancel();
+                            finish();
+                        }
+                    })
+                    .setPositiveButton("Retry",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            pullWeek();
                         }
                     });
             AlertDialog alertDialog = alertDialogBuilder.create();
@@ -172,11 +177,16 @@ public class MenuActivity extends Activity {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Server error");
         alertDialogBuilder
-                .setMessage("Our bad, please try again later")
+                .setMessage("There was a problem getting the menu")
                 .setCancelable(false)
-                .setNegativeButton("Okay",new DialogInterface.OnClickListener() {
+                .setNegativeButton("Exit",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
                         finish();
+                    }
+                })
+                .setPositiveButton("Retry",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        pullWeek();
                     }
                 });
         AlertDialog alertDialog = alertDialogBuilder.create();
@@ -206,6 +216,7 @@ public class MenuActivity extends Activity {
         @Override
         protected void onPreExecute() {
             this.dialog.setMessage("Welcome to KitchenSync! Collecting Menu Information..");
+            this.dialog.setCancelable(false);
             this.dialog.show();
         }
         @Override
@@ -225,12 +236,14 @@ public class MenuActivity extends Activity {
                     if (reply.getBoolean("success")){
                         String weekJson = reply.getJSONObject("week").toString();
                         return new Gson().fromJson(weekJson, Week.class);
+                    } else {
+                        Log.e("Week Fetcher", "FAILURE CRASH AND BURN");
+                        return null;
                     }
                 } catch (JSONException e){
-                    Log.d("WeekCatcher", "Malformed Data");
+                    Log.e("WeekCatcher", "Malformed Data");
+                    return null;
                 }
-                Week week = (new Gson()).fromJson(json, Week.class);
-                return week;
             } catch (Exception e) {
                 Log.e("WeekDataFetcher", "Error collecting Data");
                 e.printStackTrace();

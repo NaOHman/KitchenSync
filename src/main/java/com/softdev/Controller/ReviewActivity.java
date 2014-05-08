@@ -13,6 +13,8 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import com.google.gson.Gson;
 import com.softdev.Model.Food;
@@ -51,8 +53,11 @@ public class ReviewActivity extends Activity {
         Intent intent = getIntent();
         food = (Food) intent.getSerializableExtra("Food");
         setContentView(R.layout.review_main);
-        setTitleView(food);
-
+        mealNameTxtView = (TextView) findViewById(R.id.reviewHeader_foodName);
+        mealNameTxtView.setText(food.getName());
+        adjustFoodNameSize();
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         editName = (EditText) findViewById(R.id.enterNameEditText);
         editReviewText = (EditText) findViewById(R.id.editReviewText);
         reviewList = (ListView) findViewById(R.id.reviewslist);
@@ -154,17 +159,6 @@ public class ReviewActivity extends Activity {
         pushReview(newReview);
     }
 
-    public void clearInputFields(){
-        editName.setText("");
-        editReviewText.setText("");
-    }
-
-    private void setTitleView(Food food){
-        mealNameTxtView = (TextView) findViewById(R.id.reviewHeader_foodName);
-        mealNameTxtView.setText(food.getName());
-        adjustFoodNameSize();
-    }
-
     public void pushReview(Review review){
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -196,7 +190,8 @@ public class ReviewActivity extends Activity {
         @Override
         protected void onPostExecute(ServerResponse response) {
             if (response.success){
-                clearInputFields();
+                editReviewText.setText("");
+                editName.setText("");
                 food.getReviews().add(response.review);
                 updateListView();
             }
@@ -212,6 +207,7 @@ public class ReviewActivity extends Activity {
             try {
                 JSONObject body = new JSONObject();
                 String json = new Gson().toJson(review);
+                Log.d("----->Food ID", food.getFoodId() +"");
                 body.put("id", food.getFoodId());
                 body.put("review", json);
                 Log.d("JSON",body.toString());
