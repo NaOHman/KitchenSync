@@ -1,5 +1,7 @@
 package com.softdev.Model;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,13 +51,12 @@ public class Food extends DisplayItem implements Serializable{
     public List<Review> getTextReviews(){
         List<Review> textReviews = new ArrayList<Review>();
         for(Review review : reviews){
-            if(!review.getText().equals("")) {
-                if (review.getReviewer() == "")
-                    review.setReviewer("Anonymous");
+            if(!review.getText().replaceAll("\\s", "").equals("")) {
                 textReviews.add(review);
+                Log.d("Found Review", review.getText());
             }
         }
-        return reviews;
+        return textReviews;
     }
 
     public String getName(){
