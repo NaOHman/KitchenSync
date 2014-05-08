@@ -216,6 +216,7 @@ public class MenuActivity extends Activity {
         @Override
         protected void onPreExecute() {
             this.dialog.setMessage("Welcome to KitchenSync! Collecting Menu Information..");
+            this.dialog.setCancelable(false);
             this.dialog.show();
         }
         @Override
