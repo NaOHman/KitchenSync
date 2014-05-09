@@ -175,14 +175,14 @@ public class MenuActivity extends Activity {
         if(r == Restriction.VEGAN)
             displayFilters[0].setImageResource(R.drawable.vegan);
         if(r == Restriction.VEGETARIAN)
-            displayFilters[0].setImageResource(R.drawable.vegetariandark);
+            displayFilters[0].setImageResource(R.drawable.vegetarian);
         if(r == Restriction.PESCETARIAN)
-            displayFilters[0].setImageResource(R.drawable.pescetariandark);
+            displayFilters[0].setImageResource(R.drawable.pescetarian);
         if(model.getGluten()) {
             if (r == Restriction.NONE)
-                displayFilters[0].setImageResource(R.drawable.glutenfreedark);
+                displayFilters[0].setImageResource(R.drawable.glutenfree);
             else
-                displayFilters[1].setImageResource(R.drawable.glutenfreedark);
+                displayFilters[1].setImageResource(R.drawable.glutenfree);
         }
     }
 
