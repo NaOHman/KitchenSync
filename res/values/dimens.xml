@@ -2,7 +2,7 @@
 <resources>
 
     <!--layout.main-->
-    <dimen name="menuBar_Height">50dp</dimen>
+    <dimen name="menuBar_Height">60dp</dimen>
     <dimen name="menuBar_CurrentMeal_TextSize">14dp</dimen>
     <dimen name="menuBar_Padding">4dp</dimen>
     <dimen name="menuBar_AccentHeight">7dp</dimen>

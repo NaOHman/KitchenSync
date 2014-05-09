@@ -44,8 +44,7 @@
                         android:gravity="center"
                         android:background="@color/trim_Color"
                         android:id="@+id/helpAboutTitle"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"/>
+                        />
                 <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -54,8 +53,7 @@
                         android:id="@+id/helpAboutContent"
                         android:background="@color/background_Color"
                         android:padding="@dimen/helpPage_Padding"
-                        android:layout_below="@id/helpAboutTitle"
-                        android:layout_alignParentLeft="true"/>
+                        />
                 <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/help_Heading"
@@ -65,8 +63,7 @@
                         android:gravity="center"
                         android:background="@color/trim_Color"
                         android:id="@+id/helpChooseDayTitle"
-                        android:layout_below="@id/helpAboutContent"
-                        android:layout_centerHorizontal="true"/>
+                        />
                 <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -75,8 +72,7 @@
                         android:id="@+id/helpChooseDayContent"
                         android:background="@color/background_Color"
                         android:padding="@dimen/helpPage_Padding"
-                        android:layout_below="@id/helpChooseDayTitle"
-                        android:layout_alignParentLeft="true"/>
+                        />
                 <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/help_Heading"
@@ -86,8 +82,7 @@
                         android:gravity="center"
                         android:background="@color/trim_Color"
                         android:id="@+id/helpFilterForTitle"
-                        android:layout_below="@id/helpChooseDayContent"
-                        android:layout_centerHorizontal="true"/>
+                        />
                 <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -96,8 +91,7 @@
                         android:id="@+id/helpFilterForContent"
                         android:background="@color/background_Color"
                         android:padding="@dimen/helpPage_Padding"
-                        android:layout_below="@id/helpFilterForTitle"
-                        android:layout_alignParentLeft="true"/>
+                        />
                 <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/help_Heading"
@@ -107,8 +101,7 @@
                         android:gravity="center"
                         android:background="@color/trim_Color"
                         android:id="@+id/helpRefreshTitle"
-                        android:layout_below="@id/helpFilterForContent"
-                        android:layout_centerHorizontal="true"/>
+                        />
                 <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -117,8 +110,7 @@
                         android:id="@+id/helpRefreshContent"
                         android:background="@color/background_Color"
                         android:padding="@dimen/helpPage_Padding"
-                        android:layout_below="@id/helpRefreshTitle"
-                        android:layout_alignParentLeft="true"/>
+                        />
                 <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/help_Heading"
@@ -128,8 +120,7 @@
                         android:gravity="center"
                         android:background="@color/trim_Color"
                         android:id="@+id/helpReviewsTitle"
-                        android:layout_below="@id/helpRefreshContent"
-                        android:layout_centerHorizontal="true"/>
+                        />
                 <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -138,8 +129,7 @@
                         android:id="@+id/helpReviewsContent"
                         android:background="@color/background_Color"
                         android:padding="@dimen/helpPage_Padding"
-                        android:layout_below="@id/helpReviewsTitle"
-                        android:layout_alignParentLeft="true"/>
+                        />
                 <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/help_Heading"
@@ -149,8 +139,7 @@
                         android:gravity="center"
                         android:background="@color/trim_Color"
                         android:id="@+id/helpHardwareTitle"
-                        android:layout_below="@id/helpReviewsContent"
-                        android:layout_centerHorizontal="true"/>
+                        />
                 <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -159,8 +148,7 @@
                         android:id="@+id/helpHardwareContent"
                         android:background="@color/background_Color"
                         android:padding="@dimen/helpPage_Padding"
-                        android:layout_below="@id/helpHardwareTitle"
-                        android:layout_alignParentLeft="true"/>
+                        />
             </LinearLayout>
         </ScrollView>
 
