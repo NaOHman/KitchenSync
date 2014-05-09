@@ -47,7 +47,7 @@ public class ReviewActivity extends Activity {
     private Food food;
     private EditText editName, editReviewText;
     private RatingBar reviewRatingBar;
-
+    private Context context = this;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -194,6 +194,26 @@ public class ReviewActivity extends Activity {
             alertDialog.show();
         }
     }
+    public void serverError(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Out of sync with the database");
+        alertDialogBuilder
+                .setMessage("Would you like to refresh or continue?")
+                .setCancelable(false)
+                .setNegativeButton("Continue",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        dialog.cancel();
+                    }
+                })
+                .setPositiveButton("Refresh",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        Intent intent = new Intent(context, MenuActivity.class);
+                        context.startActivity(intent);
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
 
     /**
      * a threaded task that attempts to post the review to the server
@@ -213,6 +233,9 @@ public class ReviewActivity extends Activity {
                 updateListView();
             }
             Toast.makeText(getApplicationContext(),response.error, Toast.LENGTH_SHORT).show();
+            if (!response.success && response.error.equals("Food does not exist in database")){
+                serverError();
+            }
         }
 
         @Override
