@@ -84,7 +84,7 @@ public class MealListAdapter extends BaseExpandableListAdapter {
                 public void onClick(View v) {
                     Intent intent = new Intent(context, ReviewActivity.class);
                     Food food = (Food) child;
-                    intent.putExtra("Food", food);
+                    intent.putExtra("FoodID", food.getFoodId());
                     context.startActivity(intent);
                 }
             });

@@ -19,15 +19,6 @@ public class Filter {
         this.matchGluten = matchGluten;
     }
 
-    //Helpful for debugging
-    public Week applyFilter(Week week){
-        Week filteredWeek = new Week();
-        for (Weekday weekday : Weekday.values()){
-            filteredWeek.setDay(applyFilter(week.getDay(weekday)), weekday);
-        }
-        return filteredWeek;
-    }
-
     public Day applyFilter(Day day){
         if (day == null)
                 return null;
