@@ -10,14 +10,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/list_item_restrictionImgView"
-            android:src="@drawable/backgroundlight"
+            android:src="@drawable/transparent"
             android:padding="@dimen/menuItem_EdgePadding"
             android:layout_centerVertical="true" android:layout_toLeftOf="@+id/list_item_glutenImgview"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/list_item_glutenImgview"
-            android:src="@drawable/backgroundlight"
+            android:src="@drawable/transparent"
             android:padding="@dimen/menuItem_EdgePadding"
             android:layout_centerVertical="true" android:layout_alignParentRight="true"/>
     <TextView
