@@ -8,12 +8,10 @@ import com.softdev.R;
 
 /**
  * Created by hannahbrown on 4/29/14.
- * A screen that shows help text to the user
+ * A screen that shows help text to the user.
  */
 public class HelpActivity extends Activity{
-    /**
-     * Called when the activity is first created.
-     */
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

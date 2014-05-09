@@ -2,7 +2,6 @@ package com.softdev.Controller;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.widget.ExpandableListView;
 import com.softdev.Model.Day;
 import com.softdev.Model.Restriction;

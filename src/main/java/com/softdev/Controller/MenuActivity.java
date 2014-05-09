@@ -38,7 +38,6 @@ public class MenuActivity extends Activity {
     private ImageView[] displayFilters = new ImageView[2];
     private MenuModel model;
     private Menu menu;
-    public final static String MEAL_NAME= "Controller.MenuActivity.MEAL_NAME";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
