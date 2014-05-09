@@ -56,8 +56,8 @@ public class MealListAdapter extends BaseExpandableListAdapter {
         TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
         ImageView img1 = (ImageView) convertView.findViewById(R.id.list_item_glutenImgview);
         ImageView img2 = (ImageView) convertView.findViewById(R.id.list_item_restrictionImgView);
-        img1.setImageResource(R.drawable.backgroundlight);
-        img2.setImageResource(R.drawable.backgroundlight);
+        img1.setImageResource(R.drawable.transparent);
+        img2.setImageResource(R.drawable.transparent);
         ImageView restrictImg = img1;
 
         if (child.getType() == Station.class) {
@@ -78,7 +78,7 @@ public class MealListAdapter extends BaseExpandableListAdapter {
             if(r == Restriction.VEGETARIAN)
                 restrictImg.setImageResource(R.drawable.vegetarian);
             if(r == Restriction.PESCETARIAN)
-                restrictImg.setImageResource(R.drawable.pescetarianicon);
+                restrictImg.setImageResource(R.drawable.pescetarian);
             txtListChild.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -170,15 +170,15 @@ public class MenuActivity extends Activity {
      * sets the images in the header that correspond to the filter
      */
     private void updateFilterImgs(){
-        displayFilters[1].setImageResource(R.drawable.background);
-        displayFilters[0].setImageResource(R.drawable.background);
+        displayFilters[1].setImageResource(R.drawable.transparent);
+        displayFilters[0].setImageResource(R.drawable.transparent);
         Restriction r = model.getRestriction();
         if(r == Restriction.VEGAN)
             displayFilters[0].setImageResource(R.drawable.vegan);
         if(r == Restriction.VEGETARIAN)
             displayFilters[0].setImageResource(R.drawable.vegetarian);
         if(r == Restriction.PESCETARIAN)
-            displayFilters[0].setImageResource(R.drawable.pescetarianicon);
+            displayFilters[0].setImageResource(R.drawable.pescetarian);
         if(model.getGluten()) {
             if (r == Restriction.NONE)
                 displayFilters[0].setImageResource(R.drawable.glutenfree);
