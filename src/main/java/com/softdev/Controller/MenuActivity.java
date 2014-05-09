@@ -259,7 +259,8 @@ public class MenuActivity extends Activity {
                 dialog.dismiss();
             if (week != null){
                 Log.d("WeekFetcher", "Successfully caught week");
-                model.setWeek(week);
+                Week.setInstance(week);
+                model.update();
             }else{
                 serverError();
             }

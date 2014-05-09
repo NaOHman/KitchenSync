@@ -9,8 +9,17 @@ package com.softdev.Model;
 
 public class Week {
     private Day[] days = new Day[7];
+    private static Week instance = null;
 
-    public Week(){
+    protected Week(){
+    }
+
+    public static Week getInstance() {
+        return instance;
+    }
+
+    public static void setInstance(Week instance) {
+        Week.instance = instance;
     }
 
     public void setDay(Day day, Weekday dayOfWeek){
@@ -22,6 +31,17 @@ public class Week {
      */
     public Day getDay(Weekday day){
         return days[day.ordinal()];
+    }
+
+    public Food getFoodById(long id){
+        for(Day d : days)
+            if(d != null)
+                for(Meal m : d.getRealMeals())
+                    for(Station s : m.getStations())
+                        for(Food f : s.getFoods())
+                            if(f.getFoodId() == id)
+                                return f;
+        return null;
     }
 
     public String toString(){

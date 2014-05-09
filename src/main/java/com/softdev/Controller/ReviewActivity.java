@@ -18,6 +18,7 @@ import android.widget.*;
 import com.google.gson.Gson;
 import com.softdev.Model.Food;
 import com.softdev.Model.Review;
+import com.softdev.Model.Week;
 import com.softdev.R;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -51,7 +52,8 @@ public class ReviewActivity extends Activity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        food = (Food) intent.getSerializableExtra("Food");
+        long foodId = intent.getLongExtra("FoodID", -1L);
+        food = Week.getInstance().getFoodById(foodId);
         setContentView(R.layout.review_main);
         mealNameTxtView = (TextView) findViewById(R.id.reviewHeader_foodName);
         mealNameTxtView.setText(food.getName());

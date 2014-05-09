@@ -20,7 +20,6 @@ import java.util.Calendar;
 public class MenuModel extends Activity{
     private Filter filter;
     private Context context;
-    private Week week;
     private Weekday displayDay;
     private MealListAdapter listAdapter;
     private ExpandableListView expListView;
@@ -120,11 +119,6 @@ public class MenuModel extends Activity{
         this.update();
     }
 
-    public void setWeek(Week week){
-        this.week = week;
-        update();
-    }
-
     public Restriction getRestriction(){
         return filter.getRestriction();
     }
@@ -132,7 +126,8 @@ public class MenuModel extends Activity{
     /**
      * update the display
      */
-    private void update(){
+    public void update(){
+        Week week = Week.getInstance();
         if (week != null){
             Day day = filter.applyFilter(week.getDay(displayDay));
             listAdapter = new MealListAdapter(day, context);
