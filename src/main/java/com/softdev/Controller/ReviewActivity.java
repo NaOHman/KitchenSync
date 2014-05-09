@@ -196,7 +196,7 @@ public class ReviewActivity extends Activity {
     }
     public void serverError(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Out of sync with the database");
+        alertDialogBuilder.setTitle("Menu out of sync with the database");
         alertDialogBuilder
                 .setMessage("Would you like to refresh or continue?")
                 .setCancelable(false)
