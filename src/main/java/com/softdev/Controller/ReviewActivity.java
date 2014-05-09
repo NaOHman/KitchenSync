@@ -14,6 +14,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import com.google.gson.Gson;
 import com.softdev.Model.Food;
@@ -160,6 +161,11 @@ public class ReviewActivity extends Activity {
         if (author.replaceAll("\\s","").equals(""))
             author = "Anonymous";
         Review newReview = new Review(author, text, submittedRating);
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
         pushReview(newReview);
     }
 
